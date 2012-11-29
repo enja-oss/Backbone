@@ -2,7 +2,7 @@
 
 部分的な翻訳済みドキュメントを集めていって、翻訳カバー率100%を目指します。
 
-Pull Request・Issue・寄稿・指摘、いずれも歓迎しています。ご不明な点があれば、[@ahomu](http://twitter.com/ahomu)までお気軽にどうぞ。
+Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています。ご不明な点があれば、[@ahomu](http://twitter.com/ahomu)までお気軽にどうぞ。
 
 ========
 
@@ -15,6 +15,8 @@ Pull Request・Issue・寄稿・指摘、いずれも歓迎しています。ご
 +  [Annotated Source](http://backbonejs.org/docs/backbone.html) - [rev](https://github.com/documentcloud/backbone/blob/af721fbc83529e1ed73cc3a251391d0595b53968/backbone.js) / [ahomu](https://github.com/ahomu) 12月中?
 
 ##未着手コンテンツ
+
+コンテンツの翻訳にご協力くださる方は、ぜひ[着手予定の宣言コーナー](https://github.com/enja-oss/Backbone/issues/1 "着手予定の宣言コーナー · Issue #1 · enja-oss/Backbone")でお知らせください。その際に、着手予定のが他の人とかぶっていないこともご確認ください。
 
 +  [Introduction](http://backbonejs.org/#introduction)
 +  [Upgrading](http://backbonejs.org/#upgrading)
