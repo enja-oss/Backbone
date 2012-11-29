@@ -1,9 +1,8 @@
 #Backbone.js FAQの日本語訳
 
-[backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub](https://github.com/documentcloud/backbone/blob/9890d49db164e63b9b56e9d664ec0aab2289e0de/index.html "backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub")を元にFAQ文書を訳しています。
-
-訳者: [ahomu](https://github.com/ahomu) ( Twitter [@ahomu](https://twitter.com/ahomu) )
-謝辞: 初稿監訳 [studiomohawk](https://github.com/studiomohawk) ( Twitter [@cssradar](https://twitter.com/cssradar) )
++  元文書: [backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub](https://github.com/documentcloud/backbone/blob/9890d49db164e63b9b56e9d664ec0aab2289e0de/index.html "backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub")
++  訳者: [ahomu](https://github.com/ahomu) ( Twitter [@ahomu](https://twitter.com/ahomu) )
++  謝辞: 初稿監訳 [studiomohawk](https://github.com/studiomohawk) ( Twitter [@cssradar](https://twitter.com/cssradar) )
 
 ##イベントの一覧 [原文](http://backbonejs.org/#FAQ-events)
 
@@ -129,7 +128,7 @@ BackboneはネストしたModelやCollectionまたは"has many"なアソシエ�
 
 ##Backboneはどのように伝統的なMVCと関係しているか [原文](http://backbonejs.org/#FAQ-mvc)
 
-異なる[Model-View-Controller]([Model–view–controller - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Model%E2%80%93View%E2%80%93Controller "Model–view–controller - Wikipedia, the free encyclopedia"))パターンの実装において、コントローラーの定義について異議を唱える傾向にあります。何かの役に立つのであれば、Backboneは[View](http://backbonejs.org/#View)クラスをControllerのようなものとして考えることができ、UIから発生するイベントをディスパッチしながら、従来のViewのようにHTMLテンプレートも使用します。我々がそれをViewと呼ぶのは、それがUIロジックの単位を示し、単一のDOM要素の内容に責任を持っているからです。
+異なる[Model-View-Controller]([Model–view–controller - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Model%E2%80%93View%E2%80%93Controller "Model–view–controller - Wikipedia, the free encyclopedia")パターンの実装において、コントローラーの定義について異議を唱える傾向にあります。何かの役に立つのであれば、Backboneは[View](http://backbonejs.org/#View)クラスをControllerのようなものとして考えることができ、UIから発生するイベントをディスパッチしながら、従来のViewのようにHTMLテンプレートも使用します。我々がそれをViewと呼ぶのは、それがUIロジックの単位を示し、単一のDOM要素の内容に責任を持っているからです。
 
 Backboneの全体的な構造を、RailsのようなサーバーサイドMVCフレームワークと比較すると、このようなラインアップになります。
 
