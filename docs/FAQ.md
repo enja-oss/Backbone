@@ -1,8 +1,4 @@
-#Backbone.js FAQの日本語訳
-
 +  元文書: [backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub](https://github.com/documentcloud/backbone/blob/9890d49db164e63b9b56e9d664ec0aab2289e0de/index.html "backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub")
-+  訳者: [ahomu](https://github.com/ahomu) ( Twitter [@ahomu](https://twitter.com/ahomu) )
-+  謝辞: 初稿監訳 [studiomohawk](https://github.com/studiomohawk) ( Twitter [@cssradar](https://twitter.com/cssradar) )
 
 ##イベントの一覧 [原文](http://backbonejs.org/#FAQ-events)
 
