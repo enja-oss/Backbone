@@ -1,3 +1,5 @@
++  元文書: [backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub](https://github.com/documentcloud/backbone/blob/9890d49db164e63b9b56e9d664ec0aab2289e0de/index.html "backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub")
+
 ## Backbone.Model
 
 **Model**はあらゆるJavaScriptアプリケーションの中核をなすもので、対話形式のデータとデータに関連するロジック、つまり変換、検査、プロパティ値計算、アクセス制御などを含みます。あなたは**Backbone.Model**クラスを継承して、ドメイン固有のメソッドを実装するだけでよく、データ操作に関わる基本的な機能はModelクラスが提供します。
