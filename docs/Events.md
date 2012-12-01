@@ -57,3 +57,7 @@ object.off(null, null, context);
 // `object` の全てのコールバックを削除
 object.off();
 ```
+
+### trigger `object.trigger(event, [*args])`
+
+与えられた **evente** や、イベントのスペース区切りのリストのコールバックのトリガーになります。 **trigger** に続く引数はイベントのコールバックを通って渡されます。
