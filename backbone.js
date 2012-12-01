@@ -4,11 +4,13 @@
 //     Backbone may be freely distributed under the MIT license.
 //     For all details and documentation:
 //     http://backbonejs.org
-//     rev: https://github.com/documentcloud/backbone/blob/918edf86d6633e2a0cdfba5d28eae31ca49cbaac/backbone.js
+//     ※ 訳注メモ
+//     hash - ハッシュ: RubyのHashをイメージしていると思われる。
+//     attribute - 属性: Modelが表現する値のフィールドを指して属性と言う。
+//     元文書: https://github.com/documentcloud/backbone/blob/918edf86d6633e2a0cdfba5d28eae31ca49cbaac/backbone.js
 (function(){
 
   // Initial Setup
-  // 初期化
   // -------------
 
   // Save a reference to the global object (`window` in the browser, `global`
@@ -76,7 +78,8 @@
   // Runs Backbone.js in *noConflict* mode, returning the `Backbone` variable
   // to its previous owner. Returns a reference to this Backbone object.
 
-  // 
+  // *noConflict*モードでBackbone.jsを実行するとき、`Backbone`変数を以前のものに戻す。
+  // そして、このBackboneオブジェクトの参照を返す。
   Backbone.noConflict = function() {
     root.Backbone = previousBackbone;
     return this;
@@ -85,18 +88,29 @@
   // Turn on `emulateHTTP` to support legacy HTTP servers. Setting this option
   // will fake `"PUT"` and `"DELETE"` requests via the `_method` parameter and
   // set a `X-Http-Method-Override` header.
+
+  // 古いHTTPサーバーをサポートするために、`emulateHTTP`を有効にする。このオプションを
+  // 設定すると、`_method`パラメータと`X-Http-Method-Override`ヘッダーを付与して、
+  // 擬似的に`"PUT"`と`"DELETE"`をリクエストをする。
   Backbone.emulateHTTP = false;
 
   // Turn on `emulateJSON` to support legacy servers that can't deal with direct
   // `application/json` requests ... will encode the body as
   // `application/x-www-form-urlencoded` instead and will send the model in a
   // form param named `model`.
+
+  // `application/json`リクエストを直接に処理できない古いサーバーをサポートするために、
+  // `emulateJSON`を有効にすると ... 代わりに`application/x-www-form-urlencoded`
+  // としてリクエストボディをエンコードし、`model`という名前のフォームパラメータとして、
+  // modelを送信します。
   Backbone.emulateJSON = false;
 
   // Backbone.Events
   // -----------------
 
   // Regular expression used to split event strings
+
+  // イベント文字列を分割する正規表現
   var eventSplitter = /\s+/;
 
   // A module that can be mixed in to *any object* in order to provide it with
@@ -108,10 +122,23 @@
   //     object.on('expand', function(){ alert('expanded'); });
   //     object.trigger('expand');
   //
+
+  // *あらゆるObject*とmixinできて、カスタムイベントを提供するためのモジュールです。
+  // あなたはイベントにコールバック関数を、`on`で結びつけ、`off`で削除することができ、
+  // `trigger`でイベントを発火させ、すべてのコールバックを実行できます。
+  //
+  //     var object = {};
+  //     _.extend(object, Backbone.Events);
+  //     object.on('expand', function(){ alert('expanded'); });
+  //     object.trigger('expand');
+  //
   var Events = Backbone.Events = {
 
     // Bind one or more space separated events, `events`, to a `callback`
     // function. Passing `"all"` will bind the callback to all events fired.
+
+    // `events` スペースによって分割された1つまたは複数のイベントと、`callback`関数を
+    // 結びつける。`"all"`が渡されると、コールバックはすべてのイベント発火に結びつく。
     on: function(events, callback, context) {
 
       var calls, event, node, tail, list;
@@ -120,8 +147,13 @@
       calls = this._callbacks || (this._callbacks = {});
 
       // Create an immutable callback list, allowing traversal during
+      //                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
       // modification.  The tail is an empty object that will always be used
+      // ^^^^^^^^^^^^^
       // as the next node.
+
+      // 不変なコールバックリストを作成し、変更中の探索を認める。末尾は空のオブジェクトで
+      // 常に次のノードとして利用される。
       while (event = events.shift()) {
         list = calls[event];
         node = list ? list.tail : {};
@@ -137,10 +169,17 @@
     // Remove one or many callbacks. If `context` is null, removes all callbacks
     // with that function. If `callback` is null, removes all callbacks for the
     // event. If `events` is null, removes all bound callbacks for all events.
+
+    // ひとつまたは複数のコールバックを削除する。もし`context`がnullであれば、その関数に
+    // よるすべてのコールバックを削除する。もし`callback`がnullであれば、そのイベントの
+    // すべてのコールバックを削除する。もし`events`がnullであれば全てのイベントに結び
+    // ついたコールバックを削除する。
     off: function(events, callback, context) {
       var event, calls, node, tail, cb, ctx;
 
       // No events, or removing *all* events.
+
+      // イベントがない、または*すべて*のイベントを削除するとき。
       if (!(calls = this._callbacks)) return;
       if (!(events || callback || context)) {
         delete this._callbacks;
@@ -149,12 +188,17 @@
 
       // Loop through the listed events and contexts, splicing them out of the
       // linked list of callbacks if appropriate.
+
+      // リストされたイベントとコンテキストをループして、リンクされたコールバックのリスト
+      // から適切にそれらを取り除く。
       events = events ? events.split(eventSplitter) : _.keys(calls);
       while (event = events.shift()) {
         node = calls[event];
         delete calls[event];
         if (!node || !(callback || context)) continue;
         // Create a new list, omitting the indicated callbacks.
+
+        // 指定されたコールバックを省いて、新しいリストを作成する。
         tail = node.tail;
         while ((node = node.next) !== tail) {
           cb = node.callback;
@@ -172,6 +216,11 @@
     // passed the same arguments as `trigger` is, apart from the event name
     // (unless you're listening on `"all"`, which will cause your callback to
     // receive the true name of the event as the first argument).
+
+    // ひとつまたは複数のイベントをトリガーし、結びついたすべてのコールバックを発火する。
+    // コールバックにはイベント名別に、`trigger`と同じ引数を渡す。
+    // (`"all"`として結びつけていない限り、あなたのコールバックは、最初の引数として、
+    // 真のイベント名を受け取るようになります)
     trigger: function(events) {
       var event, node, calls, tail, args, all, rest;
       if (!(calls = this._callbacks)) return this;
@@ -181,6 +230,9 @@
 
       // For each event, walk through the linked list of callbacks twice,
       // first to trigger the event, then to trigger any `"all"` callbacks.
+
+      // それぞれのイベントで、リンクされたコールバックのリストを2回走査し、はじめに
+      // イベントをトリガーし、その後に`*all*`とされたコールバックをトリガーする
       while (event = events.shift()) {
         if (node = calls[event]) {
           tail = node.tail;
@@ -203,6 +255,8 @@
   };
 
   // Aliases for backwards compatibility.
+
+  // 後方互換のためのエイリアス
   Events.bind   = Events.on;
   Events.unbind = Events.off;
 
@@ -211,6 +265,9 @@
 
   // Create a new model, with defined attributes. A client id (`cid`)
   // is automatically generated and assigned for you.
+
+  // 定義済みの属性と共に新しいモデルを作成する。クライアントID (`cid`)は自動的に生成
+  // されて割り当てられる。
   var Model = Backbone.Model = function(attributes, options) {
     var defaults;
     attributes || (attributes = {});
@@ -227,6 +284,8 @@
     this._pending = {};
     this.set(attributes, {silent: true});
     // Reset change tracking.
+
+    // 変更の追跡をリセットする。
     this.changed = {};
     this._silent = {};
     this._pending = {};
@@ -235,38 +294,58 @@
   };
 
   // Attach all inheritable methods to the Model prototype.
+
+  // すべての継承メソッドをModelのprototypeにアタッチする。
   _.extend(Model.prototype, Events, {
 
     // A hash of attributes whose current and previous value differ.
+
+    // 現在と以前の値と異なる属性のハッシュ。
     changed: null,
 
     // A hash of attributes that have silently changed since the last time
     // `change` was called.  Will become pending attributes on the next call.
+
+    // `change`が呼ばれたときから、silentな変更があった属性のハッシュ。次のコールされる
+    // ときに属性は保留中になる。
     _silent: null,
 
     // A hash of attributes that have changed since the last `'change'` event
     // began.
+
+    // 最後に`'change'`イベントが呼ばれてから、変更された属性のハッシュ。
     _pending: null,
 
     // The default name for the JSON `id` attribute is `"id"`. MongoDB and
     // CouchDB users may want to set this to `"_id"`.
+
+    // JSON `id`属性のデフォルト名は`"id"`。MongoDBやCounchDBのユーザーは、これを
+    // `"_id"`とすることができる。
     idAttribute: 'id',
 
     // Initialize is an empty function by default. Override it with your own
     // initialization logic.
+
+    // 初期化はデフォルトで空の関数。自身の初期化ロジックでオーバーライドする。
     initialize: function(){},
 
     // Return a copy of the model's `attributes` object.
+
+    // モデルの`attributes`オブジェクトのコピーを返す。
     toJSON: function(options) {
       return _.clone(this.attributes);
     },
 
     // Get the value of an attribute.
+
+    // 属性の値を取得する。
     get: function(attr) {
       return this.attributes[attr];
     },
 
     // Get the HTML-escaped value of an attribute.
+
+    // 属性の値をHTMLエスケープして取得する。
     escape: function(attr) {
       var html;
       if (html = this._escapedAttributes[attr]) return html;
@@ -276,16 +355,23 @@
 
     // Returns `true` if the attribute contains a value that is not null
     // or undefined.
+
+    // 属性の値がnullまたはundefinedでなければ、`true`を返す。
     has: function(attr) {
       return this.get(attr) != null;
     },
 
     // Set a hash of model attributes on the object, firing `"change"` unless
     // you choose to silence it.
+
+    // モデルの属性のハッシュをオブジェクトとしてセットし、silentを選択しない限り
+    // `"change"`イベントを発火する。
     set: function(key, value, options) {
       var attrs, attr, val;
 
       // Handle both `"key", value` and `{key: value}` -style arguments.
+
+      // `"key", value`と`{key: value}`の両スタイルの引数を制御する。
       if (_.isObject(key) || key == null) {
         attrs = key;
         options = value;
@@ -295,15 +381,21 @@
       }
 
       // Extract attributes and options.
+
+      // 属性とオプションを展開する。
       options || (options = {});
       if (!attrs) return this;
       if (attrs instanceof Model) attrs = attrs.attributes;
       if (options.unset) for (attr in attrs) attrs[attr] = void 0;
 
       // Run validation.
+
+      // バリデーションを実行する。
       if (!this._validate(attrs, options)) return false;
 
       // Check for changes of `id`.
+
+      // `id`にの変化をチェックする。
       if (this.idAttribute in attrs) this.id = attrs[this.idAttribute];
 
       var changes = options.changes = {};
@@ -312,20 +404,28 @@
       var prev = this._previousAttributes || {};
 
       // For each `set` attribute...
+
+      // それぞれについて属性を`set`...
       for (attr in attrs) {
         val = attrs[attr];
 
         // If the new and current value differ, record the change.
+
+        // 新しい値と今の値が異なるとき、変更を記録する。
         if (!_.isEqual(now[attr], val) || (options.unset && _.has(now, attr))) {
           delete escaped[attr];
           (options.silent ? this._silent : changes)[attr] = true;
         }
 
         // Update or delete the current value.
+
+        // 現在の値を更新または削除する。
         options.unset ? delete now[attr] : now[attr] = val;
 
         // If the new and previous value differ, record the change.  If not,
         // then remove changes for this attribute.
+
+        // 新しい値と前の値が異なるとき、変更を記録する。この属性が削除されたときは除く。
         if (!_.isEqual(prev[attr], val) || (_.has(now, attr) != _.has(prev, attr))) {
           this.changed[attr] = val;
           if (!options.silent) this._pending[attr] = true;
@@ -336,12 +436,17 @@
       }
 
       // Fire the `"change"` events.
+
+      // `"change"`イベントを発火する。
       if (!options.silent) this.change(options);
       return this;
     },
 
     // Remove an attribute from the model, firing `"change"` unless you choose
     // to silence it. `unset` is a noop if the attribute doesn't exist.
+
+    // モデルから属性を削除し、silentを選択しない限り`"change"`イベントを発火する。
+    // `unset`は属性が存在しなければ何もしない。
     unset: function(attr, options) {
       (options || (options = {})).unset = true;
       return this.set(attr, null, options);
@@ -349,6 +454,8 @@
 
     // Clear all attributes on the model, firing `"change"` unless you choose
     // to silence it.
+
+    // モデルのすべての属性をクリアし、silentを選択しない限り`"change"`イベントを発火する。
     clear: function(options) {
       (options || (options = {})).unset = true;
       return this.set(_.clone(this.attributes), options);
@@ -357,6 +464,9 @@
     // Fetch the model from the server. If the server's representation of the
     // model differs from its current attributes, they will be overriden,
     // triggering a `"change"` event.
+
+    // サーバーからモデルをフェッチする。サーバーが示すモデルが、現在の属性と異なるとき、
+    // 上書きされて`"change"`インベトを発火する。
     fetch: function(options) {
       options = options ? _.clone(options) : {};
       var model = this;
@@ -372,10 +482,15 @@
     // Set a hash of model attributes, and sync the model to the server.
     // If the server returns an attributes hash that differs, the model's
     // state will be `set` again.
+
+    // モデルの属性のハッシュをセットし、モデルをサーバーと同期する。
+    // サーバーが返す属性ハッシュが異なるとき、モデルは改めて`set`する。
     save: function(key, value, options) {
       var attrs, current;
 
       // Handle both `("key", value)` and `({key: value})` -style calls.
+
+      // `"key", value`と`{key: value}`の両スタイルの引数を制御する。
       if (_.isObject(key) || key == null) {
         attrs = key;
         options = value;
@@ -386,12 +501,16 @@
       options = options ? _.clone(options) : {};
 
       // If we're "wait"-ing to set changed attributes, validate early.
+
+      // 属性の変更を`wait`するときは、先にバリデートする。
       if (options.wait) {
         if (!this._validate(attrs, options)) return false;
         current = _.clone(this.attributes);
       }
 
       // Regular saves `set` attributes before persisting to the server.
+
+      // サーバーに永続化する前に、属性を`set`として標準的な保存を行う。
       var silentOptions = _.extend({}, options, {silent: true});
       if (attrs && !this.set(attrs, options.wait ? silentOptions : options)) {
         return false;
@@ -399,6 +518,9 @@
 
       // After a successful server-side save, the client is (optionally)
       // updated with the server-side state.
+
+      // サーバーサイドの保存が成功したあと、クライアントはサーバーサイドの状態に
+      // アップデートする（オプション）。
       var model = this;
       var success = options.success;
       options.success = function(resp, status, xhr) {
@@ -416,6 +538,8 @@
       };
 
       // Finish configuring and sending the Ajax request.
+
+      // 設定を終えて、Ajaxリクエストを送信する。
       options.error = Backbone.wrapError(options.error, model, options);
       var method = this.isNew() ? 'create' : 'update';
       var xhr = (this.sync || Backbone.sync).call(this, method, this, options);
@@ -426,6 +550,10 @@
     // Destroy this model on the server if it was already persisted.
     // Optimistically removes the model from its collection, if it has one.
     // If `wait: true` is passed, waits for the server to respond before removal.
+
+    // すでに永続化されているモデルをサーバー上から破棄する。それが含まれるコレクション
+    // からは楽観的に削除を行う。もし`wait: true`が渡されていれば、削除する前にサーバー
+    // のレスポンスを待つ。
     destroy: function(options) {
       options = options ? _.clone(options) : {};
       var model = this;
@@ -458,6 +586,9 @@
     // Default URL for the model's representation on the server -- if you're
     // using Backbone's restful methods, override this to change the endpoint
     // that will be called.
+
+    // サーバー上でモデルを示すデフォルトのURL、BackboneのRESTfulなメソッドを利用する
+    // 場合は、これをオーバーライドしてコールすべきエンドポイントに変更する。
     url: function() {
       var base = getValue(this, 'urlRoot') || getValue(this.collection, 'url') || urlError();
       if (this.isNew()) return base;
@@ -466,16 +597,23 @@
 
     // **parse** converts a response into the hash of attributes to be `set` on
     // the model. The default implementation is just to pass the response along.
+
+    // **parse**はレスポンスをモデルに`set`できるように、レスポンスを属性のハッシュを
+    // 変換する。デフォルトの実装は、単純にレスポンスを渡しています。
     parse: function(resp, xhr) {
       return resp;
     },
 
     // Create a new model with identical attributes to this one.
+
+    // 現在のものと同じ固有の属性の新しいモデルを作成する。
     clone: function() {
       return new this.constructor(this.attributes);
     },
 
     // A model is new if it has never been saved to the server, and lacks an id.
+
+    // サーバーに保存されていない場合は、モデルは新しくて、IDが欠けている。
     isNew: function() {
       return this.id == null;
     },
@@ -483,15 +621,23 @@
     // Call this method to manually fire a `"change"` event for this model and
     // a `"change:attribute"` event for each changed attribute.
     // Calling this will cause all objects observing the model to update.
+
+    // このメソッドをコールすると、モデルの`"change"`イベントと、変更済みの各属性について
+    // `"change:attribute"`イベントを手動で発火させる。これをコールすると、モデルを監視
+    // しているすべてのオブジェクトが更新されます。
     change: function(options) {
       options || (options = {});
       var changing = this._changing;
       this._changing = true;
 
       // Silent changes become pending changes.
+
+      // silentな変更を保留中に変更する。
       for (var attr in this._silent) this._pending[attr] = true;
 
       // Silent changes are triggered.
+
+      // silentな変更をトリガーする。
       var changes = _.extend({}, options.changes, this._silent);
       this._silent = {};
       for (var attr in changes) {
@@ -500,10 +646,14 @@
       if (changing) return this;
 
       // Continue firing `"change"` events while there are pending changes.
+
+      // 続けて、保留中の変更について`"change"`イベントを発火する。
       while (!_.isEmpty(this._pending)) {
         this._pending = {};
         this.trigger('change', this, options);
         // Pending and silent changes still remain.
+
+        // 保留中の変更とsilentな変更がまだ残っている。
         for (var attr in this.changed) {
           if (this._pending[attr] || this._silent[attr]) continue;
           delete this.changed[attr];
@@ -517,6 +667,9 @@
 
     // Determine if the model has changed since the last `"change"` event.
     // If you specify an attribute name, determine if that attribute has changed.
+
+    // 最後の`"change"`イベントから、モデルに変更があったかを判断する。
+    // 属性の名前を指定したばあい、その属性が変更されたかを判断する。
     hasChanged: function(attr) {
       if (!arguments.length) return !_.isEmpty(this.changed);
       return _.has(this.changed, attr);
@@ -528,6 +681,12 @@
     // persisted to the server. Unset attributes will be set to undefined.
     // You can also pass an attributes object to diff against the model,
     // determining if there *would be* a change.
+
+    // 変更のあったすべての属性を含むオブジェクトか、属性に変更がなければfalseを返す。
+    // Viewの部分を更新する必要があるかと、または何の属性をサーバーサイドで永続化する
+    // 必要があるかを判断するのに便利である。アンセットされた属性には、undefinedが
+    // セットされる。またモデルに対する比較として、属性オブジェクトを渡すことができ、
+    // 変化*するかどうか*を判断することもできる。
     changedAttributes: function(diff) {
       if (!diff) return this.hasChanged() ? _.clone(this.changed) : false;
       var val, changed = false, old = this._previousAttributes;
@@ -540,6 +699,8 @@
 
     // Get the previous value of an attribute, recorded at the time the last
     // `"change"` event was fired.
+
+    // 最後に`"change"`イベントが発火したときに記録された、属性の以前の値を取得する。
     previous: function(attr) {
       if (!arguments.length || !this._previousAttributes) return null;
       return this._previousAttributes[attr];
@@ -547,12 +708,17 @@
 
     // Get all of the attributes of the model at the time of the previous
     // `"change"` event.
+
+    // 最後の`"change"`イベント時の、モデルの全ての属性を取得する。
     previousAttributes: function() {
       return _.clone(this._previousAttributes);
     },
 
     // Check if the model is currently in a valid state. It's only possible to
     // get into an *invalid* state if you're using silent changes.
+
+    // 現在モデルが正常な状態かをチェックする。silentな変更を行った場合のみ、*異常*な
+    // 状態であることを取得することが可能である。
     isValid: function() {
       return !this.validate(this.attributes);
     },
@@ -560,6 +726,10 @@
     // Run validation against the next complete set of model attributes,
     // returning `true` if all is well. If a specific `error` callback has
     // been passed, call that instead of firing the general `"error"` event.
+
+    // モデルの次の完全な属性セットに対して検証を実行し、すべて有効である場合は`true`を
+    // 返す。`error`コールバックを指定して渡されたときは、通常の`"error"`イベントの
+    // 代わりにコールされる。
     _validate: function(attrs, options) {
       if (options.silent || !this.validate) return true;
       attrs = _.extend({}, this.attributes, attrs);
