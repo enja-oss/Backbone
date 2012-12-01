@@ -36,3 +36,24 @@ proxy.on("all", function(eventName) {
 });
 ```
 
+### off `object.off([event], [callback], [context])` _Alias: unbind_
+
+オブジェクトからバインド済みの **callback** 関数を削除します。もし **context** が指定されていなければ、全てのバージョンのコールバック別種のコンテキストと一緒に削除されます。もしコールバックが指定されていなければ **event** の全てのコールバックが削除されます。もしイベントが指定されていなければ、オブジェクトの _全て_ のイベントのコールバックが削除されます。
+
+```javascript
+
+// `onChange` のコールバックのみを削除.
+object.off("change", onChange);
+
+// "change" のコールバックを全て削除
+object.off("change");
+
+// 全てのイベントの `onChange` コールバックを削除
+object.off(null, onChange);
+
+// 全てのイベントの `context` のコールバック全てを削除
+object.off(null, null, context);
+
+// `object` の全てのコールバックを削除
+object.off();
+```
