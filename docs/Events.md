@@ -4,7 +4,7 @@
 
 **Events** は、あらゆるオブジェクトをミックスする事ができ、オブジェクトにカスタムイベントをバインドしたりトリガーにしたりする事ができるモジュールです。Eventsはバインドされる前に呼ばれるなければなりませんし、渡された引数を取る事ができます。例：
 
-```JavaScript
+```javascript
 var object = {};
 
 _.extend(object, Backbone.Events);
@@ -17,3 +17,22 @@ object.trigger("alert", "an event");
 ```
 
 例えば、あなたのアプリケーションの別の領域の間でイベントを協調させる簡単なイベントディスパッチャーを作るにはこのようにします。: `var dispatcher = _.clone(Backbone.Events)`
+
+### on `object.on(event, callback, [context])` _Alias:bind_
+
+**callback** 関数をオブジェクトにバインドします。コールバックは **event** が発火したらいつでも呼び出されます。もし単一ページに多数の別種のイベントがある場合は、それらの名前空間にコロンを使う規定になっています。: `"poll:start"` や `"change:selection"` などです。
+イベントの文字列はまた各イベントのリストをスペース区切りにします。
+
+```javascript
+book.on("change:title change:author", ...);
+```
+コールバックが呼ばれた時に `this` に **context** の値が代用され、オプションである第3引数が渡されます。: `model.on('change', this.render, this)`
+
+コールバックには特別にどんなイベントが起きてもトリガーにする `all` イベントがバインドされており、これには第1引数のイベントの名前が渡されます。例えば、あるオブジェクトから別のオブジェクトに全てのイベントをプロクシさせるにはこのような形になります。:
+
+```javascript
+proxy.on("all", function(eventName) {
+  object.trigger(eventName);
+});
+```
+
