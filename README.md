@@ -10,8 +10,8 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 
 ##翻訳済みコンテンツ
 
-+  [Introduction](http://backbonejs.org/#introduction)
-+  [Events](http://backbonejs.org/#Events)
++  [Introduction](https://github.com/enja-oss/Backbone/blob/master/docs/Introduction.md)
++  [Events](https://github.com/enja-oss/Backbone/blob/master/docs/Events.md)
 +  [FAQ](https://github.com/enja-oss/Backbone/blob/master/docs/FAQ.md)
 
 ##着手中/予定コンテンツ
@@ -86,7 +86,3 @@ Backboneのライセンスを引き継ぎ、すべてMIT Licenseとします。
 
 +  [studiomohawk](https://github.com/studiomohawk) FAQ
 
-##更新履歴
-
-+  2012/12/01 `docs/Introduction.md`を追加
-+  2012/11/28 リポジトリ作成・`docs/FAQ.md`を追加
