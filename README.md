@@ -10,22 +10,22 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 
 ##翻訳済みコンテンツ
 
++  [Annotated Source](https://github.com/enja-oss/Backbone/blob/master/backbone.js)
 +  [Introduction](https://github.com/enja-oss/Backbone/blob/master/docs/Introduction.md)
++  [Upgrading](http://backbonejs.org/#upgrading)
 +  [Events](https://github.com/enja-oss/Backbone/blob/master/docs/Events.md)
 +  [FAQ](https://github.com/enja-oss/Backbone/blob/master/docs/FAQ.md)
 
 ##着手中/予定コンテンツ
 
-+  [Annotated Source](http://backbonejs.org/docs/backbone.html) [@ahomu](https://github.com/ahomu)
-+  [Upgrading](http://backbonejs.org/#upgrading) [@1000ch](https://github.com/1000ch)
 +  [Model](http://backbonejs.org/#Model) [@kuu](https://github.com/kuu)
 +  [Collection](http://backbonejs.org/#Collection) [@Layzie](https://github.com/Layzie)
++  [Router](http://backbonejs.org/#Router) [@Layzie](https://github.com/hokaccha)
 
 ##未着手コンテンツ
 
 コンテンツの翻訳にご協力くださる方は、ぜひ[着手予定の宣言コーナー](https://github.com/enja-oss/Backbone/issues/1 "着手予定の宣言コーナー · Issue #1 · enja-oss/Backbone")でお知らせください。その際に、着手予定のが他の人とかぶっていないこともご確認ください。
 
-+  [Router](http://backbonejs.org/#Router)
 +  [History](http://backbonejs.org/#History)
 +  [Sync](http://backbonejs.org/#Sync)
 +  [View](http://backbonejs.org/#View)
@@ -70,7 +70,7 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 
 ##ライセンス・クレジット
 
-本ドキュメントbackbonejs.orgで公開されているものを翻訳したドキュメントです。原文は[Backbone.js](http://backbonejs.org/ "Backbone.js")にあります。
+本ドキュメントは、backbonejs.orgで公開されているものを翻訳したドキュメントです。原文は[Backbone.js](http://backbonejs.org/ "Backbone.js")にあります。
 
 Backboneのライセンスを引き継ぎ、すべてMIT Licenseとします。
 
@@ -78,11 +78,11 @@ Backboneのライセンスを引き継ぎ、すべてMIT Licenseとします。
 
 随時追加しています。
 
-+  [@ahomu](https://github.com/ahomu) FAQ
++  [@ahomu](https://github.com/ahomu) FAQ, Annotated Source
 +  [@kuu](https://github.com/kuu) Introduction
 +  [@Layzie](https://github.com/Layzie) Events
++  [@1000ch](https://github.com/1000ch) Upgrading
 
 監訳
 
-+  [studiomohawk](https://github.com/studiomohawk) FAQ
-
++  [studiomohawk](https://github.com/studiomohawk)
