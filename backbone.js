@@ -37,7 +37,7 @@
   // be attached to this. Exported for both CommonJS and the browser.
 
   // トップレベルの名前空間。Backboneのすべてのクラスとモジュールはこれにアタッチされる。
-  // CommonJSとブラウザー環境の両方にエクスポートする。
+  // CommonJSとブラウザ環境の両方にエクスポートする。
   var Backbone;
   if (typeof exports !== 'undefined') {
     Backbone = exports;
@@ -220,7 +220,7 @@
     // ひとつまたは複数のイベントをトリガーし、結びついたすべてのコールバックを発火する。
     // コールバックにはイベント名別に、`trigger`と同じ引数を渡す。
     // (`"all"`として結びつけていない限り、あなたのコールバックは、最初の引数として、
-    // 真のイベント名を受け取るようになります)
+    // 真のイベント名を受け取るようになる）
     trigger: function(events) {
       var event, node, calls, tail, args, all, rest;
       if (!(calls = this._callbacks)) return this;
@@ -232,7 +232,7 @@
       // first to trigger the event, then to trigger any `"all"` callbacks.
 
       // それぞれのイベントで、リンクされたコールバックのリストを2回走査し、はじめに
-      // イベントをトリガーし、その後に`*all*`とされたコールバックをトリガーする
+      // イベントをトリガーし、その後に`*all*`とされたコールバックをトリガーする。
       while (event = events.shift()) {
         if (node = calls[event]) {
           tail = node.tail;
@@ -598,8 +598,8 @@
     // **parse** converts a response into the hash of attributes to be `set` on
     // the model. The default implementation is just to pass the response along.
 
-    // **parse**はレスポンスをモデルに`set`できるように、レスポンスを属性のハッシュを
-    // 変換する。デフォルトの実装は、単純にレスポンスを渡しています。
+    // **parse**はレスポンスをモデルに`set`できるように属性のハッシュに変換する。
+    // デフォルトの実装は、単純にレスポンスを渡している。
     parse: function(resp, xhr) {
       return resp;
     },
@@ -749,8 +749,14 @@
   // -------------------
 
   // Provides a standard collection class for our sets of models, ordered
+  //                                                              ^^^^^^^
   // or unordered. If a `comparator` is specified, the Collection will maintain
+  // ^^^^^^^^^^^^
   // its models in sort order, as they're added and removed.
+
+  // 順序づいたまたはそうでないモデルセットの標準的なコレクションクラスを提供する。
+  // `comparator`が指定されていれば、モデルの並び順を維持するよう追加や削除がされたときに
+  // ソートする。
   var Collection = Backbone.Collection = function(models, options) {
     options || (options = {});
     if (options.model) this.model = options.model;
@@ -761,31 +767,47 @@
   };
 
   // Define the Collection's inheritable methods.
+
+  // コレクションの継承メソッドを定義する。
   _.extend(Collection.prototype, Events, {
 
     // The default model for a collection is just a **Backbone.Model**.
     // This should be overridden in most cases.
+
+    // コレクションのデフォルトのモデルは**Backbone.Model**である。ほとんどのケースでは
+    // これをオーバーライドすべきである。
     model: Model,
 
     // Initialize is an empty function by default. Override it with your own
     // initialization logic.
+
+    // 初期化はデフォルトで空の関数。自身の初期化ロジックでオーバーライドする。
     initialize: function(){},
 
     // The JSON representation of a Collection is an array of the
     // models' attributes.
+
+    // コレクションを、モデルの属性を配列にしたものとしてJSON表現にする。
     toJSON: function(options) {
       return this.map(function(model){ return model.toJSON(options); });
     },
 
     // Add a model, or list of models to the set. Pass **silent** to avoid
     // firing the `add` event for every new model.
+
+    // モデルを追加またはモデルのリストをセットする。**silent**を指定すれば
+    // `add`イベントがそれぞれの新しいモデルで発火するのを抑制する。
     add: function(models, options) {
       var i, index, length, model, cid, id, cids = {}, ids = {}, dups = [];
       options || (options = {});
       models = _.isArray(models) ? models.slice() : [models];
 
       // Begin by turning bare objects into model references, and preventing
+      //          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       // invalid models or duplicate models from being added.
+
+      // はじめに、モデルの参照を素のオブジェクトに入れてから、不正なモデルや重複した
+      // モデルの追加を防ぐことから始める。
       for (i = 0, length = models.length; i < length; i++) {
         if (!(model = models[i] = this._prepareModel(models[i], options))) {
           throw new Error("Can't add an invalid model to a collection");
@@ -800,6 +822,8 @@
       }
 
       // Remove duplicates.
+
+      // 重複を取り除く。
       i = dups.length;
       while (i--) {
         models.splice(dups[i], 1);
@@ -807,6 +831,9 @@
 
       // Listen to added models' events, and index models for lookup by
       // `id` and by `cid`.
+
+      // 追加されたモデルのイベントをリッスンし、`id`と`cid`で見つけ出せるよう
+      // インデックスを作成する。
       for (i = 0, length = models.length; i < length; i++) {
         (model = models[i]).on('all', this._onModelEvent, this);
         this._byCid[model.cid] = model;
@@ -815,6 +842,9 @@
 
       // Insert models into the collection, re-sorting if needed, and triggering
       // `add` events unless silenced.
+
+      // コレクションにモデルを挿入し、必要があれば再ソートし、silentでなければ
+      // 各モデルの`add`イベントをトリガーする。
       this.length += length;
       index = options.at != null ? options.at : this.models.length;
       splice.apply(this.models, [index, 0].concat(models));
@@ -830,6 +860,9 @@
 
     // Remove a model, or a list of models from the set. Pass silent to avoid
     // firing the `remove` event for every model removed.
+
+    // モデルまたはモデルのリストを、セット済みから取り除く。silentを指定すれば
+    // `remove`イベントがそれぞれのモデルで発生するのを抑制する。
     remove: function(models, options) {
       var i, l, index, model;
       options || (options = {});
@@ -852,6 +885,8 @@
     },
 
     // Add a model to the end of the collection.
+
+    // コレクションの末尾にモデルを追加する。
     push: function(model, options) {
       model = this._prepareModel(model, options);
       this.add(model, options);
@@ -859,6 +894,8 @@
     },
 
     // Remove a model from the end of the collection.
+
+    // コレクションの末尾からモデルを削除する。
     pop: function(options) {
       var model = this.at(this.length - 1);
       this.remove(model, options);
@@ -866,6 +903,8 @@
     },
 
     // Add a model to the beginning of the collection.
+
+    // コレクションの先頭にモデルを追加する。
     unshift: function(model, options) {
       model = this._prepareModel(model, options);
       this.add(model, _.extend({at: 0}, options));
@@ -873,6 +912,8 @@
     },
 
     // Remove a model from the beginning of the collection.
+
+    // コレクションの先頭からモデルを削除する。
     shift: function(options) {
       var model = this.at(0);
       this.remove(model, options);
@@ -880,22 +921,30 @@
     },
 
     // Get a model from the set by id.
+
+    // 指定したIDからモデルを取得する。
     get: function(id) {
       if (id == null) return void 0;
       return this._byId[id.id != null ? id.id : id];
     },
 
     // Get a model from the set by client id.
+
+    // 指定したクライアントIDからモデルを取得する。
     getByCid: function(cid) {
       return cid && this._byCid[cid.cid || cid];
     },
 
     // Get the model at the given index.
+
+    // 与えられたインデックスのモデルを取得する。
     at: function(index) {
       return this.models[index];
     },
 
     // Return models with matching attributes. Useful for simple cases of `filter`.
+
+    // 属性が一致するモデルたちを返す。`filter`のシンプルなケースとして役に立つ。
     where: function(attrs) {
       if (_.isEmpty(attrs)) return [];
       return this.filter(function(model) {
@@ -909,6 +958,9 @@
     // Force the collection to re-sort itself. You don't need to call this under
     // normal circumstances, as the set will maintain sort order as each item
     // is added.
+
+    // 強制的にコレクションを自身で再ソートさせる。各アイテムが追加されるたび並び順のソート
+    // が維持されている通常の状況下ではこれをコールする必要はない。
     sort: function(options) {
       options || (options = {});
       if (!this.comparator) throw new Error('Cannot sort a set without a comparator');
@@ -923,6 +975,8 @@
     },
 
     // Pluck an attribute from each model in the collection.
+
+    // 指定した属性をコレクション内の各モデルから抽出する。
     pluck: function(attr) {
       return _.map(this.models, function(model){ return model.get(attr); });
     },
@@ -930,6 +984,10 @@
     // When you have more items than you want to add or remove individually,
     // you can reset the entire set with a new list of models, without firing
     // any `add` or `remove` events. Fires `reset` when finished.
+
+    // 個別に追加するよりも、より多くのアイテムがあるときに、`add`や`remove`イベントを
+    // 発火させずに、新しいモデルのリストで既存のセット全体をリセットすることができる。
+    // 最後に`reset`イベントが発火する。
     reset: function(models, options) {
       models  || (models = []);
       options || (options = {});
@@ -945,6 +1003,10 @@
     // Fetch the default set of models for this collection, resetting the
     // collection when they arrive. If `add: true` is passed, appends the
     // models to the collection instead of resetting.
+
+    // このコレクションにおけるモデルのデフォルトセットをフェッチし、それらでコレクションを
+    // リセットする。`add: true`が渡されたとき、リセットする代わりにモデルをコレクションに
+    // 追加する。
     fetch: function(options) {
       options = options ? _.clone(options) : {};
       if (options.parse === undefined) options.parse = true;
@@ -961,6 +1023,9 @@
     // Create a new instance of a model in this collection. Add the model to the
     // collection immediately, unless `wait: true` is passed, in which case we
     // wait for the server to agree.
+
+    // コレクションに新しいモデルのインスタンスを作成する。サーバーのレスポンスを待つよう
+    // `wait: true`が渡されない限りモデルはコレクションに即時に追加される。
     create: function(model, options) {
       var coll = this;
       options = options ? _.clone(options) : {};
@@ -982,6 +1047,9 @@
 
     // **parse** converts a response into a list of models to be added to the
     // collection. The default implementation is just to pass it through.
+
+    // **parse**はレスポンスをモデルのリストとしてコレクションに追加されるように変換する。
+    // デフォルトの実装は、単純にレスポンスを渡している。
     parse: function(resp, xhr) {
       return resp;
     },
@@ -989,11 +1057,16 @@
     // Proxy to _'s chain. Can't be proxied the same way the rest of the
     // underscore methods are proxied because it relies on the underscore
     // constructor.
+
+    // _のchainのプロキシ−。Underscoreのコンストラクタに依存しているため、残りのメソッド
+    // を同じようにプロキシすることはできない。
     chain: function () {
       return _(this.models).chain();
     },
 
     // Reset all internal state. Called when the collection is reset.
+
+    // すべての内部の状態をリセットする。コレクションがリセットされるときに呼ばれる。
     _reset: function(options) {
       this.length = 0;
       this.models = [];
@@ -1002,6 +1075,8 @@
     },
 
     // Prepare a model or hash of attributes to be added to this collection.
+
+    // モデルまたは属性ハッシュを、コレクションに追加できるように準備する。
     _prepareModel: function(model, options) {
       options || (options = {});
       if (!(model instanceof Model)) {
@@ -1016,6 +1091,8 @@
     },
 
     // Internal method to remove a model's ties to a collection.
+
+    // モデルとコレクションの結びつきを削除する内部メソッド。
     _removeReference: function(model) {
       if (this == model.collection) {
         delete model.collection;
@@ -1027,6 +1104,11 @@
     // Sets need to update their indexes when models change ids. All other
     // events simply proxy through. "add" and "remove" events that originate
     // in other collections are ignored.
+
+    // セットされているモデルがイベントを発火するたびに呼ばれる内部メソッド。
+    // モデルのIDが変更されるとき、モデルセットのインデックスを更新する必要がある。
+    // それ以外のイベントのときは、単にイベントをプロキシして通す。他のコレクションに由来
+    // する"add"と"remove"イベントは無視される。
     _onModelEvent: function(event, model, collection, options) {
       if ((event == 'add' || event == 'remove') && collection != this) return;
       if (event == 'destroy') {
@@ -1042,6 +1124,8 @@
   });
 
   // Underscore methods that we want to implement on the Collection.
+
+  // UnderscoreのメソッドがCollectionに実装されているようにする。
   var methods = ['forEach', 'each', 'map', 'reduce', 'reduceRight', 'find',
     'detect', 'filter', 'select', 'reject', 'every', 'all', 'some', 'any',
     'include', 'contains', 'invoke', 'max', 'min', 'sortBy', 'sortedIndex',
@@ -1049,6 +1133,8 @@
     'shuffle', 'lastIndexOf', 'isEmpty', 'groupBy'];
 
   // Mix in each Underscore method as a proxy to `Collection#models`.
+
+  // Underscoreのメソッドが`Collection#models`へのプロキシーになるようmixinする。
   _.each(methods, function(method) {
     Collection.prototype[method] = function() {
       return _[method].apply(_, [this.models].concat(_.toArray(arguments)));
@@ -1060,6 +1146,9 @@
 
   // Routers map faux-URLs to actions, and fire events when routes are
   // matched. Creating a new one sets its `routes` hash, if not set statically.
+
+  // ルーターは、フェイクURLをアクションにマップし、ルートが一致したときにイベントを発火
+  // する。静的にセットされていなければ、新しく作成したとき`routes`ハッシュがセットされる。
   var Router = Backbone.Router = function(options) {
     options || (options = {});
     if (options.routes) this.routes = options.routes;
@@ -1068,19 +1157,34 @@
   };
 
   // Cached regular expressions for matching named param parts and splatted
+  //                                                               ^^^^^^^^
   // parts of route strings.
+
+  // ルート文字列の名前つきパラメータや、分割されたパーツをマッチングするための正規表現
+  // キャッシュ。
   var namedParam    = /:\w+/g;
   var splatParam    = /\*\w+/g;
   var escapeRegExp  = /[-[\]{}()+?.,\\^$|#\s]/g;
 
   // Set up all inheritable **Backbone.Router** properties and methods.
+
+  // すべての**Backbone.Router**から継承されるプロパティとメソッドをセットアップする。
   _.extend(Router.prototype, Events, {
 
     // Initialize is an empty function by default. Override it with your own
     // initialization logic.
+
+    // 初期化はデフォルトで空の関数。自身の初期化ロジックでオーバーライドする。
     initialize: function(){},
 
     // Manually bind a single named route to a callback. For example:
+    //
+    //     this.route('search/:query/p:num', 'search', function(query, num) {
+    //       ...
+    //     });
+    //
+
+    // 手動で単一の名前がついたルートをコールバックに結びつける。例:
     //
     //     this.route('search/:query/p:num', 'search', function(query, num) {
     //       ...
@@ -1100,6 +1204,8 @@
     },
 
     // Simple proxy to `Backbone.history` to save a fragment into the history.
+
+    // 履歴にfragmentを保存するための、`Backbone.history`への単純なプロキシ。
     navigate: function(fragment, options) {
       Backbone.history.navigate(fragment, options);
     },
@@ -1107,6 +1213,10 @@
     // Bind all defined routes to `Backbone.history`. We have to reverse the
     // order of the routes here to support behavior where the most general
     // routes can be defined at the bottom of the route map.
+
+    // 定義されているすべてのルートを`Backbone.history`に結びつける。
+    // 最も一般的なルートをルートマップの下部に指定する振る舞いをサポートするため、
+    // ここでルートの順序を逆にする必要がある。
     _bindRoutes: function() {
       if (!this.routes) return;
       var routes = [];
@@ -1120,6 +1230,8 @@
 
     // Convert a route string into a regular expression, suitable for matching
     // against the current location hash.
+
+    // 現在地ハッシュのマッチングに適すよう、ルート文字列を正規表現で変換する
     _routeToRegExp: function(route) {
       route = route.replace(escapeRegExp, '\\$&')
                    .replace(namedParam, '([^\/]+)')
@@ -1129,6 +1241,9 @@
 
     // Given a route, and a URL fragment that it matches, return the array of
     // extracted parameters.
+
+    // ルートと、それに一致するURLフラグメントを与えると、
+    // 抽出されたパラメーターの配列を返す。
     _extractParameters: function(route, fragment) {
       return route.exec(fragment).slice(1);
     }
@@ -1140,29 +1255,45 @@
 
   // Handles cross-browser history management, based on URL fragments. If the
   // browser does not support `onhashchange`, falls back to polling.
+
+  // URLフラグメントをベースとした、クロスブラウザな履歴管理を制御する。
+  // ブラウザが`onhashchange`をサポートしていなければ、ポーリングにフォールバックする。
   var History = Backbone.History = function() {
     this.handlers = [];
     _.bindAll(this, 'checkUrl');
   };
 
   // Cached regex for cleaning leading hashes and slashes .
+
+  // 先行するハッシュとスラッシュを取り除く正規表現。
   var routeStripper = /^[#\/]/;
 
   // Cached regex for detecting MSIE.
+
+  // Microsoft InternextExplorerを検知する正規表現。
   var isExplorer = /msie [\w.]+/;
 
   // Has the history handling already been started?
+
+  // 履歴制御がすでに始まっているか？
   History.started = false;
 
   // Set up all inheritable **Backbone.History** properties and methods.
+
+  // すべての**Backbone.History**から継承されるプロパティとメソッドをセットアップする。
   _.extend(History.prototype, Events, {
 
     // The default interval to poll for hash changes, if necessary, is
     // twenty times a second.
+
+    // ハッシュチェンジのポーリングが必要なとき、デフォルトのインターバルは1秒に20回である。
     interval: 50,
 
     // Gets the true hash value. Cannot use location.hash directly due to bug
     // in Firefox where location.hash will always be decoded.
+
+    // 真のハッシュ値を取得する。location.hashが常にデコードされるFirefoxにおける
+    // バグにより、location.hashを直接使うことできない。
     getHash: function(windowOverride) {
       var loc = windowOverride ? windowOverride.location : window.location;
       var match = loc.href.match(/#(.*)$/);
@@ -1171,6 +1302,8 @@
 
     // Get the cross-browser normalized URL fragment, either from the URL,
     // the hash, or the override.
+
+    // クロスブラウザで正規化されたURLを、URL、ハッシュ、またはオーバーライドから取得する。
     getFragment: function(fragment, forcePushState) {
       if (fragment == null) {
         if (this._hasPushState || forcePushState) {
@@ -1187,12 +1320,17 @@
 
     // Start the hash change handling, returning `true` if the current URL matches
     // an existing route, and `false` otherwise.
+
+    // ハッシュチェンジの制御を始め、現在のURLに既存のルートが一致すれば`true`を返し、
+    // そうでなければ`false`を返す。
     start: function(options) {
       if (History.started) throw new Error("Backbone.history has already been started");
       History.started = true;
 
       // Figure out the initial configuration. Do we need an iframe?
       // Is pushState desired ... is it available?
+
+      // 初期設定を見つけ出す。iframeが必要か？ pushStateが望まれるが、それが有効か？
       this.options          = _.extend({}, {root: '/'}, this.options, options);
       this._wantsHashChange = this.options.hashChange !== false;
       this._wantsPushState  = !!this.options.pushState;
@@ -1208,6 +1346,9 @@
 
       // Depending on whether we're using pushState or hashes, and whether
       // 'onhashchange' is supported, determine how we check the URL state.
+
+      // pushStateやハッシュを使用しているどうか、'onhashchange'がサポートされているか
+      // どうかに応じて、URLの状態をどのようにチェックするか決定する。
       if (this._hasPushState) {
         $(window).bind('popstate', this.checkUrl);
       } else if (this._wantsHashChange && ('onhashchange' in window) && !oldIE) {
@@ -1218,20 +1359,31 @@
 
       // Determine if we need to change the base url, for a pushState link
       // opened by a non-pushState browser.
+
+      // pushStateをサポートしないブラウザによって開かれたpushStateリンクのために
+      // ベースURLを変更する必要があるかどうかを決定する
       this.fragment = fragment;
       var loc = window.location;
       var atRoot  = loc.pathname == this.options.root;
 
       // If we've started off with a route from a `pushState`-enabled browser,
       // but we're currently in a browser that doesn't support it...
+
+      // `pushState`が有効なブラウザからのルートで開始したが、現在のブラウザは
+      // それをサポートしていないとき...
       if (this._wantsHashChange && this._wantsPushState && !this._hasPushState && !atRoot) {
         this.fragment = this.getFragment(null, true);
         window.location.replace(this.options.root + '#' + this.fragment);
         // Return immediately as browser will do redirect to new url
+
+        // ブラウザが新しいURLにリダイレクトするよう、即時returnする。
         return true;
 
       // Or if we've started out with a hash-based route, but we're currently
       // in a browser where it could be `pushState`-based instead...
+
+      // またはハッシュベースのルートで開始したが、現在のブラウザは`pushState`ベースで
+      // 代わりにできるとき...
       } else if (this._wantsPushState && this._hasPushState && atRoot && loc.hash) {
         this.fragment = this.getHash().replace(routeStripper, '');
         window.history.replaceState({}, document.title, loc.protocol + '//' + loc.host + this.options.root + this.fragment);
@@ -1244,6 +1396,9 @@
 
     // Disable Backbone.history, perhaps temporarily. Not useful in a real app,
     // but possibly useful for unit testing Routers.
+
+    // おそらく一時的に、Backbone.historyを無効にする。実際のアプリでは使えないが、
+    // Routerのユニットテストをする際に便利なことがある。
     stop: function() {
       $(window).unbind('popstate', this.checkUrl).unbind('hashchange', this.checkUrl);
       clearInterval(this._checkUrlInterval);
@@ -1252,12 +1407,18 @@
 
     // Add a route to be tested when the fragment changes. Routes added later
     // may override previous routes.
+
+    // フラグメントが変化したときにテストするルートを追加する。ルートが追加されると、
+    // 前のルートはオーバーライドされる。
     route: function(route, callback) {
       this.handlers.unshift({route: route, callback: callback});
     },
 
     // Checks the current URL to see if it has changed, and if it has,
     // calls `loadUrl`, normalizing across the hidden iframe.
+
+    // ハッシュが変更されたか現在のURLをチェックし、そうであれば`loadUrl`をコールし、
+    // 隠されたiframeのあいだを正規化する。
     checkUrl: function(e) {
       var current = this.getFragment();
       if (current == this.fragment && this.iframe) current = this.getFragment(this.getHash(this.iframe));
@@ -1269,6 +1430,9 @@
     // Attempt to load the current URL fragment. If a route succeeds with a
     // match, returns `true`. If no defined routes matches the fragment,
     // returns `false`.
+
+    // 現在のURLフラグメントのロードを試みる。マッチしてルートが成功すれば`true`を返す。
+    // 定義されたルートにフラグメントがマッチしなければ、`false`を返す。
     loadUrl: function(fragmentOverride) {
       var fragment = this.fragment = this.getFragment(fragmentOverride);
       var matched = _.any(this.handlers, function(handler) {
@@ -1287,6 +1451,13 @@
     // The options object can contain `trigger: true` if you wish to have the
     // route callback be fired (not usually desirable), or `replace: true`, if
     // you wish to modify the current URL without adding an entry to the history.
+
+    // フラグメントをハッシュ履歴にに保存するか、'replace'オプションが指定されたときに
+    // URLの状態を置き換える。フラグメントのURLエンコードは、自身で事前に適切に行うこと。
+    //
+    // ルートのコールバックを発火したい場合（通常は望ましくない）、オプションオブジェクトに
+    // `trigger: true`が含めることができ、また履歴に現在のURLを追加させずに変更したい
+    // ときは、`replace: true`がある。
     navigate: function(fragment, options) {
       if (!History.started) return false;
       if (!options || options === true) options = {trigger: options};
@@ -1294,6 +1465,8 @@
       if (this.fragment == frag) return;
 
       // If pushState is available, we use it to set the fragment as a real URL.
+
+      // pushStateが有効であれば、それを使って実際のURLのようにフラグメントをセットする。
       if (this._hasPushState) {
         if (frag.indexOf(this.options.root) != 0) frag = this.options.root + frag;
         this.fragment = frag;
@@ -1301,26 +1474,35 @@
 
       // If hash changes haven't been explicitly disabled, update the hash
       // fragment to store history.
+
+      // ハッシュの変更が明示的に無効にされていなければ、履歴に保存するためにハッシュを
+      // 更新する。
       } else if (this._wantsHashChange) {
         this.fragment = frag;
         this._updateHash(window.location, frag, options.replace);
         if (this.iframe && (frag != this.getFragment(this.getHash(this.iframe)))) {
           // Opening and closing the iframe tricks IE7 and earlier to push a history entry on hash-tag change.
           // When replace is true, we don't want this.
+
+          // IE7以前でハッシュの変更を入れるため、iframeを開いて・閉じるトリックを行う。
+          // replaceがtrueであれば、これを行わない。
           if(!options.replace) this.iframe.document.open().close();
           this._updateHash(this.iframe.location, frag, options.replace);
         }
 
       // If you've told us that you explicitly don't want fallback hashchange-
       // based history, then `navigate` becomes a page refresh.
+
+      // ハッシュ変更ベースの履歴のフォールバックを、明示的に望んでいなければ`navigate`は
+      // ページリフレッシュを行う。
       } else {
         window.location.assign(this.options.root + fragment);
       }
       if (options.trigger) this.loadUrl(fragment);
     },
 
-    // Update the hash location, either replacing the current entry, or adding
-    // a new one to the browser history.
+    // いずれかの現在のエントリを置き換えるか、ブラウザの履歴に新しいものを追加して、
+    // ハッシュの位置を更新する。
     _updateHash: function(location, fragment, replace) {
       if (replace) {
         location.replace(location.toString().replace(/(javascript:|#).*$/, '') + '#' + fragment);
@@ -1613,12 +1795,16 @@
 
   // Helper function to get a value from a Backbone object as a property
   // or as a function.
+
+  // Backboneオブジェクトからプロパティまたは関数として値を得るためのヘルパー関数。
   var getValue = function(object, prop) {
     if (!(object && object[prop])) return null;
     return _.isFunction(object[prop]) ? object[prop]() : object[prop];
   };
 
   // Throw an error when a URL is needed, and none is supplied.
+
+  // URLが必要であるのに提供されていないときにエラーを投げる。
   var urlError = function() {
     throw new Error('A "url" property or function must be specified');
   };
