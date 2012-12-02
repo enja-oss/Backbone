@@ -3,6 +3,8 @@
 ## Backbone.Sync [原文](http://backbonejs.org/#Sync)
 
 **Backbone.sync** is the function that Backbone calls every time it attempts to read or save a model to the server. By default, it uses `(jQuery/Zepto).ajax` to make a RESTful JSON request and returns a [jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR). You can override it in order to use a different persistence strategy, such as WebSockets, XML transport, or Local Storage.
+あなたはこれをoverrideすることでWebSockets、 XML transport、 Local Storageなど、異なる永続化戦略として使用することができます。
+
 
 The method signature of **Backbone.sync**  is `sync(method, model, [options])`
 
@@ -10,13 +12,18 @@ The method signature of **Backbone.sync**  is `sync(method, model, [options])`
 - **model**  – the model to be saved (or collection to be read)
 - **options**  – success and error callbacks, and all other jQuery request options
 
-With the default implementation, when **Backbone.sync** sends up a request to save a model, its attributes will be passed, serialized as JSON, and sent in the HTTP body with content-type `application/json` When returning a JSON response, send down the attributes of the  model that have been changed by the server, and need to be updated on the client. When responding to a `"read"` request from a collection ([#Collection#fetch](#Collection#fetch)), send down an array of model attribute objects.
+With the default implementation, when **Backbone.sync** sends up a request to save a model, its attributes will be passed, serialized as JSON, and sent in the HTTP body with content-type `application/json` 
+When returning a JSON response, send down the attributes of the  model that have been changed by the server, and need to be updated on the client. When responding to a `"read"` request from a collection ([#Collection#fetch](#Collection#fetch)), send down an array of model attribute objects.
+デフォルトの実装は、**Backbone.sync**がmodelを保存するように要求を出した場合の、その属性はHTTP Bodyの中にシリアライズされたJSON形式で渡されます。content-typeには`application/json`が指定されます。
+JSONレスポンスが帰ってきたとき。サーバによって変更されたModelの属性、クライアントが更新するための
 
 The **sync**  function may be overriden globally as `Backbone.sync`
 or at a finer-grained level, by adding a `sync` function to a Backbone
 collection or to an individual model.
+この**sync**メソッドは、グローバルの`Backbone.sync`やもっと細かいレベルでオーバーライドされているかもしれない。
 
 The default **sync**  handler maps CRUD to REST like so:
+既定の**sync**CRUD表はRESTのようになっています。
 
 - **create &rarr; POST &nbsp;** `/collection`
 - **read &rarr; GET &nbsp;** `/collection[/id]`
