@@ -20,7 +20,7 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 
 +  [Model](http://backbonejs.org/#Model) [@kuu](https://github.com/kuu)
 +  [Collection](http://backbonejs.org/#Collection) [@Layzie](https://github.com/Layzie)
-+  [Router](http://backbonejs.org/#Router) [@Layzie](https://github.com/hokaccha)
++  [Router](http://backbonejs.org/#Router) [@hokaccha](https://github.com/hokaccha)
 
 ##未着手コンテンツ
 
