@@ -11,20 +11,20 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 ##翻訳済みコンテンツ
 
 +  [Introduction](http://backbonejs.org/#introduction)
++  [Events](http://backbonejs.org/#Events)
 +  [FAQ](https://github.com/enja-oss/Backbone/blob/master/docs/FAQ.md)
 
 ##着手中/予定コンテンツ
 
++  [Annotated Source](http://backbonejs.org/docs/backbone.html) [@ahomu](https://github.com/ahomu)
 +  [Upgrading](http://backbonejs.org/#upgrading) [@1000ch](https://github.com/1000ch)
 +  [Model](http://backbonejs.org/#Model) [@kuu](https://github.com/kuu)
-+  [Annotated Source](http://backbonejs.org/docs/backbone.html) [@ahomu](https://github.com/ahomu)
-+  [Events](http://backbonejs.org/#Events) [@Layzie](https://github.com/Layzie)
++  [Collection](http://backbonejs.org/#Collection) [@Layzie](https://github.com/Layzie)
 
 ##未着手コンテンツ
 
 コンテンツの翻訳にご協力くださる方は、ぜひ[着手予定の宣言コーナー](https://github.com/enja-oss/Backbone/issues/1 "着手予定の宣言コーナー · Issue #1 · enja-oss/Backbone")でお知らせください。その際に、着手予定のが他の人とかぶっていないこともご確認ください。
 
-+  [Collection](http://backbonejs.org/#Collection)
 +  [Router](http://backbonejs.org/#Router)
 +  [History](http://backbonejs.org/#History)
 +  [Sync](http://backbonejs.org/#Sync)
@@ -80,6 +80,7 @@ Backboneのライセンスを引き継ぎ、すべてMIT Licenseとします。
 
 +  [@ahomu](https://github.com/ahomu) FAQ
 +  [@kuu](https://github.com/kuu) Introduction
++  [@Layzie](https://github.com/Layzie) Events
 
 監訳
 
