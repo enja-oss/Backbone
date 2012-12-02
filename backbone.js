@@ -7,6 +7,10 @@
 //     ※ 訳注メモ
 //     hash - ハッシュ: RubyのHashをイメージしていると思われる。
 //     attribute - 属性: Modelが表現する値のフィールドを指して属性と言う。
+//     bind - 結びつける: 主にイベントの文脈で使われる。boundも同様。
+//     attach - アタッチ: アタッチのまま。bindと逆転させたほうがよい？
+//     view, model, collection, router - ビュー、モデル、コレクション、ルーター: カタカナ
+//     history - 履歴: 漢字
 //     元文書: https://github.com/documentcloud/backbone/blob/918edf86d6633e2a0cdfba5d28eae31ca49cbaac/backbone.js
 (function(){
 
@@ -832,7 +836,7 @@
       // Listen to added models' events, and index models for lookup by
       // `id` and by `cid`.
 
-      // 追加されたモデルのイベントをリッスンし、`id`と`cid`で見つけ出せるよう
+      // 追加されたモデルのイベントをリッスンし、`id`と`cid`でルックアップできるように
       // インデックスを作成する。
       for (i = 0, length = models.length; i < length; i++) {
         (model = models[i]).on('all', this._onModelEvent, this);
@@ -1321,7 +1325,7 @@
     // Start the hash change handling, returning `true` if the current URL matches
     // an existing route, and `false` otherwise.
 
-    // ハッシュチェンジの制御を始め、現在のURLに既存のルートが一致すれば`true`を返し、
+    // ハッシュの変更制御を始め、現在のURLに既存のルートが一致すれば`true`を返し、
     // そうでなければ`false`を返す。
     start: function(options) {
       if (History.started) throw new Error("Backbone.history has already been started");
@@ -1517,6 +1521,8 @@
 
   // Creating a Backbone.View creates its initial element outside of the DOM,
   // if an existing element is not provided...
+
+  // Backbone.Viewをつくると、既存の要素が提供されないとき、DOMの外に初期要素が作られる。
   var View = Backbone.View = function(options) {
     this.cid = _.uniqueId('view');
     this._configure(options || {});
@@ -1526,36 +1532,56 @@
   };
 
   // Cached regex to split keys for `delegate`.
+
+  // `delegate`でキーを分割する正規表現。
   var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 
   // List of view options to be merged as properties.
+
+  // プロパティとしてマージされるViewのオプションリスト。
   var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className', 'tagName'];
 
   // Set up all inheritable **Backbone.View** properties and methods.
+
+  // すべての**Backbone.View**から継承されるプロパティとメソッドをセットアップする。
   _.extend(View.prototype, Events, {
 
     // The default `tagName` of a View's element is `"div"`.
+
+    // ビュー要素の`tagName`はデフォルトで`"div"`である。
     tagName: 'div',
 
     // jQuery delegate for element lookup, scoped to DOM elements within the
     // current view. This should be prefered to global lookups where possible.
+    //               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    // 要素のルックアップをjQueryに委譲し、現在のビューの中にあるDOM要素達を対象にする。
+    // これはグローバルにルックアップ可能な場合、好まれるべきである。
     $: function(selector) {
       return this.$el.find(selector);
     },
 
     // Initialize is an empty function by default. Override it with your own
     // initialization logic.
+
+    // 初期化はデフォルトで空の関数。自身の初期化ロジックでオーバーライドする。
     initialize: function(){},
 
     // **render** is the core function that your view should override, in order
     // to populate its element (`this.el`), with the appropriate HTML. The
     // convention is for **render** to always return `this`.
+
+    // **render**は、適切なHTMLで要素 (`this.el`) を生成するために、各自のビューが
+    // オーバーライドすべきコア関数である。規則では、**render**は常に`this`を返す。
     render: function() {
       return this;
     },
 
     // Remove this view from the DOM. Note that the view isn't present in the
     // DOM by default, so calling this method may be a no-op.
+
+    // DOMからビューを削除する。注意: ビューはデフォルトではDOMの中にいないため、
+    // このメソッドを何も起きないかもしれない。
     remove: function() {
       this.$el.remove();
       return this;
@@ -1563,6 +1589,12 @@
 
     // For small amounts of DOM Elements, where a full-blown template isn't
     // needed, use **make** to manufacture elements, one at a time.
+    //
+    //     var el = this.make('li', {'class': 'row'}, this.model.escape('title'));
+    //
+
+    // 少量のDOM要素のために本格的なテンプレートを必要としないとき、**make**を使って
+    // 1つずつ要素を生成できる。
     //
     //     var el = this.make('li', {'class': 'row'}, this.model.escape('title'));
     //
@@ -1575,6 +1607,8 @@
 
     // Change the view's element (`this.el` property), including event
     // re-delegation.
+
+    // ビューの要素 (`this.el`プロパティ)を変更し、内包するイベントを再委譲する。
     setElement: function(element, delegate) {
       if (this.$el) this.undelegateEvents();
       this.$el = (element instanceof $) ? element : $(element);
@@ -1598,6 +1632,21 @@
     // Omitting the selector binds the event to `this.el`.
     // This only works for delegate-able events: not `focus`, `blur`, and
     // not `change`, `submit`, and `reset` in Internet Explorer.
+
+    // `this.events`ハッシュで示されるコールバックをセットする。
+    //
+    // *{"event selector": "callback"}*
+    //
+    //     {
+    //       'mousedown .title':  'edit',
+    //       'click .button':     'save'
+    //       'click .open':       function(e) { ... }
+    //     }
+    //
+    // ペアになっている。`this`にプロパティをセットされてコールバックはビューに結びつく。
+    // 効率性のためにイベントの委譲を使用している。セレクタを省略すると、`this.el`に
+    // 結びつけられる。委譲可能なイベントにのみ動作する。`focus`、`blur`はそうでない、
+    // またInternet Explorerでは`change`、`submit`、`reset`がそうでない。
     delegateEvents: function(events) {
       if (!(events || (events = getValue(this, 'events')))) return;
       this.undelegateEvents();
@@ -1620,6 +1669,10 @@
     // Clears all callbacks previously bound to the view with `delegateEvents`.
     // You usually don't need to use this, but may wish to if you have multiple
     // Backbone views attached to the same DOM element.
+
+    // `delegateEvents`によってビューに結びつけられたコールバックをすべてクリアする。
+    // 通常はこれを必要としないが、同じDOM要素に複数のビューをアタッチしたとき必要に
+    // なるかもしれない。
     undelegateEvents: function() {
       this.$el.unbind('.delegateEvents' + this.cid);
     },
@@ -1627,6 +1680,9 @@
     // Performs the initial configuration of a View with a set of options.
     // Keys with special meaning *(model, collection, id, className)*, are
     // attached directly to the view.
+
+    // 一連のオプションによって、ビューの初期設定を行う。特別な意味をもつキー
+    // *(model, collection, id, className)*は、ビューに直接アタッチされる。
     _configure: function(options) {
       if (this.options) options = _.extend({}, this.options, options);
       for (var i = 0, l = viewOptions.length; i < l; i++) {
@@ -1640,6 +1696,10 @@
     // If `this.el` is a string, pass it through `$()`, take the first
     // matching element, and re-assign it to `el`. Otherwise, create
     // an element from the `id`, `className` and `tagName` properties.
+
+    // ビューがrenderのためにDOM要素をもっていることを確認する。もし`this.el`が
+    // 文字列であれば、`$()`に渡してマッチした最初の要素を`el`に再度割り当てる。
+    // そうでない場合は、`id`、`className`、`tagName`プロパティから要素を生成する。
     _ensureElement: function() {
       if (!this.el) {
         var attrs = getValue(this, 'attributes') || {};
@@ -1654,6 +1714,8 @@
   });
 
   // The self-propagating extend function that Backbone classes use.
+
+  // Backboneクラスで使われる自己伝播による拡張をする関数。
   var extend = function (protoProps, classProps) {
     var child = inherits(this, protoProps, classProps);
     child.extend = this.extend;
@@ -1661,12 +1723,16 @@
   };
 
   // Set up inheritance for the model, collection, and view.
+
+  // 継承をモデル、コレクション、ビューにセットアップする。
   Model.extend = Collection.extend = Router.extend = View.extend = extend;
 
   // Backbone.sync
   // -------------
 
   // Map from CRUD to HTTP for our default `Backbone.sync` implementation.
+
+  // `Backbone.sync`のデフォルト実装が用いる、CRUDをHTTPに置き換えるマップ。
   var methodMap = {
     'create': 'POST',
     'update': 'PUT',
@@ -1689,27 +1755,52 @@
   // instead of `application/json` with the model in a param named `model`.
   // Useful when interfacing with server-side languages like **PHP** that make
   // it difficult to read the body of `PUT` requests.
+
+  // モデルをサーバーで永続化させる方法を変更するには、この関数をオーバーライドします。
+  // リクエストのタイプと対象のモデルが渡されます。デフォルトではModelの`url()`に対して
+  // RESTfulなAjaxリクエストを行う。いくつかのカスタマイズの可能性は次のようになります。
+  //
+  // * `setTimeout`を使って、単一のリクエストによるバッチで迅速にアップデートする。
+  // * モデルをJSONのかわりにXMLとして送る。
+  // * AjaxのかわりにWebScoketsを通してモデルを永続化する。
+  //
+  // `Backbone.emulateHTTP`を有効にすると、`PUT`と`DELETE`を、`_method`パラメーターに
+  // 本来のHTTPメソッドを含めた上で`POST`で送信するようになり、リクエスト本文を
+  // `application/json`に代わって、`application/x-www-form-urlencoded` として
+  // `model`というパラメータ名と一緒に送信するようになる。**PHP**のように`PUT`リクエスト
+  // の本文を読み取るのが難しいサーバーサイドのインターフェースをとる場合に便利である。
+
   Backbone.sync = function(method, model, options) {
     var type = methodMap[method];
 
     // Default options, unless specified.
+
+    // 指定しない限りのデフォルトオプション。
     options || (options = {});
 
     // Default JSON-request options.
+
+    // デフォルトのJSONリクエストオプション。
     var params = {type: type, dataType: 'json'};
 
     // Ensure that we have a URL.
+
+    // URLを持っているか確かめる。
     if (!options.url) {
       params.url = getValue(model, 'url') || urlError();
     }
 
     // Ensure that we have the appropriate request data.
+
+    // 適切なリクエストデータを持っているか確かめる。
     if (!options.data && model && (method == 'create' || method == 'update')) {
       params.contentType = 'application/json';
       params.data = JSON.stringify(model.toJSON());
     }
 
     // For older servers, emulate JSON by encoding the request into an HTML-form.
+
+    // 古いサーバーは、リクエストをHTML-form形式にエンコードしてJSONをエミュレートする。
     if (Backbone.emulateJSON) {
       params.contentType = 'application/x-www-form-urlencoded';
       params.data = params.data ? {model: params.data} : {};
@@ -1717,6 +1808,9 @@
 
     // For older servers, emulate HTTP by mimicking the HTTP method with `_method`
     // And an `X-HTTP-Method-Override` header.
+
+    // 古いサーバーは、`_method`と`X-HTTP-Method-Override`ヘッダに、本来のHTTPメソッド
+    // を模倣することで、HTTPをエミュレートする。
     if (Backbone.emulateHTTP) {
       if (type === 'PUT' || type === 'DELETE') {
         if (Backbone.emulateJSON) params.data._method = type;
@@ -1728,15 +1822,21 @@
     }
 
     // Don't process data on a non-GET request.
+
+    // GETでないリクエストであればデータを処理しない。
     if (params.type !== 'GET' && !Backbone.emulateJSON) {
       params.processData = false;
     }
 
     // Make the request, allowing the user to override any Ajax options.
+
+    // 任意のAjaxオプションをオーバーライドでき、リクエストを行う。
     return $.ajax(_.extend(params, options));
   };
 
   // Wrap an optional error callback with a fallback error event.
+
+  // フォールバックのエラーイベントと共にオプションのエラーコールバックをラップする。
   Backbone.wrapError = function(onError, originalModel, options) {
     return function(model, resp) {
       resp = model === originalModel ? resp : model;
@@ -1752,17 +1852,25 @@
   // -------
 
   // Shared empty constructor function to aid in prototype-chain creation.
+
+  // プロトタイプチェーンの作成を助けるために、空のコンストラクタ関数を共有する。
   var ctor = function(){};
 
   // Helper function to correctly set up the prototype chain, for subclasses.
   // Similar to `goog.inherits`, but uses a hash of prototype properties and
   // class properties to be extended.
+
+  // サブクラスのプロトタイプチェーンを正しく設定するヘルパ関数。`goog.inherits`に
+  // 似ているがプロトタイププロパティのハッシュを利用し、クラスプロパティを継承する。
   var inherits = function(parent, protoProps, staticProps) {
     var child;
 
     // The constructor function for the new subclass is either defined by you
     // (the "constructor" property in your `extend` definition), or defaulted
     // by us to simply call the parent's constructor.
+
+    // 新しいサブクラスのコンストラクタ関数は、自分で定義したものか ("constructor"
+    // プロパティを`extend`の定義に入れる) デフォルトで単に親のコンストラクタのいずれかを呼ぶ。
     if (protoProps && protoProps.hasOwnProperty('constructor')) {
       child = protoProps.constructor;
     } else {
@@ -1770,24 +1878,37 @@
     }
 
     // Inherit class (static) properties from parent.
+
+    // 親からクラス(静的)プロパティを継承する。
     _.extend(child, parent);
 
     // Set the prototype chain to inherit from `parent`, without calling
     // `parent`'s constructor function.
+
+    // `parent`のコンストラクタを呼び出さずに、`parent`からプロトタイプチェーンを継承する。
     ctor.prototype = parent.prototype;
     child.prototype = new ctor();
 
     // Add prototype properties (instance properties) to the subclass,
     // if supplied.
+
+    // 提供されていれば、サブクラスにプロトタイププロパティ (インスタンスプロパティ) を
+    // 追加する。
     if (protoProps) _.extend(child.prototype, protoProps);
 
     // Add static properties to the constructor function, if supplied.
+
+    // 提供されていれば、コンストラクタ関数に静的なプロパティを追加する。
     if (staticProps) _.extend(child, staticProps);
 
     // Correctly set child's `prototype.constructor`.
+
+    // 正しくchildの`prototype.constructor`を設定する。
     child.prototype.constructor = child;
 
     // Set a convenience property in case the parent's prototype is needed later.
+
+    // あとから親のプロトタイプが必要になったときに便利なプロパティをセットする。
     child.__super__ = parent.prototype;
 
     return child;
