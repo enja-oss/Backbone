@@ -5,12 +5,14 @@
 //     For all details and documentation:
 //     http://backbonejs.org
 //     ※ 訳注メモ
-//     hash - ハッシュ: RubyのHashをイメージしていると思われる。
+//     hash - ハッシュ: RubyのHashをイメージしていると思われる。ただしRouterの項では、
+//                     URLフラグメントとしてのハッシュを主に指していることに注意。
 //     attribute - 属性: Modelが表現する値のフィールドを指して属性と言う。
 //     bind - 結びつける: 主にイベントの文脈で使われる。boundも同様。
-//     attach - アタッチ: アタッチのまま。bindと逆転させたほうがよい？
-//     view, model, collection, router - ビュー、モデル、コレクション、ルーター: カタカナ
-//     history - 履歴: 漢字
+//     attach, listen, lookup - アタッチ, リッスン, ルックアップ: カナ。
+//     view, model, collection, router - ビュー、モデル、コレクション、ルーター: カナ。
+//     history - 履歴: 漢字。
+//     parameter, browser - パラメータ、ブラウザ: 末尾を長音にしない。
 //     元文書: https://github.com/documentcloud/backbone/blob/918edf86d6633e2a0cdfba5d28eae31ca49cbaac/backbone.js
 (function(){
 
@@ -93,9 +95,9 @@
   // will fake `"PUT"` and `"DELETE"` requests via the `_method` parameter and
   // set a `X-Http-Method-Override` header.
 
-  // 古いHTTPサーバーをサポートするために、`emulateHTTP`を有効にする。このオプションを
-  // 設定すると、`_method`パラメータと`X-Http-Method-Override`ヘッダーを付与して、
-  // 擬似的に`"PUT"`と`"DELETE"`をリクエストをする。
+  // 古いHTTPサーバーをサポートするために、`emulateHTTP`を有効にする。
+  // このオプションを設定すると、`_method`パラメータと`X-Http-Method-Override`
+  // ヘッダーを付与して、擬似的に`"PUT"`と`"DELETE"`をリクエストをする。
   Backbone.emulateHTTP = false;
 
   // Turn on `emulateJSON` to support legacy servers that can't deal with direct
@@ -103,7 +105,7 @@
   // `application/x-www-form-urlencoded` instead and will send the model in a
   // form param named `model`.
 
-  // `application/json`リクエストを直接に処理できない古いサーバーをサポートするために、
+  // `application/json`リクエストを直で処理できない古いサーバーをサポートするために、
   // `emulateJSON`を有効にすると ... 代わりに`application/x-www-form-urlencoded`
   // としてリクエストボディをエンコードし、`model`という名前のフォームパラメータとして、
   // modelを送信します。
@@ -127,8 +129,8 @@
   //     object.trigger('expand');
   //
 
-  // *あらゆるObject*とmixinできて、カスタムイベントを提供するためのモジュールです。
-  // あなたはイベントにコールバック関数を、`on`で結びつけ、`off`で削除することができ、
+  // *あらゆるObject*とmixinできて、カスタムイベントを提供するモジュールです。
+  // あなたはイベントにコールバック関数を`on`で結びつけ、`off`で削除することができ、
   // `trigger`でイベントを発火させ、すべてのコールバックを実行できます。
   //
   //     var object = {};
@@ -141,7 +143,7 @@
     // Bind one or more space separated events, `events`, to a `callback`
     // function. Passing `"all"` will bind the callback to all events fired.
 
-    // `events` スペースによって分割された1つまたは複数のイベントと、`callback`関数を
+    // スペースによって分割された1つまたは複数のイベントとして`events`を`callback`関数に
     // 結びつける。`"all"`が渡されると、コールバックはすべてのイベント発火に結びつく。
     on: function(events, callback, context) {
 
@@ -193,8 +195,8 @@
       // Loop through the listed events and contexts, splicing them out of the
       // linked list of callbacks if appropriate.
 
-      // リストされたイベントとコンテキストをループして、リンクされたコールバックのリスト
-      // から適切にそれらを取り除く。
+      // リストされたイベントとコンテキストをループして、
+      // リンクされたコールバックのリストから適切にそれらを取り除く。
       events = events ? events.split(eventSplitter) : _.keys(calls);
       while (event = events.shift()) {
         node = calls[event];
@@ -222,9 +224,9 @@
     // receive the true name of the event as the first argument).
 
     // ひとつまたは複数のイベントをトリガーし、結びついたすべてのコールバックを発火する。
-    // コールバックにはイベント名別に、`trigger`と同じ引数を渡す。
+    // コールバックにはイベント名ごとに、`trigger`と同じ引数を渡す。
     // (`"all"`として結びつけていない限り、あなたのコールバックは、最初の引数として、
-    // 真のイベント名を受け取るようになる）
+    // 本来のイベント名を受け取るようになる）
     trigger: function(events) {
       var event, node, calls, tail, args, all, rest;
       if (!(calls = this._callbacks)) return this;
@@ -236,7 +238,7 @@
       // first to trigger the event, then to trigger any `"all"` callbacks.
 
       // それぞれのイベントで、リンクされたコールバックのリストを2回走査し、はじめに
-      // イベントをトリガーし、その後に`*all*`とされたコールバックをトリガーする。
+      // イベントをトリガーし、その後に`*all*`のコールバックをトリガーする。
       while (event = events.shift()) {
         if (node = calls[event]) {
           tail = node.tail;
@@ -270,7 +272,7 @@
   // Create a new model, with defined attributes. A client id (`cid`)
   // is automatically generated and assigned for you.
 
-  // 定義済みの属性と共に新しいモデルを作成する。クライアントID (`cid`)は自動的に生成
+  // 定義済みの属性と共に新しいモデルを作成する。クライアントID (`cid`) は自動的に生成
   // されて割り当てられる。
   var Model = Backbone.Model = function(attributes, options) {
     var defaults;
@@ -299,7 +301,7 @@
 
   // Attach all inheritable methods to the Model prototype.
 
-  // すべての継承メソッドをModelのprototypeにアタッチする。
+  // すべての継承メソッドをモデルのプロトタイプにアタッチする。
   _.extend(Model.prototype, Events, {
 
     // A hash of attributes whose current and previous value differ.
@@ -487,7 +489,7 @@
     // If the server returns an attributes hash that differs, the model's
     // state will be `set` again.
 
-    // モデルの属性のハッシュをセットし、モデルをサーバーと同期する。
+    // モデルの属性ハッシュをセットし、モデルをサーバーと同期する。
     // サーバーが返す属性ハッシュが異なるとき、モデルは改めて`set`する。
     save: function(key, value, options) {
       var attrs, current;
@@ -514,7 +516,7 @@
 
       // Regular saves `set` attributes before persisting to the server.
 
-      // サーバーに永続化する前に、属性を`set`として標準的な保存を行う。
+      // サーバーに永続化する前に、属性を`set`として正規の保存を行う。
       var silentOptions = _.extend({}, options, {silent: true});
       if (attrs && !this.set(attrs, options.wait ? silentOptions : options)) {
         return false;
@@ -617,7 +619,7 @@
 
     // A model is new if it has never been saved to the server, and lacks an id.
 
-    // サーバーに保存されていない場合は、モデルは新しくて、IDが欠けている。
+    // サーバーに保存されていない場合は、モデルは新規のものでありIDが欠けている。
     isNew: function() {
       return this.id == null;
     },
@@ -673,7 +675,7 @@
     // If you specify an attribute name, determine if that attribute has changed.
 
     // 最後の`"change"`イベントから、モデルに変更があったかを判断する。
-    // 属性の名前を指定したばあい、その属性が変更されたかを判断する。
+    // 属性の名前を指定した場合、その属性が変更されたかを判断する。
     hasChanged: function(attr) {
       if (!arguments.length) return !_.isEmpty(this.changed);
       return _.has(this.changed, attr);
@@ -686,7 +688,7 @@
     // You can also pass an attributes object to diff against the model,
     // determining if there *would be* a change.
 
-    // 変更のあったすべての属性を含むオブジェクトか、属性に変更がなければfalseを返す。
+    // 変更のあったすべての属性を含むオブジェクトまたは、属性に変更がなければfalseを返す。
     // Viewの部分を更新する必要があるかと、または何の属性をサーバーサイドで永続化する
     // 必要があるかを判断するのに便利である。アンセットされた属性には、undefinedが
     // セットされる。またモデルに対する比較として、属性オブジェクトを渡すことができ、
@@ -799,7 +801,7 @@
     // Add a model, or list of models to the set. Pass **silent** to avoid
     // firing the `add` event for every new model.
 
-    // モデルを追加またはモデルのリストをセットする。**silent**を指定すれば
+    // モデルを追加、またはモデルのリストをセットする。**silent**を指定すれば
     // `add`イベントがそれぞれの新しいモデルで発火するのを抑制する。
     add: function(models, options) {
       var i, index, length, model, cid, id, cids = {}, ids = {}, dups = [];
@@ -1029,7 +1031,7 @@
     // wait for the server to agree.
 
     // コレクションに新しいモデルのインスタンスを作成する。サーバーのレスポンスを待つよう
-    // `wait: true`が渡されない限りモデルはコレクションに即時に追加される。
+    // `wait: true`が渡されない限り、モデルはコレクションに即座に追加される。
     create: function(model, options) {
       var coll = this;
       options = options ? _.clone(options) : {};
@@ -1062,8 +1064,8 @@
     // underscore methods are proxied because it relies on the underscore
     // constructor.
 
-    // _のchainのプロキシ−。Underscoreのコンストラクタに依存しているため、残りのメソッド
-    // を同じようにプロキシすることはできない。
+    // _のchainのプロキシ。Underscoreのコンストラクタに依存しているため、
+    // 残りのメソッドを同じようにプロキシすることはできない。
     chain: function () {
       return _(this.models).chain();
     },
@@ -1111,8 +1113,8 @@
 
     // セットされているモデルがイベントを発火するたびに呼ばれる内部メソッド。
     // モデルのIDが変更されるとき、モデルセットのインデックスを更新する必要がある。
-    // それ以外のイベントのときは、単にイベントをプロキシして通す。他のコレクションに由来
-    // する"add"と"remove"イベントは無視される。
+    // それ以外のイベントのときは、単にイベントをプロキシして通す。
+    // 他のコレクションに由来した"add"と"remove"イベントは無視される。
     _onModelEvent: function(event, model, collection, options) {
       if ((event == 'add' || event == 'remove') && collection != this) return;
       if (event == 'destroy') {
@@ -1164,8 +1166,8 @@
   //                                                               ^^^^^^^^
   // parts of route strings.
 
-  // ルート文字列の名前つきパラメータや、分割されたパーツをマッチングするための正規表現
-  // キャッシュ。
+  // ルート文字列の名前つきパラメータや、
+  // 分割されたパーツをマッチングするための正規表現キャッシュ。
   var namedParam    = /:\w+/g;
   var splatParam    = /\*\w+/g;
   var escapeRegExp  = /[-[\]{}()+?.,\\^$|#\s]/g;
@@ -1235,7 +1237,7 @@
     // Convert a route string into a regular expression, suitable for matching
     // against the current location hash.
 
-    // 現在地ハッシュのマッチングに適すよう、ルート文字列を正規表現で変換する
+    // 現在地のハッシュに対してマッチングするよう、ルート文字列を正規表現で変換する
     _routeToRegExp: function(route) {
       route = route.replace(escapeRegExp, '\\$&')
                    .replace(namedParam, '([^\/]+)')
@@ -1246,8 +1248,7 @@
     // Given a route, and a URL fragment that it matches, return the array of
     // extracted parameters.
 
-    // ルートと、それに一致するURLフラグメントを与えると、
-    // 抽出されたパラメーターの配列を返す。
+    // ルートとそれに一致するURLフラグメントを与えると、抽出されたパラメータの配列を返す。
     _extractParameters: function(route, fragment) {
       return route.exec(fragment).slice(1);
     }
@@ -1296,8 +1297,8 @@
     // Gets the true hash value. Cannot use location.hash directly due to bug
     // in Firefox where location.hash will always be decoded.
 
-    // 真のハッシュ値を取得する。location.hashが常にデコードされるFirefoxにおける
-    // バグにより、location.hashを直接使うことできない。
+    // 本来のハッシュ値を取得する。Firefoxにおける、location.hashが常にデコードされる
+    // バグにより、location.hashを直接取り扱うことはできない。
     getHash: function(windowOverride) {
       var loc = windowOverride ? windowOverride.location : window.location;
       var match = loc.href.match(/#(.*)$/);
@@ -1422,7 +1423,7 @@
     // calls `loadUrl`, normalizing across the hidden iframe.
 
     // ハッシュが変更されたか現在のURLをチェックし、そうであれば`loadUrl`をコールし、
-    // 隠されたiframeのあいだを正規化する。
+    // 隠されたiframeを横断して正規化する。
     checkUrl: function(e) {
       var current = this.getFragment();
       if (current == this.fragment && this.iframe) current = this.getFragment(this.getHash(this.iframe));
@@ -1456,8 +1457,8 @@
     // route callback be fired (not usually desirable), or `replace: true`, if
     // you wish to modify the current URL without adding an entry to the history.
 
-    // フラグメントをハッシュ履歴にに保存するか、'replace'オプションが指定されたときに
-    // URLの状態を置き換える。フラグメントのURLエンコードは、自身で事前に適切に行うこと。
+    // フラグメントをハッシュ履歴に保存するか、'replace'オプションが指定されたときに
+    // URLの状態を置き換える。事前のフラグメントのURLエンコードは、自身で適切に行う。
     //
     // ルートのコールバックを発火したい場合（通常は望ましくない）、オプションオブジェクトに
     // `trigger: true`が含めることができ、また履歴に現在のURLを追加させずに変更したい
@@ -1498,7 +1499,7 @@
       // based history, then `navigate` becomes a page refresh.
 
       // ハッシュ変更ベースの履歴のフォールバックを、明示的に望んでいなければ`navigate`は
-      // ページリフレッシュを行う。
+      // ページをリフレッシュする。
       } else {
         window.location.assign(this.options.root + fragment);
       }
@@ -1628,6 +1629,7 @@
     //     }
     //
     // pairs. Callbacks will be bound to the view, with `this` set properly.
+    //                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
     // Uses event delegation for efficiency.
     // Omitting the selector binds the event to `this.el`.
     // This only works for delegate-able events: not `focus`, `blur`, and
@@ -1671,7 +1673,7 @@
     // Backbone views attached to the same DOM element.
 
     // `delegateEvents`によってビューに結びつけられたコールバックをすべてクリアする。
-    // 通常はこれを必要としないが、同じDOM要素に複数のビューをアタッチしたとき必要に
+    // 通常はこれを必要としないが、同じDOM要素に複数のビューをアタッチがされたとき必要に
     // なるかもしれない。
     undelegateEvents: function() {
       this.$el.unbind('.delegateEvents' + this.cid);
@@ -1681,7 +1683,7 @@
     // Keys with special meaning *(model, collection, id, className)*, are
     // attached directly to the view.
 
-    // 一連のオプションによって、ビューの初期設定を行う。特別な意味をもつキー
+    // 一連のオプションによって、ビューの初期設定を行う。特別な意味をもったキー
     // *(model, collection, id, className)*は、ビューに直接アタッチされる。
     _configure: function(options) {
       if (this.options) options = _.extend({}, this.options, options);
@@ -1756,18 +1758,18 @@
   // Useful when interfacing with server-side languages like **PHP** that make
   // it difficult to read the body of `PUT` requests.
 
-  // モデルをサーバーで永続化させる方法を変更するには、この関数をオーバーライドします。
-  // リクエストのタイプと対象のモデルが渡されます。デフォルトではModelの`url()`に対して
-  // RESTfulなAjaxリクエストを行う。いくつかのカスタマイズの可能性は次のようになります。
+  // モデルをサーバーで永続化させる方法を変更するには、この関数をオーバーライドする。
+  // リクエストのタイプと対象のモデルが渡される。デフォルトではModelの`url()`に対して
+  // RESTfulなAjaxリクエストを行う。いくつかのカスタマイズの可能性を次に示す。
   //
   // * `setTimeout`を使って、単一のリクエストによるバッチで迅速にアップデートする。
   // * モデルをJSONのかわりにXMLとして送る。
   // * AjaxのかわりにWebScoketsを通してモデルを永続化する。
   //
-  // `Backbone.emulateHTTP`を有効にすると、`PUT`と`DELETE`を、`_method`パラメーターに
+  // `Backbone.emulateHTTP`を有効にすると、`PUT`と`DELETE`を、`_method`パラメータに
   // 本来のHTTPメソッドを含めた上で`POST`で送信するようになり、リクエスト本文を
   // `application/json`に代わって、`application/x-www-form-urlencoded` として
-  // `model`というパラメータ名と一緒に送信するようになる。**PHP**のように`PUT`リクエスト
+  // `model`というパラメータと一緒に送信するようになる。**PHP**のように`PUT`リクエスト
   // の本文を読み取るのが難しいサーバーサイドのインターフェースをとる場合に便利である。
 
   Backbone.sync = function(method, model, options) {
