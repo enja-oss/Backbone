@@ -2,11 +2,11 @@
 
 #ver 0.9へのアップグレードに際して [原文](http://backbonejs.org/#upgrading)
 
-Backbone.js ver0.9は、ver1.0のリリース候補版として位置付けられます。APIの更新や、活用すべき新機能などが[更新履歴](#changelog)に記載されています。また、以下の変更点に注意してください。
+Backbone.js ver0.9系は、ver1.0のリリース候補版として位置付けています。いくつかのAPIが変更され、多くの活用すべき新機能があります、それらの変更については[更新履歴](#changelog)に記載されていますが、特に以下のいくつかの変更点については注意が必要です:
 
-+ Viewに指定する`this.el`プロパティを設定する際、[setElement](#View-setElement)メソッドを使用するようにしてください。
-+ Modelの扱いはとても楽観的です。サーバーからの応答があるまで過去の振る舞いを維持したい場合は、`{wait:true}`を設定するようにしてください。[save](#Model-save)メソッドをコールする場合にも同様の事が言えます。
-+ Viewのelの参照にjQueryオブジェクトの[$el](#View-$el)が用意されました。よって、elを参照する際に`$(view.el)`と記述する必要はありません。
++ Backbone Viewを`this.el`を使って手動で特定のDOM要素に設定している場合、代わりに[setElement](#View-setElement)メソッドを利用してください。
++ Modelの扱いはとても楽観的です。サーバーからの応答があるまで過去の振る舞いを維持したい場合は、`{wait: true}`を設定するようにしてください。[save](#Model-save)メソッドをコールする場合にも同様の事が言えます。
++ これまで`$(view.el)`を利用してきたなら、このjQueryオブジェクトに対するキャッシュされたリファレンスである[$el](#View-$el)が利用できるようになりました。
 + Backbone.jsのバージョンを0.9にアップグレードする場合、Underscore.jsのバージョンもver1.3.1以上を使用するようにしてください。
-+ Modelに`{silent: true}`を設定することで、`model.set`はchangeイベントを発火しません。同時に初期値が設定されます。アトリビュートが更新された後、`change:attribute`イベントが次のchangeイベントまでに発火されます。
-+ `view.$(selector)`は`$(selector, view.el)`、あるいは`view.$el.find(selector)`と同等になりました。`selector`にHTML文字列やDOM要素を指定しないようにしてください。
++ Modelに`{silent: true}`を設定すると、`model.set`はchangeイベントを発火しなくなります。その後、元の値に設定し直されます。同様にアトリビュートをsilentオプションを使って変更した場合にも、次の変更時には`change:attribute`イベントを発火します。
++ `view.$(selector)`は`$(selector, view.el)`では`view.$el.find(selector)`とすることと同様になったため、`selector`がHTMLの文字列やDOM要素である場合に利用することはできなくなりました。
