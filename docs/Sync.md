@@ -7,10 +7,16 @@
 
 
 The method signature of **Backbone.sync**  is `sync(method, model, [options])`
+**Backbone.sync** のメソッドシグネイチャは `sync(method, model, [options])` です。
 
 - **method**  – the CRUD method (`"create"`, `"read"`, `"update"`, or `"delete"`)
 - **model**  – the model to be saved (or collection to be read)
 - **options**  – success and error callbacks, and all other jQuery request options
+- 
+- **method**  – CRUDメソッド (`"create"`, `"read"`, `"update"`, or `"delete"`)
+- **model**  – 保存されていないModel (もしくは、読み込まれるcollection)
+- **options**  – 成功か失敗した場合のコールバック、および他のすべてのjQueryリクエストオプション
+
 
 With the default implementation, when **Backbone.sync** sends up a request to save a model, its attributes will be passed, serialized as JSON, and sent in the HTTP body with content-type `application/json` 
 When returning a JSON response, send down the attributes of the  model that have been changed by the server, and need to be updated on the client. When responding to a `"read"` request from a collection ([#Collection#fetch](#Collection#fetch)), send down an array of model attribute objects.
@@ -20,7 +26,9 @@ JSONレスポンスが帰ってきたとき。サーバによって変更され�
 The **sync**  function may be overriden globally as `Backbone.sync`
 or at a finer-grained level, by adding a `sync` function to a Backbone
 collection or to an individual model.
-この**sync**メソッドは、グローバルの`Backbone.sync`やもっと細かいレベルでオーバーライドされているかもしれない。
+この**sync**メソッドは、Backbone collectionや個々のmodelに追加された `sync` 関数によって、
+`Backbone.sync` のようなグローバルなレベルやもっと細かいレベルでオーバーライドされるかもしれない。
+
 
 The default **sync**  handler maps CRUD to REST like so:
 既定の**sync**CRUD表はRESTのようになっています。
@@ -34,6 +42,8 @@ As an example, a Rails handler responding to an `"update"` call from
 `Backbone` might look like this: *(In real code, never use
 * `update_attributes` *blindly, and always whitelist the attributes
 you allow to be changed.)*
+例として、`Backbone` から Railsの`"update"` を呼び出しレスポンスを取り扱う場合、次のようになります。
+（実際のコードで、`update_attributes` を使用することはありません。常にあなたが変更できるよう属性をホワイトリストに登録してください。）
 
 ```javascript
 def update
@@ -56,8 +66,8 @@ a HTTP `POST`, setting the `X-HTTP-Method-Override` header
 with the true method. If `emulateJSON` is also on, the true method
 will be passed as an additional `_method` parameter.
 もしあなたが、Backnone既定のREST/HTTPアプローチをサポートしていないレガシーなWebサーバを使いたい場合、`Backbone.emulateHTTP`を使うようになるかもしれない。
-このメソッドにtrueに設定して `PUT` や `DELETE` リクエストを要求した場合、HTTPリクエストヘッダーの `X-HTTP-Method-Override` を `POST` に変更してリクエストを偽装します。
-また、`emulateJSON` メソッドをtrueにした場合、リクエストパラメータに `_method` を追加して渡されます。
+このメソッドにtrueを設定して `PUT` や `DELETE` リクエストを要求した場合、HTTPリクエストヘッダーの `X-HTTP-Method-Override` に `POST` を設定してリクエストを偽装するでしょう。
+また、`emulateJSON` メソッドをtrueにした場合、リクエストパラメータの `_method` として渡されます。
 
 ```javascript
 Backbone.emulateHTTP = true;
@@ -72,3 +82,6 @@ encoded as `application/json`, setting `Backbone.emulateJSON = true;`
 will cause the JSON to be serialized under a `model` parameter, and
 the request to be made with a `application/x-www-form-urlencoded`
 mime type, as if from an HTML form.
+もしあなたが `application/json` エンコードを取り扱えないレガシーなWebサーバ上で使用する場合、
+`Backbone.emulateJSON = true;` とすることで、`model` パラメータをJSON形式にシリアライズし、
+HTMLフォームと同じように `application/x-www-form-urlencoded` のminetypeでリクエストするでしょう。
