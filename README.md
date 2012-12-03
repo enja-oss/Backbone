@@ -21,15 +21,15 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 +  [Model](http://backbonejs.org/#Model) [@kuu](https://github.com/kuu)
 +  [Collection](http://backbonejs.org/#Collection) [@Layzie](https://github.com/Layzie)
 +  [Router](http://backbonejs.org/#Router) [@hokaccha](https://github.com/hokaccha)
++  [Sync](http://backbonejs.org/#Sync) [@mitsuruog](https://github.com/mitsuruog)
++  [View](http://backbonejs.org/#View) [@ahomu](https://github.com/ahomu)
++  [Utility](http://backbonejs.org/#Utility) [@1000ch](https://github.com/1000ch)
 
 ##未着手コンテンツ
 
 コンテンツの翻訳にご協力くださる方は、ぜひ[着手予定の宣言コーナー](https://github.com/enja-oss/Backbone/issues/1 "着手予定の宣言コーナー · Issue #1 · enja-oss/Backbone")でお知らせください。その際に、着手予定のが他の人とかぶっていないこともご確認ください。
 
 +  [History](http://backbonejs.org/#History)
-+  [Sync](http://backbonejs.org/#Sync)
-+  [View](http://backbonejs.org/#View)
-+  [Utility](http://backbonejs.org/#Utility)
 +  [Examples](http://backbonejs.org/#Examples)
 
 ========
@@ -85,4 +85,4 @@ Backboneのライセンスを引き継ぎ、すべてMIT Licenseとします。
 
 監訳
 
-+  [studiomohawk](https://github.com/studiomohawk)
++  [@studiomohawk](https://github.com/studiomohawk)
