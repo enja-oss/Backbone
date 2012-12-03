@@ -55,6 +55,9 @@ Setting this option will fake `PUT` and `DELETE` requests with
 a HTTP `POST`, setting the `X-HTTP-Method-Override` header
 with the true method. If `emulateJSON` is also on, the true method
 will be passed as an additional `_method` parameter.
+もしあなたが、Backnone既定のREST/HTTPアプローチをサポートしていないレガシーなWebサーバを使いたい場合、`Backbone.emulateHTTP`を使うようになるかもしれない。
+このメソッドにtrueに設定して `PUT` や `DELETE` リクエストを要求した場合、HTTPリクエストヘッダーの `X-HTTP-Method-Override` を `POST` に変更してリクエストを偽装します。
+また、`emulateJSON` メソッドをtrueにした場合、リクエストパラメータに `_method` を追加して渡されます。
 
 ```javascript
 Backbone.emulateHTTP = true;
