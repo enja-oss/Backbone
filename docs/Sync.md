@@ -5,8 +5,8 @@
 **Backbone.sync** is the function that Backbone calls every time it attempts to read or save a model to the server. 
 By default, it uses `(jQuery/Zepto).ajax` to make a RESTful JSON request and returns a [jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR).
 You can override it in order to use a different persistence strategy, such as WebSockets, XML transport, or Local Storage.
-**Backbone.sync**は、サーバに対してmodelの保存や読み込みを常に試みている関数です。
-初期設定では、RESTful JSON リクエスト及び、[jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR)を返すために `(jQueryかZepto依存の).ajax` を使用しています。
+**Backbone.sync**は、modelの保存や読込みに対して、常にサーバとの同期を試みる関数です。
+初期設定では、RESTful JSON リクエスト及び、[jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR)を返すために jQueryもしくはZeptoの `.ajax` を使用しています。
 あなたはこれをoverrideすることでWebSockets、 XML transport、 Local Storageなど、異なる永続化戦略として使用することができます。
 
 
@@ -18,13 +18,23 @@ The method signature of **Backbone.sync**  is `sync(method, model, [options])`
 - **options**  – success and error callbacks, and all other jQuery request options
 
 - **method**  – CRUDメソッド (`"create"`, `"read"`, `"update"`, or `"delete"`)
-- **model**  – 保存されていないModel (もしくは、読み込まれるcollection)
-- **options**  – 成功か失敗した場合のコールバック、および他のすべてのjQueryリクエストオプション
+- **model**  – これから保存するModel (もしくは、読込むcollection)
+- **options**  – 成功か失敗した場合のコールバック、および他のすべてのjQuery（Ajax）オプション
 
-With the default implementation, when **Backbone.sync** sends up a request to save a model, its attributes will be passed, serialized as JSON, and sent in the HTTP body with content-type `application/json` 
-When returning a JSON response, send down the attributes of the  model that have been changed by the server, and need to be updated on the client. When responding to a `"read"` request from a collection ([#Collection#fetch](#Collection#fetch)), send down an array of model attribute objects.
-デフォルトの実装は、**Backbone.sync**がmodelを保存するように要求を出した場合の、その属性はHTTP Bodyの中にシリアライズされたJSON形式で渡されます。content-typeには`application/json`が指定されます。
+With the default implementation, when **Backbone.sync** sends up a request to save a model, 
+its attributes will be passed, serialized as JSON, and sent in the HTTP body with content-type `application/json` 
+When returning a JSON response, send down the attributes of the  model that have been changed by the server, 
+and need to be updated on the client. 
+When responding to a `"read"` request from a collection ([#Collection#fetch](#Collection#fetch)), 
+send down an array of model attribute objects.
+**Backbone.sync**がmodelを保存するように要求した場合のデフォルトの実装は、JSONシリアライズした属性値をHTTPボディに格納し、content-typeに `application/json` を指定して送信します。
 JSONレスポンスが帰ってきたとき。サーバによって変更されたModelの属性、クライアントが更新するための
+
+↑-----------------
+ここまだ
+
+
+
 
 The **sync**  function may be overriden globally as `Backbone.sync`
 or at a finer-grained level, by adding a `sync` function to a Backbone
@@ -68,9 +78,9 @@ Setting this option will fake `PUT` and `DELETE` requests with
 a HTTP `POST`, setting the `X-HTTP-Method-Override` header
 with the true method. If `emulateJSON` is also on, the true method
 will be passed as an additional `_method` parameter.
-もしあなたが、Backnone既定のREST/HTTPアプローチをサポートしていないレガシーなWebサーバを使いたい場合、`Backbone.emulateHTTP`を使うようになるかもしれない。
-このメソッドにtrueを設定して `PUT` や `DELETE` リクエストを要求した場合、HTTPリクエストヘッダーの `X-HTTP-Method-Override` に `POST` を設定してリクエストを偽装するでしょう。
-また、`emulateJSON` メソッドをtrueにした場合、リクエストパラメータの `_method` として渡されます。
+もしあなたが、Backnone既定のREST/HTTPアプローチをサポートしていないレガシーなWebサーバで作業したい場合、`Backbone.emulateHTTP`をオンにする選択をするかもしれない。
+この関数にtrueを設定して `PUT` や `DELETE` リクエストを要求した場合、`X-HTTP-Method-Override` HTTPリクエストヘッダーを `POST` に偽装してリクエストを要求するでしょう。
+また、`emulateJSON` メソッドをtrueにした場合、この設定は `_method` パラメータとして渡されます。
 
 ```javascript
 Backbone.emulateHTTP = true;
@@ -85,6 +95,6 @@ encoded as `application/json`, setting `Backbone.emulateJSON = true;`
 will cause the JSON to be serialized under a `model` parameter, and
 the request to be made with a `application/x-www-form-urlencoded`
 mime type, as if from an HTML form.
-もしあなたが `application/json` エンコードを取り扱えないレガシーなWebサーバ上で使用する場合、
-`Backbone.emulateJSON = true;` とすることで、`model` パラメータをJSON形式にシリアライズし、
-HTMLフォームと同じように `application/x-www-form-urlencoded` のminetypeでリクエストするでしょう。
+もしあなたが `application/json` エンコードを取り扱えないレガシーなWebサーバ上で作業している場合、
+`Backbone.emulateJSON = true;` とすることで、JSONは `model` パラメータとしてシリアライズされ
+HTMLフォームと同じようにMinetypeを `application/x-www-form-urlencoded` としてリクエストとして要求されるでしょう。
