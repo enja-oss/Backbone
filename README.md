@@ -28,8 +28,10 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 
 +  [Annotated Source](https://github.com/enja-oss/Backbone/blob/master/backbone.js)
 +  [Introduction](https://github.com/enja-oss/Backbone/blob/master/docs/Introduction.md)
-+  [Upgrading](http://backbonejs.org/#upgrading)
++  [Upgrading](https://github.com/enja-oss/Backbone/blob/master/docs/Upgrading.md)
 +  [Events](https://github.com/enja-oss/Backbone/blob/master/docs/Events.md)
++  [History](https://github.com/enja-oss/Backbone/blob/master/docs/History.md)
++  [Utility](https://github.com/enja-oss/Backbone/blob/master/docs/Utility.md)
 +  [FAQ](https://github.com/enja-oss/Backbone/blob/master/docs/FAQ.md)
 
 ##着手中/予定コンテンツ
@@ -39,8 +41,6 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 +  [Router](http://backbonejs.org/#Router) [@hokaccha](https://github.com/hokaccha)
 +  [Sync](http://backbonejs.org/#Sync) [@mitsuruog](https://github.com/mitsuruog)
 +  [View](http://backbonejs.org/#View) [@ahomu](https://github.com/ahomu)
-+  [Utility](http://backbonejs.org/#Utility) [@1000ch](https://github.com/1000ch)
-+  [History](http://backbonejs.org/#History) [@tanakahisateru](https://github.com/tanakahisateru)
 
 ##未着手コンテンツ
 
@@ -95,7 +95,8 @@ Backboneのライセンスを引き継ぎ、すべてMIT Licenseとします。
 +  [@ahomu](https://github.com/ahomu) FAQ, Annotated Source
 +  [@kuu](https://github.com/kuu) Introduction
 +  [@Layzie](https://github.com/Layzie) Events
-+  [@1000ch](https://github.com/1000ch) Upgrading
++  [@1000ch](https://github.com/1000ch) Upgrading, Utility
++  [@tanakahisateru](https://github.com/tanakahisateru) History
 
 監訳
 
