@@ -28,7 +28,7 @@ and need to be updated on the client.
 When responding to a `"read"` request from a collection ([#Collection#fetch](#Collection#fetch)), 
 send down an array of model attribute objects.
 **Backbone.sync**がmodelを保存するように要求した場合のデフォルトの実装は、JSONシリアライズした属性値をHTTPボディに格納し、content-typeに `application/json` を指定して送信します。
-JSONレスポンスが帰ってきたとき。サーバによって変更されたModelの属性、クライアントが更新するための
+JSONレスポンスが帰ってきたとき。サーバによって変更されたModelの属性、クライアントにて更新が必要な
 
 ↑-----------------
 ここまだ
