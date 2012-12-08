@@ -7,7 +7,7 @@ By default, it uses `(jQuery/Zepto).ajax` to make a RESTful JSON request and ret
 You can override it in order to use a different persistence strategy, such as WebSockets, XML transport, or Local Storage.
 **Backbone.sync**は、modelの保存や読込みに対して、常にサーバとの同期を試みる関数です。
 初期設定では、RESTful JSON リクエスト及び、[jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR)を返すために jQueryもしくはZeptoの `.ajax` を使用しています。
-あなたはこれをoverrideすることでWebSockets、 XML transport、 Local Storageなど、異なる永続化戦略として使用することができます。
+あなたはこれをoverrideオーバーライドすることでWebSockets、 XML transport、 Local Storageなど、異なる方法で置き換えることができます。
 
 
 The method signature of **Backbone.sync**  is `sync(method, model, [options])`
