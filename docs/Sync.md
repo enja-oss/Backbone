@@ -6,12 +6,13 @@
 By default, it uses `(jQuery/Zepto).ajax` to make a RESTful JSON request and returns a [jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR).
 You can override it in order to use a different persistence strategy, such as WebSockets, XML transport, or Local Storage.
 
-**Backbone.sync**は、Backboneが常に呼び出し、サーバへmodelの保存や読込みを試みる関数です。
-初期設定では、RESTful JSON リクエストを行うためにjQueryもしくはZeptoの `.ajax` を使用します。そして、レスポンスは[jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR)が返ります。
-あなたはこれをオーバーライドすることでWebSockets、 XML transport、 Local Storageなど、異なる永続化の方法として置き換えることができます。
+**Backbone.sync**は、サーバへmodelの保存や読込みを試みるたびにBackboneが呼び出す関数です。
+初期設定では、RESTful JSON リクエストを行うために（jQueryもしくはZeptoの） `.ajax` を使用します。そして、レスポンスは[jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR)が返ります。
+これをオーバーライドすることでWebSockets、 XML transport、 Local Storageなど、異なる永続化の方法として置き換えることができます。
 
 
 The method signature of **Backbone.sync**  is `sync(method, model, [options])`
+
 **Backbone.sync** のメソッドシグネイチャは `sync(method, model, [options])` です。
 
 - **method**  – the CRUD method (`"create"`, `"read"`, `"update"`, or `"delete"`)
@@ -19,7 +20,7 @@ The method signature of **Backbone.sync**  is `sync(method, model, [options])`
 - **options**  – success and error callbacks, and all other jQuery request options
 
 - **method**  – CRUDメソッド (`"create"`, `"read"`, `"update"`, or `"delete"`)
-- **model**  – これから保存するModel (もしくは、読込むcollection)
+- **model**  – 保存するModel (もしくは、読込むcollection)
 - **options**  – 成功か失敗した場合のコールバック、および他のすべてのjQuery（Ajax）オプション
 
 With the default implementation, when **Backbone.sync** sends up a request to save a model, 
@@ -39,8 +40,8 @@ The **sync**  function may be overriden globally as `Backbone.sync`
 or at a finer-grained level, by adding a `sync` function to a Backbone
 collection or to an individual model.
 
-この**sync**メソッドは、Backbone collectionや個々のmodelに `sync` 関数を追加することによって、
-グローバルな `Backbone.sync` としてオーバーライドできます。
+この **sync** メソッドは、Backboneのコレクションや個々のモデルに `sync` 関数を追加することによって、
+`Backbone.sync` と同じグローバルレベルやもっと細かい粒度でオーバーライドできます。
 
 
 The default **sync**  handler maps CRUD to REST like so:
@@ -72,8 +73,8 @@ end
 One more tip for Rails integration is to disable the default namespacing for
 `to_json` calls on models by setting `ActiveRecord::Base.include_root_in_json = false`
 
-Rails 統合するためのもうひとつのチップは、モデルからの `to_jsonは` 呼び出しについて
-既定の `ActiveRecord::Base.include_root_in_json = false` を設定して無効にすることです。
+Railsと統合するためのもうひとつのチップは、モデルからの `to_jsonは` 呼び出しについて
+既定の名前空間を無効に設定することです。 `ActiveRecord::Base.include_root_in_json = false`
 
 ### emulateHTTP `Backbone.emulateHTTP = true` [原文](http://backbonejs.org/#Sync-emulateHTTP)
 
@@ -84,8 +85,8 @@ a HTTP `POST`, setting the `X-HTTP-Method-Override` header
 with the true method. If `emulateJSON` is also on, the true method
 will be passed as an additional `_method` parameter.
 
-もしあなたが、Backnone既定のREST/HTTPアプローチをサポートしていないレガシーなWebサーバで作業したい場合、`Backbone.emulateHTTP`をオンにするでしょう。
-この関数にtrueを設定して `PUT` や `DELETE` リクエストを要求した場合、`X-HTTP-Method-Override` HTTPリクエストヘッダーを `POST` に偽装してリクエストを要求するでしょう。
+もしBacknone既定のREST/HTTPアプローチをサポートしていないレガシーなWebサーバ上で作業したい場合、`Backbone.emulateHTTP`をオンにしてください。
+この関数にtrueを設定して `PUT` や `DELETE` リクエストを要求した場合、`X-HTTP-Method-Override` HTTPリクエストヘッダーを `POST` に偽装してリクエストを要求します。
 また、`emulateJSON` メソッドをtrueにした場合、この設定は `_method` パラメータとして渡されます。
 
 ```javascript
@@ -105,6 +106,6 @@ will cause the JSON to be serialized under a `model` parameter, and
 the request to be made with a `application/x-www-form-urlencoded`
 mime type, as if from an HTML form.
 
-もしあなたが `application/json` エンコードを取り扱えないレガシーなWebサーバ上で作業している場合、
+もし `application/json` エンコードを取り扱えないレガシーなWebサーバ上で作業している場合、
 `Backbone.emulateJSON = true;` とすることで、JSONは `model` パラメータとしてシリアライズされ
-HTMLフォームと同じようにMINEタイプを `application/x-www-form-urlencoded` としてリクエストを要求するでしょう。
+HTMLフォームと同じようにMINEタイプを `application/x-www-form-urlencoded` としてリクエストを要求します。
