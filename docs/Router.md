@@ -2,7 +2,7 @@
 
 ## Backbone.Router
 
-多くの場合、Webアプリケーションはリンク可能、ブックマーク可能、シェア可能なURLをアプリ内での重要な所在地のために提供します。最近まで、これらの固定リンクを提供するためにハッシュフラグメント（`#page`）が使われていましたが、History APIの出現とともに、標準的なURL（`/page`）を使うことが可能になりました。**Backbone.Router**はクライアントサイドページのルーティングのためのメソッド、それらを接続するアクションとイベントを提供します。History APIをサポートしていないブラウザでは、Routerは優雅なフォールバックとURLのフラグメントバージョンへの透過的な変換処理をおこないます。
+多くの場合、Webアプリケーションはリンク可能、ブックマーク可能、シェア可能なURLをアプリ内での重要な所在地のために提供します。最近まで、これらの固定リンクを提供するためにハッシュフラグメント（`#page`）が使われていましたが、History APIの出現とともに、標準的なURL（`/page`）を使うことが可能になりました。 **Backbone.Router** はクライアントサイドページのルーティングのためのメソッド、それらを接続するアクションとイベントを提供します。History APIをサポートしていないブラウザでは、Routerは優雅なフォールバックとURLのフラグメントバージョンへの透過的な変換処理をおこないます。
 
 ページのロード中に、アプリケーションがすべてのルーターの作成を完了した後、必ずルートの初期URLで`Backbone.history.start()`か`Backbone.history.start({pushState: true})`を呼び出してください。
 
@@ -68,7 +68,7 @@ routesハッシュは[View](http://documentcloud.github.com/backbone/#View)の[e
 
 ### navigaterouter.navigate(fragment, [options]) 
 
-URLを保存したいアプリケーション内の地点に到達したら、URLを更新するために**navigate**を呼び出します。route関数の呼びだしも行いたい場合は**trigger**オプションに`ture`を設定します。ブラウザの履歴にエントリを作成せずにURLを更新するためには**replace**オプションに`true`を設定します。
+URLを保存したいアプリケーション内の地点に到達したら、URLを更新するために **navigate** を呼び出します。route関数の呼びだしも行いたい場合は **trigger** オプションに`ture`を設定します。ブラウザの履歴にエントリを作成せずにURLを更新するためには **replace** オプションに`true`を設定します。
 
     openPage: function(pageNumber) {
       this.document.pages.at(pageNumber).open();
