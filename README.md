@@ -30,7 +30,9 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 +  [Introduction](https://github.com/enja-oss/Backbone/blob/master/docs/Introduction.md)
 +  [Upgrading](https://github.com/enja-oss/Backbone/blob/master/docs/Upgrading.md)
 +  [Events](https://github.com/enja-oss/Backbone/blob/master/docs/Events.md)
++  [Router](https://github.com/enja-oss/Backbone/blob/master/docs/Router.md)
 +  [History](https://github.com/enja-oss/Backbone/blob/master/docs/History.md)
++  [Sync](https://github.com/enja-oss/Backbone/blob/master/docs/Sync.md)
 +  [Utility](https://github.com/enja-oss/Backbone/blob/master/docs/Utility.md)
 +  [FAQ](https://github.com/enja-oss/Backbone/blob/master/docs/FAQ.md)
 
@@ -38,15 +40,13 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 
 +  [Model](http://backbonejs.org/#Model) [@kuu](https://github.com/kuu)
 +  [Collection](http://backbonejs.org/#Collection) [@Layzie](https://github.com/Layzie)
-+  [Router](http://backbonejs.org/#Router) [@hokaccha](https://github.com/hokaccha)
-+  [Sync](http://backbonejs.org/#Sync) [@mitsuruog](https://github.com/mitsuruog)
 +  [View](http://backbonejs.org/#View) [@ahomu](https://github.com/ahomu)
++  [Examples](http://backbonejs.org/#Examples) [@studiomohawk](https://github.com/studiomohawk)
 
 ##未着手コンテンツ
 
 コンテンツの翻訳にご協力くださる方は、ぜひ[着手予定の宣言コーナー](https://github.com/enja-oss/Backbone/issues/1 "着手予定の宣言コーナー · Issue #1 · enja-oss/Backbone")でお知らせください。その際に、着手予定のが他の人とかぶっていないこともご確認ください。
 
-+  [Examples](http://backbonejs.org/#Examples)
 
 ##書式ガイド
 
@@ -70,6 +70,8 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 **強調された単語**
 ```
 
+※GitHubのMarkdownビューワの仕様上、連続した文中で **強調** するときは前後にスペースを入れてください。
+
 ####コード
 
 元文書においてttタグでマークアップされている箇所
@@ -77,6 +79,16 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 ```
 `note.get("title")`
 ```
+
+####斜体
+
+元文書において何らか斜体で表示されている箇所
+
+```
+_斜体の文章_
+```
+
+※GitHubのMarkdownビューワの仕様上、連続した文中で _斜体_ するときは前後にスペースを入れてください。
 
 ###参照先
 
@@ -97,6 +109,8 @@ Backboneのライセンスを引き継ぎ、すべてMIT Licenseとします。
 +  [@Layzie](https://github.com/Layzie) Events
 +  [@1000ch](https://github.com/1000ch) Upgrading, Utility
 +  [@tanakahisateru](https://github.com/tanakahisateru) History
++  [@hokaccha](https://github.com/hokaccha) Router
++  [@mitsuruog](https://github.com/mitsuruog) Sync
 
 監訳
 

@@ -31,7 +31,7 @@
   var slice = Array.prototype.slice;
   var splice = Array.prototype.splice;
 
-  // トップレベルの名前空間。Backboneのすべてのクラスとモジュールはこれにアタッチされる。
+  // トップレベルの名前空間。Backboneのすべてのパブリックのクラスとモジュールはこれにアタッチされる。
   // CommonJSとブラウザ環境の両方にエクスポートする。
   var Backbone;
   if (typeof exports !== 'undefined') {
@@ -47,7 +47,7 @@
   var _ = root._;
   if (!_ && (typeof require !== 'undefined')) _ = require('underscore');
 
-  // Backbone実行のため、jQuery、Zepto、Enderのいずれかを自身の`$`変数とする。
+  // Backbone実行のため、jQuery、Zepto、Enderのいずれかが`$`変数を所有する。
   var $ = root.jQuery || root.Zepto || root.ender;
 
   // DOM操作とAjaxコールのために使用されるJavaScriptライブラリをセットする（たとえば
@@ -154,8 +154,8 @@
 
     // ひとつまたは複数のイベントをトリガーし、結びついたすべてのコールバックを発火する。
     // コールバックにはイベント名ごとに、`trigger`と同じ引数を渡す。
-    // (`"all"`として結びつけていない限り、あなたのコールバックは、最初の引数として、
-    // 本来のイベント名を受け取るようになる）
+    // (`"all"`を利用していない限りは、コールバックは本来のイベント名を最初の引数として
+    // を受け取る）
     trigger: function(events) {
       var event, node, calls, tail, args, all, rest;
       if (!(calls = this._callbacks)) return this;
@@ -219,14 +219,14 @@
     this.initialize.apply(this, arguments);
   };
 
-  // すべての継承メソッドをモデルのプロトタイプにアタッチする。
+  // すべての継承可能なメソッドをモデルのプロトタイプにアタッチする。
   _.extend(Model.prototype, Events, {
 
     // 現在と以前の値と異なる属性のハッシュ。
     changed: null,
 
-    // `change`が呼ばれたときから、silentな変更があった属性のハッシュ。次のコールされる
-    // ときに属性は保留中になる。
+    // 最後に`change`が呼ばれたときから、silentな変更があった属性のハッシュ。
+    // 次にコールされた場合、この属性は保留中となる。
     _silent: null,
 
     // 最後に`'change'`イベントが呼ばれてから、変更された属性のハッシュ。
@@ -285,7 +285,7 @@
       // バリデーションを実行する。
       if (!this._validate(attrs, options)) return false;
 
-      // `id`にの変化をチェックする。
+      // `id`の変化をチェックする。
       if (this.idAttribute in attrs) this.id = attrs[this.idAttribute];
 
       var changes = options.changes = {};
@@ -306,7 +306,7 @@
         // 現在の値を更新または削除する。
         options.unset ? delete now[attr] : now[attr] = val;
 
-        // 新しい値と前の値が異なるとき、変更を記録する。この属性が削除されたときは除く。
+        // 前の値が異なる場合に変更を記録し、そうでない場合はこの属性への変更を削除する。
         if (!_.isEqual(prev[attr], val) || (_.has(now, attr) != _.has(prev, attr))) {
           this.changed[attr] = val;
           if (!options.silent) this._pending[attr] = true;
@@ -353,7 +353,7 @@
     save: function(key, value, options) {
       var attrs, current;
 
-      // `"key", value`と`{key: value}`の両スタイルの引数を制御する。
+      // `("key", value)`と`({key: value})`の両スタイルの引数を制御する。
       if (_.isObject(key) || key == null) {
         attrs = key;
         options = value;
@@ -401,9 +401,9 @@
       return xhr;
     },
 
-    // すでに永続化されているモデルをサーバー上から破棄する。それが含まれるコレクション
-    // からは楽観的に削除を行う。もし`wait: true`が渡されていれば、削除する前にサーバー
-    // のレスポンスを待つ。
+    // すでに永続化されているモデルをサーバー上から破棄する。
+    // それが含まれるコレクションからは楽観的に削除を行う。
+    // もし`wait: true`が渡されていれば、削除する前にサーバーのレスポンスを待つ。
     destroy: function(options) {
       options = options ? _.clone(options) : {};
       var model = this;
@@ -476,7 +476,7 @@
       }
       if (changing) return this;
 
-      // 続けて、保留中の変更について`"change"`イベントを発火する。
+      // 保留中の変更がある場合は`"change"`イベントを発火し続ける。
       while (!_.isEmpty(this._pending)) {
         this._pending = {};
         this.trigger('change', this, options);
@@ -515,7 +515,7 @@
       return changed;
     },
 
-    // 最後に`"change"`イベントが発火したときに記録された、属性の以前の値を取得する。
+    // 最後に`"change"`イベントが発火したときに記録された属性の値を取得する。
     previous: function(attr) {
       if (!arguments.length || !this._previousAttributes) return null;
       return this._previousAttributes[attr];
@@ -532,9 +532,10 @@
       return !this.validate(this.attributes);
     },
 
-    // モデルの次の完全な属性セットに対して検証を実行し、すべて有効である場合は`true`を
-    // 返す。`error`コールバックを指定して渡されたときは、通常の`"error"`イベントの
-    // 代わりにコールされる。
+    // モデルの次の完全な属性セットに対して検証を実行し、
+    // すべて有効である場合は`true`を返す。
+    // 特定の`error`コールバックを指定して渡されたときは、
+    // 通常の`"error"`イベントの代わりにコールされる。
     _validate: function(attrs, options) {
       if (options.silent || !this.validate) return true;
       attrs = _.extend({}, this.attributes, attrs);
@@ -553,9 +554,9 @@
   // Backbone.Collection
   // -------------------
 
-  // 順序づいたまたはそうでないモデルセットの標準的なコレクションクラスを提供する。
-  // `comparator`が指定されていれば、モデルの並び順を維持するよう追加や削除がされたときに
-  // ソートする。
+  // 並び順に関わらずモデルのセット用に標準的なコレクションクラスを提供する。
+  // `comparator`が指定されている場合、コレクションはモデルが追加、
+  // あるいは削除された状態のままの並び順を保持する
   var Collection = Backbone.Collection = function(models, options) {
     options || (options = {});
     if (options.model) this.model = options.model;
@@ -580,15 +581,15 @@
       return this.map(function(model){ return model.toJSON(options); });
     },
 
-    // モデルを追加、またはモデルのリストをセットする。**silent**を指定すれば
+    // モデル、あるいはモデルのリストをセットする。**silent**を指定すれば
     // `add`イベントがそれぞれの新しいモデルで発火するのを抑制する。
     add: function(models, options) {
       var i, index, length, model, cid, id, cids = {}, ids = {}, dups = [];
       options || (options = {});
       models = _.isArray(models) ? models.slice() : [models];
 
-      // はじめに、モデルの参照を素のオブジェクトに入れてから、不正なモデルや重複した
-      // モデルの追加を防ぐことから始める。
+      // まず始めに素のオブジェクトをモデルの参照に変更し、
+      // それから不正なモデルや重複したモデルが追加されるのを防ぐ。
       for (i = 0, length = models.length; i < length; i++) {
         if (!(model = models[i] = this._prepareModel(models[i], options))) {
           throw new Error("Can't add an invalid model to a collection");
@@ -631,7 +632,7 @@
       return this;
     },
 
-    // モデルまたはモデルのリストを、セット済みから取り除く。silentを指定すれば
+    // モデルまたはモデルのリストをセットから取り除く。silentを指定すれば
     // `remove`イベントがそれぞれのモデルで発生するのを抑制する。
     remove: function(models, options) {
       var i, l, index, model;
@@ -841,7 +842,7 @@
 
   });
 
-  // UnderscoreのメソッドがCollectionに実装されているようにする。
+  // コレクションに実装したいUnderscoreのメソッド集。
   var methods = ['forEach', 'each', 'map', 'reduce', 'reduceRight', 'find',
     'detect', 'filter', 'select', 'reject', 'every', 'all', 'some', 'any',
     'include', 'contains', 'invoke', 'max', 'min', 'sortBy', 'sortedIndex',
@@ -957,7 +958,7 @@
     // ハッシュチェンジのポーリングが必要なとき、デフォルトのインターバルは1秒に20回である。
     interval: 50,
 
-    // 本来のハッシュ値を取得する。Firefoxにおける、location.hashが常にデコードされる
+    // 本来のハッシュ値を取得する。Firefoxにおけるlocation.hashが常にデコードされる
     // バグにより、location.hashを直接取り扱うことはできない。
     getHash: function(windowOverride) {
       var loc = windowOverride ? windowOverride.location : window.location;
@@ -1148,8 +1149,8 @@
     // ビュー要素の`tagName`はデフォルトで`"div"`である。
     tagName: 'div',
 
-    // 要素のルックアップをjQueryに委譲し、現在のビューの中にあるDOM要素達を対象にする。
-    // これはグローバルにルックアップ可能な場合、好まれるべきである。
+    // 現在のビューの中にあるDOM要素を対象にする形で要素のルックアップをjQueryに委譲する。
+    // もし可能な場合、この方法は全体に対するルックアップを行うよりも推奨される。
     $: function(selector) {
       return this.$el.find(selector);
     },
@@ -1157,8 +1158,9 @@
     // 初期化はデフォルトで空の関数。自身の初期化ロジックでオーバーライドする。
     initialize: function(){},
 
-    // **render**は、適切なHTMLで要素 (`this.el`) を生成するために、各自のビューが
-    // オーバーライドすべきコア関数である。規則では、**render**は常に`this`を返す。
+    // **render**は、適切なHTMLで要素 (`this.el`) を生成するために、
+    // 各自のビューがオーバーライドすべきコア関数である。
+    // **render**では常にthisを返すことが一般的に行われている。
     render: function() {
       return this;
     },
