@@ -50,8 +50,7 @@
 
     });
 
-`super`に関する補足: JavaScriptではsuper - つまりプロトタイプチェーンにおける上位のオブジェクトで定義された同名の関数 - を呼び出す簡単な方法がありません。もしあなたが`set`や`save`の
-ようなコア関数をオーバーライドした上で、親クラスの実装の方を使いたい場合、以下の例のように明示的に関数を呼び出すしかありません。
+ _`super`に関する補足: JavaScriptではsuper - つまりプロトタイプチェーンにおける上位のオブジェクトで定義された同名の関数 - を呼び出す簡単な方法がありません。もしあなたが`set`や`save`のようなコア関数をオーバーライドした上で、親クラスの実装の方を使いたい場合、以下の例のように明示的に関数を呼び出すしかありません。_ 
 
     var Note = Backbone.Model.extend({
       set: function(attributes, options) {
@@ -80,7 +79,7 @@
     
     book.set("title", "A Scandal in Bohemia");
 
-モデルが[validate](#Model-validate)メソッドを持つ場合、属性値がセットされる前に検査が実行されます。もし検査に失敗すれば何も変更されず、 **set** は`false`を返します。検査に成功すれば、 **set** はモデルへの参照を返します。オプション引数に`error`コールバック関数を渡す事も出ます。その場合、検査に失敗すれば`"error"`イベントが発行される代わりにコールバック関数が呼ばれます。オプション引数に`{silent: true}`を指定することで、検査をスキップすることができます。
+モデルが[validate](#Model-validate)メソッドを持つ場合、属性値がセットされる前に検査が実行されます。もし検査に失敗すれば何も変更されず、 **set** は`false`を返します。検査に成功すれば、 **set** はモデルへの参照を返します。オプション引数に`error`コールバック関数を渡す事もできます。その場合、検査に失敗すれば`"error"`イベントが発行される代わりにコールバック関数が呼ばれます。オプション引数に`{silent: true}`を指定することで、検査をスキップすることができます。
 
 ### escape `model.escape(attribute)` [原文](http://backbonejs.org/#Model-escape) 
 このメソッドは[get](#Model-get)と似ていますが、HTMLエスケープされた属性値を返すという点で異なります。モデルから得たデータをHTMLに書き込む場合、 **escape** 経由で属性値を取得することで[XSS](http://ja.wikipedia.org/wiki/クロスサイトスクリプティング)攻撃を防ぐことができます。
@@ -139,7 +138,7 @@
     
     alert("Dessert will be " + (new Meal).get('dessert'));
 
-*JavaScriptではオブジェクトは参照として渡されます。つまり、オブジェクトをデフォルト値として指定した場合、それはすべてのインスタンスにより共有されます。*
+ _JavaScriptではオブジェクトは参照として渡されます。つまり、オブジェクトをデフォルト値として指定した場合、それはすべてのインスタンスにより共有されます。_ 
 
 ### toJSON `model.toJSON()` [原文](http://backbonejs.org/#Model-toJSON) 
 JSON.stringifyから呼び出され、モデルの[attributes](#Model-attributes)属性のコピーを返します。このメソッドはViewに渡す前に属性値を永続化／シリアライズするために使用されます。実際にはJSON文字列を返すわけではないので、メソッド名はいささか混乱を招くかもしれませんが、[JavaScriptのtoJSONとJSON.stringify](https://developer.mozilla.org/ja/docs/JSON#toJSON()_method)もそのように動作します。
@@ -262,7 +261,7 @@ URL生成時に[Collection#url](#Collection-url)が呼ばれるので適切に�
 ### hasChanged `model.hasChanged([attribute])` [原文](http://backbonejs.org/#Model-hasChanged) 
 最後に`"change"`イベントが発行されて以来、モデルが変更されたかどうかを返します。引数 **attribute** が渡された場合、指定された属性が変更されたか場合にのみ`true`を返します。
 
-*このメソッドと後続のchange関連のメソッドは、`"change"`イベントの処理中にのみ有用です。*
+ _このメソッドと後続のchange関連のメソッドは、`"change"`イベントの処理中にのみ有用です。_ 
 
     book.on("change", function() {
       if (book.hasChanged("title")) {
