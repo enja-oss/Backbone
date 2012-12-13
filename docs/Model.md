@@ -141,7 +141,7 @@
  _JavaScriptではオブジェクトは参照として渡されます。つまり、オブジェクトをデフォルト値として指定した場合、それはすべてのインスタンスにより共有されます。_ 
 
 ### toJSON `model.toJSON()` [原文](http://backbonejs.org/#Model-toJSON) 
-JSON.stringifyから呼び出され、モデルの[attributes](#Model-attributes)属性のコピーを返します。このメソッドはViewに渡す前に属性値を永続化／シリアライズするために使用されます。実際にはJSON文字列を返すわけではないので、メソッド名はいささか混乱を招くかもしれませんが、[JavaScriptのtoJSONとJSON.stringify](https://developer.mozilla.org/ja/docs/JSON#toJSON()_method)もそのように動作します。
+JSON.stringifyから呼び出され、モデルの[attributes](#Model-attributes)属性のコピーを返します。このメソッドはViewに渡す前に属性値を永続化／シリアライズするために使用されます。実際にはJSON文字列を返すわけではないので、メソッド名はいささか混乱を招くかもしれませんが、[JavaScriptのtoJSONとJSON.stringify](https://developer.mozilla.org/ja/docs/JSON#toJSON\(\)_method)もそのように動作します。
 
     var artist = new Backbone.Model({
       firstName: "Wassily",
