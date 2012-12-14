@@ -10,23 +10,25 @@
 
 カスタムルータークラスを作ることから始めます。特定のURLフラグメントにマッチした場合にトリガーされるアクションを定義し、ルートとアクションのペアの[routes](#Router-routes)ハッシュを提供してください。ルート定義の中で先頭のスラッシュの使用を避けるべきということに注意してください:
 
-    var Workspace = Backbone.Router.extend({
+```javascript
+var Workspace = Backbone.Router.extend({
 
-      routes: {
-        "help":                 "help",    // #help
-        "search/:query":        "search",  // #search/kiwis
-        "search/:query/p:page": "search"   // #search/kiwis/p7
-      },
+  routes: {
+    "help":                 "help",    // #help
+    "search/:query":        "search",  // #search/kiwis
+    "search/:query/p:page": "search"   // #search/kiwis/p7
+  },
 
-      help: function() {
-        ...
-      },
+  help: function() {
+    ...
+  },
 
-      search: function(query, page) {
-        ...
-      }
+  search: function(query, page) {
+    ...
+  }
 
-    });
+});
+```
 
 ### routes router.routes 
 
@@ -36,15 +38,17 @@ routesハッシュは[View](http://documentcloud.github.com/backbone/#View)の[e
 
 訪問者が戻るボタンを押すか、URLを入力して特定のルートがマッチした場合、アクションの名前の[イベント](http://documentcloud.github.com/backbone/#Events)が発火するので、その他のオブジェクトはrouterにlistenして通知を受けることができます。次の例では、`#help/uploading`を訪れたときに`route:help`イベントがrouterから発火します。
 
-    routes: {
-      "help/:page":         "help",
-      "download/*path":     "download",
-      "folder/:name":       "openFolder",
-      "folder/:name-:mode": "openFolder"
-    }
-    router.on("route:help", function(page) {
-      ...
-    });
+```javascript
+routes: {
+  "help/:page":         "help",
+  "download/*path":     "download",
+  "folder/:name":       "openFolder",
+  "folder/:name-:mode": "openFolder"
+}
+router.on("route:help", function(page) {
+  ...
+});
+```
 
 ### constructor / initializenew Router([options]) 
 
@@ -54,31 +58,36 @@ routesハッシュは[View](http://documentcloud.github.com/backbone/#View)の[e
 
 手動でルーターのためのルートを作成し、`route`引数には[ルーティング文字列](http://documentcloud.github.com/backbone/#Router-routes)か正規表現を指定することができます。ルート文字列か正規表現からマッチしたそれぞれのキャプチャはコールバックの引数として渡されます。`name`引数はルートがマッチしたときに`route:name`イベントとしてトリガーされます。もし`callback`引数が省略された場合、`router[name]`が代わりに使用されます。
 
-    initialize: function(options) {
+```javascript
+initialize: function(options) {
 
-      // #page/10にマッチしたら"10"が渡される
-      this.route("page/:number", "page", function(number){ ... });
+  // #page/10にマッチしたら"10"が渡される
+  this.route("page/:number", "page", function(number){ ... });
 
-      // /117-a/b/c/openにマッチしたら"117-a/b/c"がthis.openに渡される
-      this.route(/^(.*?)\/open$/, "open");
+  // /117-a/b/c/openにマッチしたら"117-a/b/c"がthis.openに渡される
+  this.route(/^(.*?)\/open$/, "open");
 
-    },
+},
 
-    open: function(id) { ... }
+open: function(id) { ... }
+```
 
 ### navigaterouter.navigate(fragment, [options]) 
 
 URLを保存したいアプリケーション内の地点に到達したら、URLを更新するために **navigate** を呼び出します。route関数の呼びだしも行いたい場合は **trigger** オプションに`ture`を設定します。ブラウザの履歴にエントリを作成せずにURLを更新するためには **replace** オプションに`true`を設定します。
 
-    openPage: function(pageNumber) {
-      this.document.pages.at(pageNumber).open();
-      this.navigate("page/" + pageNumber);
-    }
+```javascript
+openPage: function(pageNumber) {
+  this.document.pages.at(pageNumber).open();
+  this.navigate("page/" + pageNumber);
+}
 
-    # Or ...
+# Or ...
 
-    app.navigate("help/troubleshooting", {trigger: true});
+app.navigate("help/troubleshooting", {trigger: true});
 
-    # Or ...
+# Or ...
 
-    app.navigate("help/troubleshooting", {trigger: true, replace: true});
+app.navigate("help/troubleshooting", {trigger: true, replace: true});
+```
+
