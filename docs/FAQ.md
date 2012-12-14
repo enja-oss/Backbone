@@ -50,7 +50,7 @@ Backbone.jsで発火する組み込みイベントの一覧を示します。こ
 
 **バッチ操作**はモデルにおいて一般的ですが、多くの場合はサーバーサイドの設計によって異なった制御を行うほうが理想的です。一部の人々はAjaxリクエストを個々に記述することを惜しみません。あるいは、`/notes/batch/destroy?ids=1,2,3,4` のようなRESTfulなバッチ操作のための明示的なリソースを作成します。他にも、JSONをトンネルにすることでRESTを実現し、次のようなチェンジセットとしてリクエストを作成することもあります。
 
-```
+```javascript
 {
   "create":  [array of models to create],
   "update":  [array of models to update],
@@ -66,7 +66,7 @@ Backbone.jsで発火する組み込みイベントの一覧を示します。こ
 
 たとえば、多くの`Message` modelをもつ`Mailbox` modelを考えてみましょう。これを処理するための良い方法のひとつは、Mailboxに`this.messages` collectionを持たせMailboxがはじめに開かれたときに、遅延ロードされるようにします。おそらく`MessageList` viewは、`add`と`remove`イベントをリスニングするようになるでしょう。
 
-```
+```javascript
 var Mailbox = Backbone.Model.extend({
 
   initialize: function() {
@@ -101,13 +101,13 @@ BackboneはネストしたModelやCollectionまたは"has many"なアソシエ�
 
 あなたのアプリが最初に読み込まれたとき、そのページをレンダリングするのに必要になるであろう初期データをセットしておくのが一般的です。そこでAjaxリクエストを余分に行って[fetch](http://backbonejs.org/#Collection-fetch)するよりも、代わりになる良いパターンは、ページにそれらのデータを埋め込んでおくことです。そして、[reset](http://backbonejs.org/#Collection-reset)することで、Collectionの初期データを入れることができます。DocumentCloudでは、ワークスペースには[ERB](http://en.wikipedia.org/wiki/ERuby)テンプレートを使っていて、このように何かしらを行います。
 
-```
-  <script>
-    var Accounts = new Backbone.Collection;
-    Accounts.reset(<%= @accounts.to_json %>);
-    var Projects = new Backbone.Collection;
-    Projects.reset(<%= @projects.to_json(:collaborators => true) %>);
-  </script>
+```erb
+<script>
+  var Accounts = new Backbone.Collection;
+  Accounts.reset(<%= @accounts.to_json %>);
+  var Projects = new Backbone.Collection;
+  Projects.reset(<%= @projects.to_json(:collaborators => true) %>);
+</script>
 ```
 
 あなたは、JavaScriptインジェクション攻撃を防ぐために、JSON文字列内で`</`を[escape](http://mathiasbynens.be/notes/etago)する必要があります。
@@ -138,7 +138,7 @@ Backboneの全体的な構造を、RailsのようなサーバーサイドMVCフ�
 恐らく、最も一般的なJavaScriptの落とし穴は、コールバックとしてfunctionを渡したときに`this`が失われることでしょう。Backboneで[events](http://backbonejs.org/#Events)とコールバックを扱うときにはしばしば、Underscore.jsの[_.bind](http://documentcloud.github.com/underscore/#bind)と[_.bindAll](http://documentcloud.github.com/underscore/#bindAll)の有用さを見いだすでしょう。
 Backboneのevetnsにコールバックをバインドするとき、オプションの第三引数に`this`を指定することで、あとでコールバックが呼び出されたときにそれを使うようにできます。
 
-```
+```javascript
 var MessageList = Backbone.View.extend({
   initialize: function() {
     var messages = this.collection;
@@ -160,7 +160,7 @@ Backbone.jsは元々[Railsアプリケーション](http://www.documentcloud.org
 
 デフォルトでは、RailsはModelをJSONで表すときに、Model名をJSONのrootに余分に含ませてラップします。これをデフォルトでラップを含ませないように設定できます。
 
-```
+```ruby
 ActiveRecord::Base.include_root_in_json = false
 ```
 
