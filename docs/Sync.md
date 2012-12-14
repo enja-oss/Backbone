@@ -28,7 +28,7 @@ modelを保存する場合、modelの属性値はJSONにシリアライズされ
 - **delete &rarr; DELETE &nbsp;** `/collection/id`
 
 例として、`Backbone` から呼び出す `"update"` へのRailsの応答ハンドラはこのようになります。
-（実際のコードでは `update_attributes` を盲目的に利用することはなく、常に変更できる属性をホワイトリスト化してください。）
+_（実際のコードでは `update_attributes` を盲目的に利用することはなく、常に変更できる属性をホワイトリスト化してください。）_
 
 ```javascript
 def update
