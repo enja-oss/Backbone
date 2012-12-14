@@ -30,6 +30,7 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 +  [Introduction](https://github.com/enja-oss/Backbone/blob/master/docs/Introduction.md)
 +  [Upgrading](https://github.com/enja-oss/Backbone/blob/master/docs/Upgrading.md)
 +  [Events](https://github.com/enja-oss/Backbone/blob/master/docs/Events.md)
++  [Model](https://github.com/enja-oss/Backbone/blob/master/docs/Model.md)
 +  [Router](https://github.com/enja-oss/Backbone/blob/master/docs/Router.md)
 +  [History](https://github.com/enja-oss/Backbone/blob/master/docs/History.md)
 +  [Sync](https://github.com/enja-oss/Backbone/blob/master/docs/Sync.md)
@@ -38,15 +39,15 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 
 ##着手中/予定コンテンツ
 
-+  [Model](http://backbonejs.org/#Model) [@kuu](https://github.com/kuu)
 +  [Collection](http://backbonejs.org/#Collection) [@Layzie](https://github.com/Layzie)
 +  [View](http://backbonejs.org/#View) [@ahomu](https://github.com/ahomu)
-+  [Examples](http://backbonejs.org/#Examples) [@studiomohawk](https://github.com/studiomohawk)
++  [Examples](http://backbonejs.org/#Examples) [@maepon](https://github.com/maepon)
 
 ##未着手コンテンツ
 
-コンテンツの翻訳にご協力くださる方は、ぜひ[着手予定の宣言コーナー](https://github.com/enja-oss/Backbone/issues/1 "着手予定の宣言コーナー · Issue #1 · enja-oss/Backbone")でお知らせください。その際に、着手予定のが他の人とかぶっていないこともご確認ください。
++  現在着手前のコンテンツはありません
 
+コンテンツの翻訳にご協力くださる方は、ぜひ[着手予定の宣言コーナー](https://github.com/enja-oss/Backbone/issues/1 "着手予定の宣言コーナー · Issue #1 · enja-oss/Backbone")でお知らせください。その際に、着手予定のが他の人とかぶっていないこともご確認ください。
 
 ##書式ガイド
 
@@ -105,7 +106,7 @@ Backboneのライセンスを引き継ぎ、すべてMIT Licenseとします。
 随時追加しています。
 
 +  [@ahomu](https://github.com/ahomu) FAQ, Annotated Source
-+  [@kuu](https://github.com/kuu) Introduction
++  [@kuu](https://github.com/kuu) Introduction, Model
 +  [@Layzie](https://github.com/Layzie) Events
 +  [@1000ch](https://github.com/1000ch) Upgrading, Utility
 +  [@tanakahisateru](https://github.com/tanakahisateru) History
