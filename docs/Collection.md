@@ -6,3 +6,7 @@ Collectionはモデルを集合させたものです。コレクション内の�
 
 コレクション内のモデル内でトリガーされた全てのイベントは、利便性の為にコレクションにも直接トリガーされます。これによりコレクション内の全てのモデルの特定の属性の変更を待ち受ける事が可能です。例： `Documents.on("change:selected", ...)`
 
+### extend `Backbone.Collection.extend(properties, [classProperties])` [原文](http://backbonejs.org/#Collection-extend)
+
+自分の **Collection** クラスを作るもので、 **Backbone.Collection** の拡張であり、 **properties** インスタンスや、オプションでコレクションのコンストラクタ関数に対して直接付けられる **classProperties** を提供します
+
