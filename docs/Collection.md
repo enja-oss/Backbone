@@ -27,3 +27,7 @@ Collectionを作成した時に、 **models** の初期配列に渡すものを�
 ```javascript
 var tabs = new TabSet([tab1, tab2, tab3]);
 ```
+
+### models `collection.models` [原文](http://backbonejs.org/#Collection-models)
+
+コレクションの内部のモデルのJavaScriptの配列に生のアクセスをします。通常は`get`、`at`、やモデルオブジェクトにアクセスする **Underscoreのメソッド** を使いますが、稀に配列に直接参照したい場合もあるでしょう。
