@@ -12,7 +12,7 @@ Collectionはモデルを集合させたものです。コレクション内の�
 
 ### model `collection.model` [原文](http://backbonejs.org/#Collection-model)
 
-コレクションに含まれる特定のモデルクラスのプロパティをオーバーライドします。定義された場合は[add](#Collection-add)、[create](#Collection-create)と、[reset](#Collection-reset)に生の属性オブジェクト(と、配列)を渡す事ができ、属性はモデル内の適切な型に変換されます。
+コレクションに含まれる特定のモデルクラスのプロパティを上書きします。定義された場合は[add](#Collection-add)、[create](#Collection-create)と、[reset](#Collection-reset)に生の属性オブジェクト(と、配列)を渡す事ができ、属性はモデル内の適切な型に変換されます。
 
 ```javascript
 var Library = Backbone.Collection.extend({
@@ -39,9 +39,9 @@ var tabs = new TabSet([tab1, tab2, tab3]);
 ```javascript
 var collection = new Backbone.Collection([
   {name: "Tim", age: 5},
-    {name: "Ida", age: 26},
-      {name: "Rob", age: 55}
-      ]);
+  {name: "Ida", age: 26},
+  {name: "Rob", age: 55}
+]);
 
 alert(JSON.stringify(collection));
 ```
