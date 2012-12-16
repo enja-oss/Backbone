@@ -53,46 +53,9 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 
 ###元文書の再現
 
-以下の点について、Markdown上で元文書の表現を、再現できるようにご協力ください。
-
-####リンク
-
-元文書におけるaタグでマークアップされている箇所
-
-    [参考](http://example.com)
-
-####強調
-
-元文書においてbタグでマークアップされている箇所
-
-    **強調された単語**
-
-※GitHubのMarkdownビューワの仕様上、連続した文中で **強調** するときは前後にスペースを入れてください。
-
-####コード
-
-元文書においてttタグでマークアップされている箇所
-
-    `note.get("title")`
-
-####コードブロック
-
-元文書においてpreタグでマークアップされている箇所
-
-    ```javascript
-    new Book({
-      title: "One Thousand and One Nights",
-      author: "Scheherazade"
-    });
-    ```
-
-####斜体
-
-元文書において何らか斜体で表示されている箇所
-
-    _斜体の文章_
-
-※GitHubのMarkdownビューワの仕様上、連続した文中で _斜体_ するときは前後にスペースを入れてください。
+en.ja-ossプロジェクト内では以下の書式ガイドを設けています。 
+[書式ガイド@wiki](https://github.com/enja-oss/README/wiki/markdown-in-japanese) 
+Markdown上で元文書の表現を再現できるようご協力ください。
 
 ###参照先
 
