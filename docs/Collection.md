@@ -19,3 +19,11 @@ var Library = Backbone.Collection.extend({
   model: Book
 });
 ```
+
+### constructor / initialize `new Collection([models], [options])` [原文](http://backbonejs.org/#Collection-constructor)
+
+Collectionを作成した時に、 **models** の初期配列に渡すものを選択できます。コレクションの[comparator](#Collection-comparator)関数はオプションを含むことができます。 **initialize** 関数を定義した場合、コレクションが作成された時に呼び出されます。
+
+```javascript
+var tabs = new TabSet([tab1, tab2, tab3]);
+```
