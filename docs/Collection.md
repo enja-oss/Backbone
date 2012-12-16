@@ -31,3 +31,17 @@ var tabs = new TabSet([tab1, tab2, tab3]);
 ### models `collection.models` [原文](http://backbonejs.org/#Collection-models)
 
 コレクションの内部のモデルのJavaScriptの配列に生のアクセスをします。通常は`get`、`at`、やモデルオブジェクトにアクセスする **Underscoreのメソッド** を使いますが、稀に配列に直接参照したい場合もあるでしょう。
+
+### toJSON `collection.toJSON()` [原文](http://backbonejs.org/#Collection-toJSON)
+
+コレクション内のモデルそれぞれの属性のハッシュを含む配列を返します。これはコレクション全体をシリアライズと永続化する事ができます。このメソッドの名前は[JavaScriptのJSON API](https://developer.mozilla.org/en/JSON#toJSON\(\)_method)と一緒なので、若干区別が付きにくいです。
+
+```javascript
+var collection = new Backbone.Collection([
+  {name: "Tim", age: 5},
+    {name: "Ida", age: 26},
+      {name: "Rob", age: 55}
+      ]);
+
+alert(JSON.stringify(collection));
+```
