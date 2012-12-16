@@ -10,7 +10,7 @@ Collectionはモデルを集合させたものです。コレクション内の�
 
 自分の **Collection** クラスを作るもので、 **Backbone.Collection** の拡張であり、 **properties** インスタンスや、オプションでコレクションのコンストラクタ関数に対して直接付けられる **classProperties** を提供します
 
-### model `collection.model`
+### model `collection.model` [原文](http://backbonejs.org/#Collection-model)
 
 コレクションに含まれる特定のモデルクラスのプロパティをオーバーライドします。定義された場合は[add](#Collection-add)、[create](#Collection-create)と、[reset](#Collection-reset)に生の属性オブジェクト(と、配列)を渡す事ができ、属性はモデル内の適切な型に変換されます。
 
