@@ -45,3 +45,54 @@ var collection = new Backbone.Collection([
 
 alert(JSON.stringify(collection));
 ```
+
+### Underscore Methods (28) [原文](http://backbonejs.org/#Collection-Underscore-Methods)
+
+Backboneは28種のイテレーション関数を **Backbone.Collection** に提供する為に **Underscore.js** を代理しています。その全てがこちらにドキュメント化されてはいないですが、詳しくはUnderscoreのドキュメントで調べる事ができます&hellip;
+
+- [forEach (each)](http://documentcloud.github.com/underscore/#each)
+- [map](http://documentcloud.github.com/underscore/#map)
+- [reduce (foldl, inject)](http://documentcloud.github.com/underscore/#reduce)
+- [reduceRight (foldr)](http://documentcloud.github.com/underscore/#reduceRight)
+- [find (detect)](http://documentcloud.github.com/underscore/#find)
+- [filter (select)](http://documentcloud.github.com/underscore/#filter)
+- [reject](http://documentcloud.github.com/underscore/#reject)
+- [every (all)](http://documentcloud.github.com/underscore/#all)
+- [some (any)](http://documentcloud.github.com/underscore/#any)
+- [include](http://documentcloud.github.com/underscore/#include)
+- [invoke](http://documentcloud.github.com/underscore/#invoke)
+- [max](http://documentcloud.github.com/underscore/#max)
+- [min](http://documentcloud.github.com/underscore/#min)
+- [sortBy](http://documentcloud.github.com/underscore/#sortBy)
+- [groupBy](http://documentcloud.github.com/underscore/#groupBy)
+- [sortedIndex](http://documentcloud.github.com/underscore/#sortedIndex)
+- [shuffle](http://documentcloud.github.com/underscore/#shuffle)
+- [toArray](http://documentcloud.github.com/underscore/#toArray)
+- [size](http://documentcloud.github.com/underscore/#size)
+- [first](http://documentcloud.github.com/underscore/#first)
+- [initial](http://documentcloud.github.com/underscore/#initial)
+- [rest](http://documentcloud.github.com/underscore/#rest)
+- [last](http://documentcloud.github.com/underscore/#last)
+- [without](http://documentcloud.github.com/underscore/#without)
+- [indexOf](http://documentcloud.github.com/underscore/#indexOf)
+- [lastIndexOf](http://documentcloud.github.com/underscore/#lastIndexOf)
+- [isEmpty](http://documentcloud.github.com/underscore/#isEmpty)
+- [chain](http://documentcloud.github.com/underscore/#chain)
+
+```javascript
+Books.each(function(book) {
+  book.publish();
+});
+
+var titles = Books.map(function(book) {
+  return book.get("title");
+});
+
+var publishedBooks = Books.filter(function(book) {
+  return book.get("published") === true;
+});
+
+var alphabetical = Books.sortBy(function(book) {
+  return book.author.get("name").toLowerCase();
+});
+```
