@@ -96,3 +96,21 @@ var alphabetical = Books.sortBy(function(book) {
   return book.author.get("name").toLowerCase();
 });
 ```
+
+### add `collection.add(models, [options])` [原文](http://backbonejs.org/#Collection-add)
+
+コレクションにモデル(または複数のモデルの配列)を追加します。`{silent: true}`を引数で渡すと抑制ができる、`"add"`イベントを発火させます。[model](#Collection-model)プロパティが指定されている場合は、生の属性オブジェクトを渡す事ができ、モデルのインスタンスとして活発にさせます。`{at: index}`を渡すと、モデルを特定の`index`のコレクション中に繋ぎ込みます。同様に、コレクションの`add`イベントのコールバックを待ち受ける場合に、`options.index`によってコレクションに追加されたモデルがどのインデックスなのかを知る事ができます。
+
+```javascript
+var ships = new Backbone.Collection;
+
+ships.on("add", function(ship) {
+  alert("Ahoy " + ship.get("name") + "!");
+});
+
+ships.add([
+  {name: "Flying Dutchman"},
+  {name: "Black Pearl"}
+]);
+```
+
