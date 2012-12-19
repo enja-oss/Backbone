@@ -117,3 +117,11 @@ ships.add([
 ### remove `collection.remove(models, [options])` [原文](http://backbonejs.org/#Collection-remove)
 
 コレクションからモデル(または複数のモデルの配列)を削除します。`silent`を使う事で抑制ができる`"remove"`イベントを発火させます。`"remove"`イベントのコールバックを待ち受ける場合に、`options.index`によりコレクションから削除されたモデルがどのインデックスなのかを知る事ができます。
+
+### get `collection.get(id)` [原文](http://backbonejs.org/#Collection-get)
+
+**id** により特定されたモデルをコレクションから取得します。
+
+```javascript
+var book = Library.get(110);
+```
