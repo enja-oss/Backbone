@@ -128,9 +128,7 @@ Backbone is agnostic with respect to your preferred method of HTML templating. Y
 
 Backboneは、あなたが好むHTMLテンプレーティングの方法にとらわれることなく関知しません。あなたの **render** 関数は、HTML文字列を置換することも、`document.createElement`でDOMツリーを作成することも同様に行うことができます。しかし、我々は素晴らしいJavaScriptテンプレーティングライブラリを選ぶことをおすすめします。[Mustache.js](http://github.com/janl/mustache.js)や[Haml-js](http://github.com/creationix/haml-js)、そして[Eco](http://github.com/sstephenson/eco)、これらはすべて良い代替手段と言えます。そのように言うのも、ページには[Underscore.js](http://documentcloud.github.com/underscore/)が既にあるため[_.template](http://documentcloud.github.com/underscore/#template)を利用することができ、XSS対策のサニタイズが済んだデータを挿入する場合は、素晴らしい選択になるからです。
 
-Whatever templating strategy you end up with, it's nice if you never have to put strings of HTML in 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-your JavaScript. At DocumentCloud, we use Jammit in order to package up JavaScript templates stored in /app/views as part of our main core.js asset package.
+Whatever templating strategy you end up with, it's nice if you never have to put strings of HTML in your JavaScript. At DocumentCloud, we use Jammit in order to package up JavaScript templates stored in /app/views as part of our main core.js asset package.
 
 テンプレーティングによる方略がどのようなものであっても結局、JavaScriptでHTML文字列を配置する必要がなければ、それは良いことです。DocumentCloudでは、`core.js`のアセットパッケージの一部として、`/app/views`に格納されたJavaScriptテンプレートをパッケージするのに[Jammit](http://documentcloud.github.com/jammit/)を利用しています。
 
