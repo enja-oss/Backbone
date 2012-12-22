@@ -34,13 +34,13 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 +  [Router](https://github.com/enja-oss/Backbone/blob/master/docs/Router.md)
 +  [History](https://github.com/enja-oss/Backbone/blob/master/docs/History.md)
 +  [Sync](https://github.com/enja-oss/Backbone/blob/master/docs/Sync.md)
++  [View](https://github.com/enja-oss/Backbone/blob/master/docs/View.md)
 +  [Utility](https://github.com/enja-oss/Backbone/blob/master/docs/Utility.md)
 +  [FAQ](https://github.com/enja-oss/Backbone/blob/master/docs/FAQ.md)
 
 ##着手中/予定コンテンツ
 
 +  [Collection](http://backbonejs.org/#Collection) [@Layzie](https://github.com/Layzie)
-+  [View](http://backbonejs.org/#View) [@ahomu](https://github.com/ahomu)
 +  [Examples](http://backbonejs.org/#Examples) [@maepon](https://github.com/maepon)
 
 ##未着手コンテンツ
@@ -71,7 +71,7 @@ Backboneのライセンスを引き継ぎ、すべてMIT Licenseとします。
 
 随時追加しています。
 
-+  [@ahomu](https://github.com/ahomu) FAQ, Annotated Source
++  [@ahomu](https://github.com/ahomu) FAQ, Annotated Source, View
 +  [@kuu](https://github.com/kuu) Introduction, Model
 +  [@Layzie](https://github.com/Layzie) Events
 +  [@1000ch](https://github.com/1000ch) Upgrading, Utility
