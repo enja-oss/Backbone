@@ -32,7 +32,7 @@ The [DocumentCloud workspace](http://www.documentcloud.org/public/#search/) is b
 
 [LinkedIn](http://www.linkedin.com/) used Backbone.js to create its [next-generation HTML5 mobile web app](http://www.linkedin.com/static?key=mobile). Backbone made it easy to keep the app modular, organized and extensible so that it was possible to program the complexities of LinkedIn's user experience. The app also uses [Zepto](http://zeptojs.com/), [Underscore.js](https://gist.github.com/4285928), [SASS](http://sass-lang.com/), [iScroll](http://cubiq.org/iscroll), HTML5 LocalStorage and Canvas. The tech team blogged about [their experiences using LocalStorage](http://engineering.linkedin.com/mobile/linkedin-ipad-using-local-storage-snappy-mobile-apps) to improve mobile performance.
 
-[LinkedIn](http://www.linkedin.com/)は[次世代の HTML5 モバイルWebアプリ](http://www.linkedin.com/static?key=mobile)にBackbone.jsを利用しました。
+[LinkedIn](http://www.linkedin.com/)は[次世代の HTML5 モバイルWebアプリ](http://www.linkedin.com/static?key=mobile)にBackbone.jsを利用しました。BackboneはLinkedInのユーザー体験の複雑さをプログラムすることを可能となるように、アプリのモジュール性、編成、拡張性を用意に維持できるようにしました。
 
 ## Hulu
 
