@@ -213,3 +213,21 @@ var musketeers = friends.where({job: "Musketeer"});
 
 alert(musketeers.length);
 ```
+
+### url `collection.url or collection.url()` [原文](http://backbonejs.org/#Collection-url)
+
+サーバー上で参照する為にコレクションに **url** プロパティ(または関数)を設定します。コレクション内のモデルはそれぞれ自分のURLを **url** を使って構築します。
+
+```javascript
+var Notes = Backbone.Collection.extend({
+  url: '/notes'
+});
+
+// Or, something more sophisticated:
+
+var Notes = Backbone.Collection.extend({
+  url: function() {
+    return this.document.url() + '/notes';
+  }
+});
+```
