@@ -126,10 +126,11 @@ ships.add([
 var book = Library.get(110);
 ```
 
-### getByCid `collection.getByCid(cid)`
+### getByCid `collection.getByCid(cid)` [原文](http://backbonejs.org/#Collection-getByCid)
 
 特定のクライアントIDのモデルをコレクションから取得します。クライアントIDはモデルの`.cid`プロパティで、これはモデルが作成されると自動で付与されます。サーバーにまだ保存されておらず本当のIDを持っていないモデルに役立つものです。
 
-### at `collection.at(index)`
+### at `collection.at(index)` [原文](http://backbonejs.org/#Collection-at)
 
 特定のインデックスのモデルをコレクションから取得します。`at`は挿入された順番でモデルを検索するのでコレクションが保存されていても、保存されていない場合にも役立ちます。
+
