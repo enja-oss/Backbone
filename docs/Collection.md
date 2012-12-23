@@ -165,7 +165,7 @@ var Chapter  = Backbone.Model;
 var chapters = new Backbone.Collection;
 
 chapters.comparator = function(chapter) {
-    return chapter.get("page");
+  return chapter.get("page");
 };
 
 chapters.add(new Chapter({page: 9, title: "The End"}));
@@ -195,4 +195,21 @@ var stooges = new Backbone.Collection([
 var names = stooges.pluck("name");
 
 alert(JSON.stringify(names));
+```
+
+### where `collection.where(attributes)` [原文](http://backbonejs.org/#Collection-where)
+
+渡した **attributes** にマッチするコレクション内の全てのモデルの配列を返します。シンプルな場合の`filter`として使うと便利です。
+
+```javascript
+var friends = new Backbone.Collection([
+  {name: "Athos",      job: "Musketeer"},
+  {name: "Porthos",    job: "Musketeer"},
+  {name: "Aramis",     job: "Musketeer"},
+  {name: "d'Artagnan", job: "Guard"},
+]);
+
+var musketeers = friends.where({job: "Musketeer"});
+
+alert(musketeers.length);
 ```
