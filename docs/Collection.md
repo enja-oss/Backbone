@@ -180,3 +180,19 @@ _コンパレータ関数付きのコレクションは後からモデルの属�
 ### sort `collection.sort([options])` [原文](http://backbonejs.org/#Collection-sort)
 
 コレクション自体を強制的に再ソートします。通常の環境ではこの関数を呼ぶ必要はありませんが、[comparator](#Collection-comparator)関数付きのコレクションではいつでも正しいソート順を維持するのに必要になります。 **sort** を呼ぶ事によりコレクションは`{silent: true}`を渡して停止しない限りは、`"reset"`イベントを呼び出します。
+
+### pluck `collection.pluck(attribute)` [原文](http://backbonejs.org/#Collection-pluck)
+
+コレクション内のそれぞれのモデルから属性を引き抜きます。`map`の呼び出しに相当し、イテレータから単一の属性を返します。
+
+```javascript
+var stooges = new Backbone.Collection([
+    {name: "Curly"},
+    {name: "Larry"},
+    {name: "Moe"}
+]);
+
+var names = stooges.pluck("name");
+
+alert(JSON.stringify(names));
+```
