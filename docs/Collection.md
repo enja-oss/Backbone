@@ -145,3 +145,6 @@ var book = Library.get(110);
 
 コレクションの先頭にモデルを追加します。[add](#Collection-add)と同じオプションを取ります。
 
+### shift `collection.shift([options])` [原文](http://backbonejs.org/#Collection-shift)
+
+コレクションから最初のモデルを削除して返します。[remove](#Collection-remove)と同じオプションを取ります。
