@@ -187,9 +187,9 @@ _コンパレータ関数付きのコレクションは後からモデルの属�
 
 ```javascript
 var stooges = new Backbone.Collection([
-    {name: "Curly"},
-    {name: "Larry"},
-    {name: "Moe"}
+  {name: "Curly"},
+  {name: "Larry"},
+  {name: "Moe"}
 ]);
 
 var names = stooges.pluck("name");
