@@ -152,3 +152,28 @@ var book = Library.get(110);
 ### length `collection.length` [原文](http://backbonejs.org/#Collection-length)
 
 配列のように、コレクションは自身が持っているモデルの数を数えており、`length`プロパティに保持しています。
+
+### comparator `collection.comparator` [原文](http://backbonejs.org/#Collection-comparator)
+デフォルトではコレクションに **comparator** 関数は存在しません。コンパレータを定義する場合、コレクションをソート済みの順番で保持する為に使用するでしょう。これはモデルが追加されると`collection.models`に正しいインデックスで挿入されるという事を意味します。コンパレータ関数は[sortBy](http://underscorejs.org/#sortBy)(単一の引数を取る関数を渡す)か、[sort](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/sort)(2つの引数を取るコンパレータ関数を渡す)によって定義されます。
+
+"sortBy"コンパレータ関数は1つのモデルを取り、そのモデルが他のモデルに対してあるべき順番を数値か文字列の値で返します。"sort"コンパレータ関数は2つのモデルを取り、最初のモデルが次のモデルの前に来るべきものなら、`-1`を返し、どちらも同じ順位なら`0`を、最初のモデルが次のモデルの後に来るべきものなら`1`を返します。
+
+この例の全てのチャプターを逆方向に追加したとしても、正しい順序に来る事に注意してください。
+
+```javascript
+var Chapter  = Backbone.Model;
+var chapters = new Backbone.Collection;
+
+chapters.comparator = function(chapter) {
+    return chapter.get("page");
+};
+
+chapters.add(new Chapter({page: 9, title: "The End"}));
+chapters.add(new Chapter({page: 5, title: "The Middle"}));
+chapters.add(new Chapter({page: 1, title: "The Beginning"}));
+
+alert(chapters.pluck('title'));
+```
+
+_コンパレータ関数付きのコレクションは後からモデルの属性を変更したからといって自動的に再ソートしないので、ソートした場合には順番に影響を与えるモデルの属性を変更した後に`sort`を呼び出します。_
+
