@@ -148,3 +148,7 @@ var book = Library.get(110);
 ### shift `collection.shift([options])` [原文](http://backbonejs.org/#Collection-shift)
 
 コレクションから最初のモデルを削除して返します。[remove](#Collection-remove)と同じオプションを取ります。
+
+### length `collection.length` [原文](http://backbonejs.org/#Collection-length)
+
+配列のように、コレクションは自身が持っているモデルの数を数えており、`length`プロパティに保持しています。
