@@ -125,3 +125,7 @@ ships.add([
 ```javascript
 var book = Library.get(110);
 ```
+
+### getByCid `collection.getByCid(cid)`
+
+特定のクライアントIDのモデルをコレクションから取得します。クライアントIDはモデルの`.cid`プロパティで、これはモデルが作成されると自動で付与されます。サーバーにまだ保存されておらず本当のIDを持っていないモデルに役立つものです。
