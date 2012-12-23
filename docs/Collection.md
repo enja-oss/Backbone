@@ -141,3 +141,7 @@ var book = Library.get(110);
 
 コレクションから最後のモデルを削除して返します。[remove](#Collection-remove)と同じオプションを取ります。
 
+### unshift `collection.unshift(model, [options])` [原文](http://backbonejs.org/#Collection-unshift)
+
+コレクションの先頭にモデルを追加します。[add](#Collection-add)と同じオプションを取ります。
+
