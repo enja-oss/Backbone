@@ -134,3 +134,6 @@ var book = Library.get(110);
 
 特定のインデックスのモデルをコレクションから取得します。`at`は挿入された順番でモデルを検索するのでコレクションが保存されていても、保存されていない場合にも役立ちます。
 
+### push `collection.push(model, [options])` [原文](http://backbonejs.org/#Collection-push)
+コレクションの最後にモデルを追加します。[add](#Collection-add)と同じオプションを取ります。
+
