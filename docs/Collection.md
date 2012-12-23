@@ -177,3 +177,6 @@ alert(chapters.pluck('title'));
 
 _コンパレータ関数付きのコレクションは後からモデルの属性を変更したからといって自動的に再ソートしないので、ソートした場合には順番に影響を与えるモデルの属性を変更した後に`sort`を呼び出します。_
 
+### sort `collection.sort([options])` [原文](http://backbonejs.org/#Collection-sort)
+
+コレクション自体を強制的に再ソートします。通常の環境ではこの関数を呼ぶ必要はありませんが、[comparator](#Collection-comparator)関数付きのコレクションではいつでも正しいソート順を維持するのに必要になります。 **sort** を呼ぶ事によりコレクションは`{silent: true}`を渡して停止しない限りは、`"reset"`イベントを呼び出します。
