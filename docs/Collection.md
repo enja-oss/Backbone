@@ -244,3 +244,25 @@ var Tweets = Backbone.Collection.extend({
   }
 });
 ```
+
+### fetch `collection.fetch([options])` [原文](http://backbonejs.org/#Collection-fetch)
+
+サーバーからこのコレクション用に規定のモデルをフェッチしてきて、コレクションが生存している場合にリセットします。 **options** ハッシュはそれぞれ`(collection, response, options)`と`(collection, xhr, options)`を引数とした`success`と`error`コールバックを取ります。サーバーからモデルデータが返る際、コレクションは[reset](#Collection-reset)されます。カスタムされた永続化戦略をカバーするのに[Backbone.sync](#Sync)に委譲し、[jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR)を返します。 **fetch** リクエストを受けたサーバーハンドラはモデルのJSON配列を返します。
+
+```javascript
+Backbone.sync = function(method, model) {
+  alert(method + ": " + model.url);
+};
+
+var Accounts = new Backbone.Collection;
+Accounts.url = '/accounts';
+
+Accounts.fetch();
+```
+
+現在のコレクションに入力されたモデルを加えたい場合、コレクションの内容を取り替える代わりに、 **fetch** のオプションに`{add: true}`を渡します。
+
+**jQuery.ajax** オプションも **fetch** オプションに渡す事ができるので、特定のページング済みコレクションの特定のページをフェッチできます。：
+`Documents.fetch({data: {page: 3}})`
+
+**fetch** はページロードのコレクションに使用するべきでは無いというのは注意点です。&mdash;全てのモデルはロードされた時点でその場で[bootstrap](#FAQ-bootstrap)する必要があるからです。 **fetch** は即時性が必要のないインターフェースのためのレイジーロードモデル用に用意されています。：例としてトグルで開閉するノートのコレクションがあるドキュメントなどです。
