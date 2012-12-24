@@ -266,3 +266,18 @@ Accounts.fetch();
 `Documents.fetch({data: {page: 3}})`
 
 **fetch** はページロードのコレクションに使用するべきでは無いというのは注意点です。&mdash;全てのモデルはロードされた時点でその場で[bootstrap](#FAQ-bootstrap)する必要があるからです。 **fetch** は即時性が必要のないインターフェースのためのレイジーロードモデル用に用意されています。：例としてトグルで開閉するノートのコレクションがあるドキュメントなどです。
+
+### reset `collection.reset(models, [options])` [原文](http://backbonejs.org/#Collection-reset)
+
+モデルの追加や削除を一回毎に行なうのは結構な事ですが、時には固まりのコレクションのアップデートなど大量のモデルの変更をしたい場合があります。 **reset** を使うと新しいモデル(または属性のハッシュ)のリストをともなったコレクションに取り替え、最後に単一の`"reset"`イベントをトリガします。`"reset"`イベントを抑制するには`{silent: true}`を渡します。引数無しでリセットすると空のコレクションを作るのに便利です。
+
+Railsアプリケーションでページの初期読み込みの間にコレクションのブートストラップに **reset** を使用する例を上げます。
+
+```html
+&lt;script&gt;
+  var Accounts = new Backbone.Collection;
+  Accounts.reset(&lt;%= @accounts.to_json %&gt;);
+&lt;/script&gt;
+```
+
+`collection.reset()`を引数にモデルを渡さずに呼び出すと全てのコレクションを空にします。
