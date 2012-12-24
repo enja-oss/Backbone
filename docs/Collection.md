@@ -281,3 +281,23 @@ Railsアプリケーションでページの初期読み込みの間にコレク
 ```
 
 `collection.reset()`を引数にモデルを渡さずに呼び出すと全てのコレクションを空にします。
+
+### create `collection.create(attributes, [options])` [原文](http://backbonejs.org/#Collection-create)
+
+コレクションに新しいモデルのインスタンスを作るのに便利なものです。属性のハッシュをともなったモデルのインスタンス化と同じもので、モデルをサーバーに保存し、作成に成功した後にモデルを追加します。モデルを返すか、モデルの作成時にバリデーションエラーで妨げられた時に`false`を返します。これを動作させる為に、[model](#Collection-model)プロパティを設定する必要があります。 **create** メソッドは属性のハッシュか、存在すれば保存されていないモデルオブジェクトのどちらも受け入れます。
+
+モデルの作成はコレクションでトリガする為にすぐに`"add"`イベントを呼び、一度サーバー上でモデルの作成が成功すれば、`"sync"`イベントも呼びだします。新しいモデルをコレクションに追加する前にサーバー上でのモデルの作成を待ちたい場合には、`{wait: true}`を渡します。
+
+```javascript
+var Library = Backbone.Collection.extend({
+  model: Book
+});
+
+var NYPL = new Library;
+
+var othello = NYPL.create({
+  title: "Othello",
+  author: "William Shakespeare"
+});
+```
+
