@@ -231,3 +231,16 @@ var Notes = Backbone.Collection.extend({
   }
 });
 ```
+
+### parse `collection.parse(response)` [原文](http://backbonejs.org/#Collection-parse)
+
+**parse** はBackboneによって[fetch](#Collection-fetch)を使いサーバーからコレクションのモデルを返されたらいつでも呼び出されます。この関数は生の`response`オブジェクトを渡され、コレクションに[add](#Collection-add)されたモデルの属性の配列を返します。デフォルトの実装では何もしませんが、単純にJSONレスポンスを返します。既存のAPIで動かす場合や、レスポンスのより良いネームスペースの為にこの関数を上書きする事ができます。上書き後の注意点として、モデルクラスが既に`parse`関数を持っていた場合には、フェッチされたモデルそれぞれに対して実行される事になる点です。
+
+```javascript
+var Tweets = Backbone.Collection.extend({
+  // The Twitter Search API returns tweets under "results".
+  parse: function(response) {
+    return response.results;
+  }
+});
+```
