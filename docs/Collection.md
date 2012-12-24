@@ -273,11 +273,11 @@ Accounts.fetch();
 
 Railsアプリケーションでページの初期読み込みの間にコレクションのブートストラップに **reset** を使用する例を上げます。
 
-```html
-&lt;script&gt;
+```erb
+<script>
   var Accounts = new Backbone.Collection;
-  Accounts.reset(&lt;%= @accounts.to_json %&gt;);
-&lt;/script&gt;
+  Accounts.reset(<%= @accounts.to_json %>);
+</script>
 ```
 
 `collection.reset()`を引数にモデルを渡さずに呼び出すと全てのコレクションを空にします。
