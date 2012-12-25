@@ -54,13 +54,15 @@ The [DocumentCloud workspace](http://www.documentcloud.org/public/#search/) is b
 
 ## NewsBlur
 
-NewsBlur is an RSS feed reader and social news network with a fast and responsive UI that feels like a native desktop app. Backbone.js was selected for a major rewrite and transition from spaghetti code because of its powerful yet simple feature set, easy integration, and large community. If you want to poke around under the hood, NewsBlur is also entirely open-source.
+[NewsBlur](http://www.newsblur.com/) is an RSS feed reader and social news network with a fast and responsive UI that feels like a native desktop app. Backbone.js was selected for [a major rewrite and transition from spaghetti code](http://www.ofbrooklyn.com/2012/11/13/backbonification-migrating-javascript-to-backbone/) because of its powerful yet simple feature set, easy integration, and large community. If you want to poke around under the hood, NewsBlur is also entirely [open-source](http://github.com/samuelclay/NewsBlur).
 
-
+[NewsBlur](http://www.newsblur.com/)デスクトップアプリのように高速でレスポンシブルなUIのRSSリーダーとソーシャルニュース	ネットワークです。Backbone.jsは[大幅な書き換えとスパゲッティコードからの以降](http://www.ofbrooklyn.com/2012/11/13/backbonification-migrating-javascript-to-backbone/)のために、パワフルでシンプルな機能群、容易な統合性そして大規模なコミュニティを理由として選ばれました。もしあなたがこのあたりの中身をつついてみたい場合、NewsBlurも完全に[オープンソース](http://github.com/samuelclay/NewsBlur)になっています。
 
 ## WordPress.com
 
-WordPress.com is the software-as-a-service version of WordPress. It uses Backbone.js Models, Collections, and Views in its Notifications system. Backbone.js was selected because it was easy to fit into the structure of the application, not the other way around. Automattic (the company behind WordPress.com) is integrating Backbone.js into the Stats tab and other features throughout the homepage.
+[WordPress.com](http://wordpress.com/) is the software-as-a-service version of [WordPress](http://wordpress.org/). It uses Backbone.js Models, Collections, and Views in its [Notifications system](http://en.blog.wordpress.com/2012/05/25/notifications-refreshed/). Backbone.js was selected because it was easy to fit into the structure of the application, not the other way around. [Automattic](http://automattic.com/) (the company behind WordPress.com) is integrating Backbone.js into the Stats tab and other features throughout the homepage.
+
+[WordPress.com](http://wordpress.com/)は[WordPress](http://wordpress.org/)のWebサービスとしてのバージョンです。Backbone.jsのModels、Collections、 、Viewsをその[通知システム](http://en.blog.wordpress.com/2012/05/25/notifications-refreshed/)で利用しています。Backbone.jsはアプリケーションの構造に容易にフィットする唯一の選択肢として採用されました。[Automattic社](http://automattic.com/)の統計情報タブとホームページ全体の機能をBackbone.jsに統合しています。
 
 ## Foursquare
 
