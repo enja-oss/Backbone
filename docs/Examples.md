@@ -38,19 +38,25 @@ The [DocumentCloud workspace](http://www.documentcloud.org/public/#search/) is b
 
 [Hulu](http://hulu.com/) used Backbone.js to build its next generation online video experience. With Backbone as a foundation, the web interface was rewritten from scratch so that all page content can be loaded dynamically with smooth transitions as you navigate. Backbone makes it easy to move through the app quickly without the reloading of scripts and embedded videos, while also offering models and collections for additional data manipulation support.
 
-[Hulu](http://hulu.com/)は次世代のオンラインビデオ体験の構築にBackbone.jsを利用しました。Backboneを基盤として、すべてのページのコンテンツがあなたの操作によってスムーズに遷移する直接的なロードができるように、webインターフェースが一から書きなおされている。
+[Hulu](http://hulu.com/)は次世代のオンラインビデオ体験の構築にBackbone.jsを利用しました。Backboneを基盤として、すべてのページのコンテンツがあなたの操作によってスムーズに遷移する直接的なロードができるように、webインターフェースが一から書きなおされている。Backboneはスクリプトや埋め込まれたビデオをリロードすることなくアプリの中をあちこちと移動することを容易にしています。
 
 ## Flow
 
-MetaLab used Backbone.js to create Flow, a task management app for teams. The workspace relies on Backbone.js to construct task views, activities, accounts, folders, projects, and tags. You can see the internals under window.Flow.
+[MetaLab](http://www.metalabdesign.com/) used Backbone.js to create [Flow](http://www.getflow.com/), a task management app for teams. The workspace relies on Backbone.js to construct task views, activities, accounts, folders, projects, and tags. You can see the internals under window.Flow.
+
+[MetaLab](http://www.metalabdesign.com/)はチーム向けタスク管理アプリの[Flow](http://www.getflow.com/)を作成するためにBackbone.jsを利用しました。ワークスペースはタスクビュー、アクティビティ、アカウント、フォルダ、プロジェクトそしてタグの機能を構築するためにBackbone.jsに依存しています。window.flow内部で詳細な部分を見ることができます。
 
 ## Gilt Groupe
 
-Gilt Groupe uses Backbone.js to build multiple applications across their family of sites. Gilt's mobile website uses Backbone and Zepto.js to create a blazing-fast shopping experience for users on-the-go, while Gilt Live combines Backbone with WebSockets to display the items that customers are buying in real-time. Gilt's search functionality also uses Backbone to filter and sort products efficiently by moving those actions to the client-side.
+[Gilt Groupe](http://gilt.com/) uses Backbone.js to build multiple applications across their family of sites. [Gilt's mobile website](http://m.gilt.com/) uses Backbone and [Zepto.js](http://zeptojs.com/) to create a blazing-fast shopping experience for users on-the-go, while [Gilt Live](http://live.gilt.com/) combines Backbone with WebSockets to display the items that customers are buying in real-time. Gilt's search functionality also uses Backbone to filter and sort products efficiently by moving those actions to the client-side.
+
+[Gilt Groupe](http://gilt.com/) はサイトのファミリーにわたる複数のアプリケーションの構築にBackbone.jsを利用しました。[Giltの モバイルサイト](http://m.gilt.com/)では、Backboneと[Zepto.js](http://zeptojs.com/)を用いて、顧客がリアルタイムに購入している商品をBackboneとWebSocketsを結合して表示しながら、ユーザーへの超高速なショッピング体験を提供しています。Giltの検索機能もBackboneを用いて、フィルターや商品の並び替えをクライアントサイドに対して効率的に動作しています。
 
 ## NewsBlur
 
 NewsBlur is an RSS feed reader and social news network with a fast and responsive UI that feels like a native desktop app. Backbone.js was selected for a major rewrite and transition from spaghetti code because of its powerful yet simple feature set, easy integration, and large community. If you want to poke around under the hood, NewsBlur is also entirely open-source.
+
+
 
 ## WordPress.com
 
