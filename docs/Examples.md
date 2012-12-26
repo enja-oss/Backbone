@@ -78,11 +78,15 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 ## Disqus
 
-Disqus chose Backbone.js to power the latest version of their commenting widget. Backbone’s small footprint and easy extensibility made it the right choice for Disqus’ distributed web application, which is hosted entirely inside an iframe and served on thousands of large web properties, including IGN, Wired, CNN, MLB, and more.
+[Disqus](http://www.disqus.com/) chose Backbone.js to power the latest version of their commenting widget. Backbone’s small footprint and easy extensibility made it the right choice for Disqus’ distributed web application, which is hosted entirely inside an iframe and served on thousands of large web properties, including IGN, Wired, CNN, MLB, and more.
+
+[Disqus](http://www.disqus.com/)はコメント用のウィジェットの最新版のエンジンにBackbone.jsを選択しました。Backboneの容量の小ささと容易な拡張性が、iframeの中にすべてを提供し、そしてIGNやWired、CNN、MLBなどの幾千ものウェブの資産を供給する存在であるDisqusのウェブアプリを配布へするための正しい選択となりました。
 
 ## Khan Academy
 
-Khan Academy is on a mission to provide a free world-class education to anyone anywhere. With thousands of videos, hundreds of JavaScript-driven exercises, and big plans for the future, Khan Academy uses Backbone to keep frontend code modular and organized. User profiles and goal setting are implemented with Backbone, jQuery and Handlebars, and most new feature work is being pushed to the client side, greatly increasing the quality of the API.
+[Khan Academy](http://www.khanacademy.org/) is on a mission to provide a free world-class education to anyone anywhere. With thousands of videos, hundreds of JavaScript-driven exercises, and big plans for the future, Khan Academy uses Backbone to keep frontend code modular and organized. User profiles and goal setting are implemented with Backbone, [jQuery](http://jquery.com/) and [Handlebars](http://handlebarsjs.com/), and most new feature work is being pushed to the client side, greatly increasing the quality of [the API](https://github.com/Khan/khan-api/).
+
+
 
 ## Do
 
