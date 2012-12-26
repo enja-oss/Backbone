@@ -90,7 +90,9 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 ## Do
 
-Do is a social productivity app that makes it easy to work on tasks, track projects, and take notes with your team. The Do.com web application was built from the ground up to work seamlessly on your smartphone, tablet and computer. The team used Backbone, CoffeeScript and Handlebars to build a full-featured app in record time and rolled their own extensions for complex navigation and model sync support.
+[Do](http://do.com/) is a social productivity app that makes it easy to work on tasks, track projects, and take notes with your team. The [Do.com](http://do.com/) web application was built from the ground up to work seamlessly on your smartphone, tablet and computer. The team used Backbone, [CoffeeScript](http://coffeescript.org/) and [Handlebars](http://handlebarsjs.com/) to build a full-featured app in record time and rolled their own extensions for complex navigation and model sync support.
+
+[Do](http://do.com/)はタスクの消化やプロジェクトの追跡を簡単にする、ソーシャルなプロダクト作成アプリです。[Do.com](http://do.com/)のウェブアプリはスマートフォン、タブレット、PCでシームレスに動作するようにゼロから構築されました。製作チームはBackboneと[CoffeeScript](http://coffeescript.org/)や[Handlebars](http://handlebarsjs.com/)を記録的な短時間で構築し、複雑なナビゲーションとモデルの同期を行うための独自拡張を再現するために利用しました。
 
 ## IRCCloud
 
