@@ -4,13 +4,13 @@
 
 Backbone views are almost more convention than they are code — they don't determine anything about your HTML or CSS for you, and can be used with any JavaScript templating library. The general idea is to organize your interface into logical views, backed by models, each of which can be updated independently when the model changes, without having to redraw the page. Instead of digging into a JSON object, looking up an element in the DOM, and updating the HTML by hand, you can bind your view's render function to the model's "change" event — and now everywhere that model data is displayed in the UI, it is always immediately up to date.
 
-BackboneのViewは、実際のコードよりも多くの規約があります ー それらは、あなたのHTMLやCSSについて何も決定付けることはなく、任意のJavaScriptテンプレーティングライブラリと合わせて使用できます。一般的なアイディアとしては、ページを全体を再描画せず、モデルが変更されたときにそれぞれが独立して更新できる、裏にModelを備えたロジカルなViewとしてインターフェースを整理します。JSONオブジェクトを掘り、DOMの中にある要素を参照し、手動でHTMLを更新する代わりに、Viewの`render`関数をモデルの`"change"`イベントに結びつけることができます ー そうすると、UIの中のモデルデータを表示しているすべての箇所は、いつでも即座に最新になります。
+BackboneのViewは、コードというよりはほとんど慣習に近い存在です ー ViewはHTMLやCSSについて何も決定付けることはなく、任意のJavaScriptテンプレーティングライブラリと合わせて使用できます。一般的なアイディアとしては、ページを全体を再描画せず、モデルが変更されたときにそれぞれが独立して更新できる、Modelに支えられたロジカルなViewとしてインターフェースを整理します。JSONオブジェクトを掘り、DOMの中にある要素を参照し、手動でHTMLを更新する代わりに、Viewの`render`関数をモデルの`"change"`イベントに結びつけることができます ー そうすると、UIの中のモデルデータを表示しているすべての箇所は、いつでも即座に最新になります。
 
 ### extend `Backbone.View.extend(properties, [classProperties])`
 
 Get started with views by creating a custom view class. You'll want to override the render function, specify your declarative events, and perhaps the tagName, className, or id of the View's root element.
 
-カスタムビュークラスを作ることから始めます。[render](http://backbonejs.org/#View-render)関数をオーバーライドし、宣言するイベントを指定し、`tagName`や`className`、Viewのルート要素の`id`もおそらく指定するとよいでしょう。
+Viewはまずカスタムビュークラスを作ることから始めます。[render](http://backbonejs.org/#View-render)関数をオーバーライドし、宣言するイベントを指定し、`tagName`や`className`、Viewのルート要素の`id`もおそらく指定するとよいでしょう。
 
 ```javascript
 var DocumentRow = Backbone.View.extend({
@@ -51,7 +51,7 @@ new DocumentRow({
 
 All views have a DOM element at all times (the el property), whether they've already been inserted into the page or not. In this fashion, views can be rendered at any time, and inserted into the DOM all at once, in order to get high-performance UI rendering with as few reflows and repaints as possible. this.el is created from the view's tagName, className, id and attributes properties, if specified. If not, el is an empty div.
 
-すべてのViewは、それが既にページに挿入されているかそうでないかに関わらず、常に何らかのDOM要素を所持しています（ **el** プロパティ）。そうして、できるだけ少ないリフローとリペイントで、UIの描画を効率良く行うため、Viewはいつでもレンダリングでき、一度にすべてをDOMへ挿入するようになっています。Viewに`tagName`、`className`、`id`そして`attributes`プロパティが指定されていれば、それらから`this.el`が作られます。そうでない場合は、 **el** は空の`div`になります。
+すべてのViewは、それが既にページに挿入されているかそうでないかに関わらず、常に何らかのDOM要素を所持しています（ **el** プロパティ）。こうすることで、UIの描画を効率良く行うため、できるだけ少ないリフローとリペイントで、Viewはいつでもレンダリングでき、一度にすべてをDOMへ挿入するようになっています。Viewに`tagName`、`className`、`id`そして`attributes`プロパティが指定されていれば、それらから`this.el`が作られます。そうでない場合は、 **el** は空の`div`になります。
 
 ```javascript
 var ItemView = Backbone.View.extend({
@@ -84,7 +84,7 @@ listView.$el.append(itemView.el);
 
 If you'd like to apply a Backbone view to a different DOM element, use setElement, which will also create the cached $el reference and move the view's delegated events from the old element to the new one.
 
-BackboneのViewを違うDOM要素に適用したい場合、また`$el`の参照をキャッシュして、Viewがもつイベントの委譲を古い要素から新しい要素に移動させたい場合に、 **setElement** を使用します。
+BackboneのViewを違うDOM要素に適用したい場合、 **setElement** を使用します。このメソッドは`$el`の参照をキャッシュして、Viewがもつイベントの委譲を古い要素から新しい要素に移動させます。
 
 ### attributes `view.attrributes`
 
@@ -114,7 +114,7 @@ ui.Chapter = Backbone.View.extend({
 
 The default implementation of render is a no-op. Override this function with your code that renders the view template from model data, and updates this.el with the new HTML. A good convention is to return this at the end of render to enable chained calls.
 
-デフォルトの実装の **render** は何もしません。ViewのテンプレートをModelのデータでレンダリングし、新しいHTMLで`this.el`を更新するような、独自のコードで上書きします。有効な規約として、コールチェーンを有効にするため **render** の最後で`return this`します。
+デフォルトの実装の **render** は何もしません。ViewのテンプレートをModelのデータからレンダリングし、新しいHTMLで`this.el`を更新するような、独自のコードで上書きします。よい慣習として、コールチェーンを有効にするため **render** の最後で`return this`します。
 
 ```javascript
 var Bookmark = Backbone.View.extend({
@@ -164,7 +164,7 @@ The events property may also be defined as a function that returns an events has
 
 Using delegateEvents provides a number of advantages over manually using jQuery to bind events to child elements during render. All attached callbacks are bound to the view before being handed off to jQuery, so when the callbacks are invoked, this continues to refer to the view object. When delegateEvents is run again, perhaps with a different events hash, all callbacks are removed and delegated afresh — useful for views which need to behave differently when in different modes.
 
-**delegateEvents** を使用することは[render](http://backbonejs.org/#View-render)の中で、手動で子要素にイベントを結びつけることよりも、多くのアドバンテージを提供します。すべてのアタッチされているコールバックは、コールバックが呼び出されたとき、Viewオブジェクトを参照し続けるために、jQueryに引き渡される前にViewに結びつけられています。異なった`events`ハッシュを伴って **delegateEvents** がもう一度実行されるようなときには、すべてのコールバックを削除し、新しく委譲を行います ー 別のモードで異なった動作を必要とする時があるViewにとって有用です。
+**delegateEvents** を使用することは[render](http://backbonejs.org/#View-render)中に、jQueryを使って手動で子要素にイベントを結びつけることよりも、多くのアドバンテージを提供します。すべてのアタッチされているコールバックは、コールバックが呼び出されたとき、Viewオブジェクトを参照し続けるために、jQueryに引き渡される前にViewに結びつけられています。異なった`events`ハッシュを伴って **delegateEvents** がもう一度実行されるようなときには、すべてのコールバックを削除し、新しく委譲を行います ー 別のモードで異なった動作を必要とする時があるViewにとって有用です。
 
 A view that displays a document in a search result might look something like this:
 
