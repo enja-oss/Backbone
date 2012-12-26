@@ -86,7 +86,7 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 [Khan Academy](http://www.khanacademy.org/) is on a mission to provide a free world-class education to anyone anywhere. With thousands of videos, hundreds of JavaScript-driven exercises, and big plans for the future, Khan Academy uses Backbone to keep frontend code modular and organized. User profiles and goal setting are implemented with Backbone, [jQuery](http://jquery.com/) and [Handlebars](http://handlebarsjs.com/), and most new feature work is being pushed to the client side, greatly increasing the quality of [the API](https://github.com/Khan/khan-api/).
 
-
+[Khan Academy](http://www.khanacademy.org/)はあらゆる人々に世界レベルの教育を提供しようというひとつの試みです。数千のビデオ、数百のJavaScriptで動く演習問題、そして未来に向けた壮大な計画をもって、Khan AcademyはBackboneをフロントエンドのコードのモジュール化と最適化のために利用しています。ユーザーのプロフィールと目標の設定はBackboneと[jQuery](http://jquery.com/)そして[Handlebars](http://handlebarsjs.com/)で提供され、さらに新しい機能のほとんどは、[the API](https://github.com/Khan/khan-api/)の質の大きな向上として、クライアントサイドに反映され続けています。
 
 ## Do
 
