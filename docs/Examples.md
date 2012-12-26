@@ -96,11 +96,15 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 ## IRCCloud
 
-IRCCloud is an always-connected IRC client that you use in your browser — often leaving it open all day in a tab. The sleek web interface communicates with an Erlang backend via websockets and the IRCCloud API. It makes heavy use of Backbone.js events, models, views and routing to keep your IRC conversations flowing in real time.
+[IRCCloud](http://irccloud.com/) is an always-connected IRC client that you use in your browser — often leaving it open all day in a tab. The sleek web interface communicates with an Erlang backend via websockets and the [IRCCloud API](https://github.com/irccloud/irccloud-tools/wiki/API-Overview). It makes heavy use of Backbone.js events, models, views and routing to keep your IRC conversations flowing in real time.
+
+[IRCCloud](http://irccloud.com/)はブラウザ内で利用できる常時接続に対応したIRCクライアントです − しばしば一日中開きっぱなしにされることもあります。洗練されたWebインターフェースはWebSocketsと[IRCCloud API](https://github.com/irccloud/irccloud-tools/wiki/API-Overview)を介してErlangのバックエンドと交信します。それはIRCの会話の流れをリアルタイムで維持されるようにBackbone.jsのEvents、Models、ViewsそしてRoutingが多用されています。
 
 ## Pitchfork
 
-Pitchfork uses Backbone.js to power its site-wide audio player, Pitchfork.tv, location routing, a write-thru page fragment cache, and more. Backbone.js (and Underscore.js) helps the team create clean and modular components, move very quickly, and focus on the site, not the spaghetti.
+[Pitchfork](http://pitchfork.com/) uses Backbone.js to power its site-wide audio player, [Pitchfork.tv](http://pitchfork.com/tv/), location routing, a write-thru page fragment cache, and more. Backbone.js (and [Underscore.js](http://underscorejs.org/)) helps the team create clean and modular components, move very quickly, and focus on the site, not the spaghetti.
+
+[Pitchfork](http://pitchfork.com/)は、サイト全体のオーディオプレーヤー、[Pitchfork.tv](http://pitchfork.com/tv/)、位置情報のルーティング、ロケーションルーティング、ライトスルーページをキャッシュに分解するなど多くの用途でBackbone.jsを利用しています。Backbone.js（と[Underscore.js](http://underscorejs.org/)）は、クリーンでモジュール化されたコンポーネントの制作と迅速な移行、そしてスパゲッティコードではなくサイトの運営に注力することに寄与しています。
 
 ## Spin
 
