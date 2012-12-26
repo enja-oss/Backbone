@@ -108,7 +108,9 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 ## Spin
 
-Spin pulls in the latest news stories from their internal API onto their site using Backbone models and collections, and a custom sync method. Because the music should never stop playing, even as you click through to different "pages", Spin uses a Backbone router for navigation within the site.
+[Spin](http://spin.com/) pulls in the [latest news stories](http://www.spin.com/news) from their internal API onto their site using Backbone models and collections, and a custom sync method. Because the music should never stop playing, even as you click through to different "pages", Spin uses a Backbone router for navigation within the site.
+
+[Spin](http://spin.com/)はBackboneのModelsとCollections、それとカスタマイズした同期機能を利用したサイト付属の内部APIから[新着ニュース](http://www.spin.com/news)を取得しています。他の「ページ」にクリックして遷移したとしても音楽の再生を停止することがないように、Spinはサイト内ナビゲーションでBackboneのRouterを利用しています。
 
 ## Walmart Mobile
 
