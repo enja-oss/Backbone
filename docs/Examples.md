@@ -66,11 +66,15 @@ The [DocumentCloud workspace](http://www.documentcloud.org/public/#search/) is b
 
 ## Foursquare
 
-Foursquare is a fun little startup that helps you meet up with friends, discover new places, and save money. Backbone Models are heavily used in the core JavaScript API layer and Views power many popular features like the homepage map and lists.
+Foursquare is a fun little startup that helps you meet up with friends, discover new places, and save money. Backbone Models are heavily used in the core JavaScript API layer and Views power many popular features like the [homepage map](https://foursquare.com/) and [lists](https://foursquare.com/seriouseats/list/the-best-doughnuts-in-ny).
+
+Foursquareは友達と会ったり、新しいスポットを見つけたり、お金を節約できる楽しくて小さなスタートアップ企業です。Backbone Modelsは[トップページのマップ](https://foursquare.com/)や[リスト](https://foursquare.com/seriouseats/list/the-best-doughnuts-in-ny)のような非常に利用頻度の高い機能のエンジンとなるレイヤーやViewsのJavaScriptAPIにおいて重く用いられています。
 
 ## Bitbucket
 
-Bitbucket is a free source code hosting service for Git and Mercurial. Through its models and collections, Backbone.js has proved valuable in supporting Bitbucket's REST API, as well as newer components such as in-line code comments and approvals for pull requests. Mustache templates provide server and client-side rendering, while a custom Google Closure inspired life-cycle for widgets allows Bitbucket to decorate existing DOM trees and insert new ones.
+[Bitbucket](http://www.bitbucket.org/) is a free source code hosting service for Git and Mercurial. Through its models and collections, Backbone.js has proved valuable in supporting Bitbucket's [REST API](https://api.bitbucket.org/), as well as newer components such as in-line code comments and approvals for pull requests. Mustache templates provide server and client-side rendering, while a custom [Google Closure](https://developers.google.com/closure/library/) inspired life-cycle for widgets allows Bitbucket to decorate existing DOM trees and insert new ones.
+
+[Bitbucket](http://www.bitbucket.org/)はGitやMercurialで利用できる無料のソースコードホスティングサービスです。モデルとコレクションを通してBackbone.jsが、Bitbucketの[REST API](https://api.bitbucket.org/)はもちろん、インラインでのコメントのコーディングやPull Requestの許可などのコンポーネントのサポートにおいて有用であることを証明しています。カスタマイズした[Google クロージャー](https://developers.google.com/closure/library/)がDOMツリーを編集したり挿入できるウィジェットのライフサイクルを引き起こす間に、Mustacheテンプレートがサーバーとクライアントサイドのレンダリングを提供します。
 
 ## Disqus
 
