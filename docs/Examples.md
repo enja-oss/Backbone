@@ -116,7 +116,7 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 [Walmart](http://www.walmart.com/) used Backbone.js to create the new version of [their mobile web application](http://www.walmart.com/) and created two new frameworks in the process. [Thorax](http://walmartlabs.github.com/thorax/) provides mixins, inheritable events, as well as model and collection view bindings that integrate directly with [Handlebars](http://handlebarsjs.com/) templates. [Lumbar](http://walmartlabs.github.com/lumbar/) allows the application to be split into modules which can be loaded on demand, and creates platform specific builds for the portions of the web application that are embedded in Walmart's native Android and iOS applications.
 
-[Walmart](http://www.walmart.com/)はBackbone.jsを新しいバージョンの[モバイルWebアプリ](http://www.walmart.com/)の構築に利用し、またその過程で新しいフレームワークをふたつ作成しました。
+[Walmart](http://www.walmart.com/)はBackbone.jsを新しいバージョンの[モバイルWebアプリ](http://www.walmart.com/)の構築に利用し、またその過程で新しいフレームワークをふたつ作成しました。[Thorax](http://walmartlabs.github.com/thorax/)はミックスインとイベントの継承だけでなく、モデルとコレクションビューが[Handlebars](http://handlebarsjs.com/)テンプレートでの直接結合の結びつけも提供しています。[Lumbar](http://walmartlabs.github.com/lumbar/)はアプリをオンデマンドにロードできるモジュールに分割することを可能にし、WalmartのAndroidおよびiOSのネイティブアプリに埋め込まれている、Webアプリの一部分のためのプラットフォーム特定のビルドを作成します。
 
 ## Groupon Now!
 
