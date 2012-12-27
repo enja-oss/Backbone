@@ -126,7 +126,9 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 ## Basecamp
 
-37Signals chose Backbone.js to create the calendar feature of its popular project management software Basecamp. The Basecamp Calendar uses Backbone.js models and views in conjunction with the Eco templating system to present a polished, highly interactive group scheduling interface.
+[37Signals](http://37signals.com/) chose Backbone.js to create the [calendar feature](http://basecamp.com/calendar) of its popular project management software [Basecamp](http://basecamp.com/). The Basecamp Calendar uses Backbone.js models and views in conjunction with the [Eco](https://github.com/sstephenson/eco) templating system to present a polished, highly interactive group scheduling interface.
+
+[37Signals](http://37signals.com/)は[Basecamp](http://basecamp.com/)という著名なプロジェクト管理ソフトの[カレンダー機能](http://basecamp.com/calendar)を作成するときにBackbone.jsを選択しました。BasecampのカレンダーはBackbone.jsのModelsとViewsを、洗練され高度にインタラクティブなグループスケジュールのインターフェースを表示する[Eco](https://github.com/sstephenson/eco)テンプレートシステムと結合して利用している。
 
 ## Slavery Footprint
 
