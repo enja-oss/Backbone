@@ -132,7 +132,9 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 ## Slavery Footprint
 
-Slavery Footprint allows consumers to visualize how their consumption habits are connected to modern-day slavery and provides them with an opportunity to have a deeper conversation with the companies that manufacture the goods they purchased. Based in Oakland, California, the Slavery Footprint team works to engage individuals, groups, and businesses to build awareness for and create deployable action against forced labor, human trafficking, and modern-day slavery through online tools, as well as off-line community education and mobilization programs.
+[Slavery Footprint](http://slaveryfootprint.org/survey) allows consumers to visualize how their consumption habits are connected to modern-day slavery and provides them with an opportunity to have a deeper conversation with the companies that manufacture the goods they purchased. Based in Oakland, California, the Slavery Footprint team works to engage individuals, groups, and businesses to build awareness for and create deployable action against forced labor, human trafficking, and modern-day slavery through online tools, as well as off-line community education and mobilization programs.
+
+[Slavery Footprint](http://slaveryfootprint.org/survey)は消費者が、どれほど自身の消費傾向が現代の奴隷制に関係しているかを可視化し、購入した商品を生産している会社との突っ込んだ対話の機会を提供する。オークランドとカリフォルニアに拠点を置き、Slavery Footprintは個人、団体、企業が、強制労働や人身売買そして現代の奴隷制に対しての、オフラインので社会周知活動や動員プログラムと同様に、オンラインツールを通した反対運動が展開できることを周知する活動に携われるように務めている。
 
 ## Stripe
 
