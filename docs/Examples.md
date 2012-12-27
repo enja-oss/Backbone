@@ -138,7 +138,9 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 ## Stripe
 
-Stripe provides an API for accepting credit cards on the web. Stripe's management interface was recently rewritten from scratch in Coffeescript using Backbone.js as the primary framework, Eco for templates, Sass for stylesheets, and Stitch to package everything together as CommonJS modulas. The new app uses Stripe's API directly for the majority of its actions; Backbone.js models made it simple to map client-side models to their corresponding RESTful resources.
+[Stripe](https://stripe.com/) provides an API for accepting credit cards on the web. Stripe's [management interface](https://manage.stripe.com/) was recently rewritten from scratch in Coffeescript using Backbone.js as the primary framework, [Eco](https://github.com/sstephenson/eco) for templates, [Sass](http://sass-lang.com/) for stylesheets, and [Stitch](https://github.com/sstephenson/stitch) to package everything together as [CommonJS](http://commonjs.org/) modulas. The new app uses [Stripe's API](https://stripe.com/docs/api) directly for the majority of its actions; Backbone.js models made it simple to map client-side models to their corresponding RESTful resources.
+
+[Stripe](https://stripe.com/)はWebでクレジットカードを受け付けるためのAPIを提供します。Stripeの[管理用インターフェース](https://manage.stripe.com/)は最近、根幹のフレームワークにBackbone.js、テンプレートに[Eco](https://github.com/sstephenson/eco)、スタイルシートに[Sass](http://sass-lang.com/)、そして[CommonJS](http://commonjs.org/)形式のモジュールとしてまとめてパッケージするために[Stitch](https://github.com/sstephenson/stitch)を利用して、Coffeescriptで一から書きかえられました。新しいアプリは、動作のほとんどで[Stripe's API](https://stripe.com/docs/api)を直接利用しています。Backbone.jsのModelはクライアントサイドのモデルを、通信しているAPI側のRESTfulなリソースに対応させるのをシンプルにしています。
 
 ## Airbnb
 
