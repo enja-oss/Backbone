@@ -144,7 +144,9 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 ## Airbnb
 
-Airbnb uses Backbone in many of its products. It started with Airbnb Mobile Web (built in six weeks by a team of three) and has since grown to Wish Lists, Match, Search, Communities, Payments, and Internal Tools.
+[Airbnb](http://airbnb.com/) uses Backbone in many of its products. It started with [Airbnb Mobile Web](http://m.airbnb.com/) (built in six weeks by a team of three) and has since grown to [Wish Lists](https://www.airbnb.com/wishlists/popular), [Match](http://www.airbnb.com/match), [Search](http://www.airbnb.com/s/), Communities, Payments, and Internal Tools.
+
+[Airbnb](http://airbnb.com/)多数の製品でBackbobeを利用しています。[Airbnbのモバイルサイト](http://m.airbnb.com/)（3人のチームが6週間で作成）で利用を開始して以来、[ウィッシュリスト](https://www.airbnb.com/wishlists/popular)、[マッチング](http://www.airbnb.com/match)、[検索](http://www.airbnb.com/s/)、コミュニティ、支払いそして内部ツールと拡張して行きました。
 
 ## Diaspora
 
