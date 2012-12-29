@@ -17,6 +17,12 @@ modelを保存する場合、modelの属性値はJSONにシリアライズされ
 そしてサーバによって変更され、クライアントにて更新が必要なmodelの属性値は、JSONでレスポンスが返ります。
 コレクションの `"read"` ([#Collection#fetch](#Collection#fetch)) を使用した場合、複数のmodelオブジェクトが配列となってレスポンスが返されます。
 
+Whenever a model or collection begins a **sync** with the server, a `"request"` event is emitted. 
+If the request completes successfully you'll get a `"sync"` event, and an `"error"` event if not.
+
+modelやcollectionがサーバと **sync** を開始するたびに、`"request"`イベントが発火します。
+リクエストが正常に完了した場合、`"sync"` イベントを発火します。また、失敗した場合は`"error"`イベントが発火します。
+
 この **sync** メソッドは、Backboneのコレクションや個々のモデルに `sync` 関数を追加することによって、
 `Backbone.sync` と同じグローバルレベルやもっと細かい粒度でオーバーライドできます。
 
@@ -38,8 +44,21 @@ def update
 end
 ```
 
-Railsと統合するためのもうひとつのヒントは、モデルからの `to_jsonは` 呼び出しについて
+One more tip for integrating Rails versions prior to 3.1 is to disable the default namespacing for `to_json` calls on models by setting
+
+バージョン1.3より前のRailsと統合するためのもうひとつのヒントは、モデルからの `to_jsonは` 呼び出しについて
 既定の名前空間を無効に設定することです。 `ActiveRecord::Base.include_root_in_json = false`
+
+### ajax `Backbone.ajax = function(request) { ... };` [原文](ttp://backbonejs.org/#Sync-ajax)
+
+If you want to use a custom AJAX function, 
+or your endpoint doesn't support the [jQuery.ajax](http://api.jquery.com/jQuery.ajax/) API and you need to tweak things,
+you can do so by setting `Backbone.ajax.`
+
+もしカスタムのAjax関数、また独自のエンドポイントを使用したい場合、
+[jQuery.ajax](http://api.jquery.com/jQuery.ajax/)はこれらをサポートしていません。
+これらを微調整したい場合、`Backbone.ajax` プロパティ（デフォルトのBackbone.syncが格納されている）から設定することで行えます。
+
 
 ### emulateHTTP `Backbone.emulateHTTP = true` [原文](http://backbonejs.org/#Sync-emulateHTTP)
 
