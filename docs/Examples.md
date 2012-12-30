@@ -162,7 +162,9 @@ Foursquareは友達と会ったり、新しいスポットを見つけたり、�
 
 ## Art.sy
 
-Art.sy is a place to discover art you'll love. Art.sy is built on Rails, using Grape to serve a robust JSON API. The main site is a single page app written in Coffeescript and uses Backbone to provide structure around this API. An admin panel and partner CMS have also been extracted into their own API-consuming Backbone projects.
+[Art.sy](http://art.sy/) is a place to discover art you'll love. Art.sy is built on Rails, using [Grape](https://github.com/intridea/grape) to serve a robust [JSON API](http://art.sy/api). The main site is a single page app written in Coffeescript and uses Backbone to provide structure around this API. An admin panel and partner CMS have also been extracted into their own API-consuming Backbone projects.
+
+[Art.sy](http://art.sy/)はあなたが愛でるであろう芸術を発見できる場所です。Art.syはRailsで構築され、堅牢な[JSON API](http://art.sy/api)を提供するために[Grape](https://github.com/intridea/grape)を利用しています。メインサイトは単一ページで、Coffeescriptで記述され、BackboneをAPI周りの構造を提供するのに利用しています。管理者用パネルとパートナー向けCMSはそのAPIを実行しているBackboneのProjectsに抽出されています。
 
 ## Pandora
 
