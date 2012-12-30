@@ -44,7 +44,7 @@ end
 バージョン1.3より前のRailsと統合するためのもうひとつのヒントは、モデルからの `to_jsonは` 呼び出しについて
 既定の名前空間を無効に設定することです。 `ActiveRecord::Base.include_root_in_json = false`
 
-### ajax `Backbone.ajax = function(request) { ... };` [原文](ttp://backbonejs.org/#Sync-ajax)
+### ajax `Backbone.ajax = function(request) { ... };` [原文](http://backbonejs.org/#Sync-ajax)
 
 
 もしカスタムのAjax関数、また独自の[jQuery.ajax](http://api.jquery.com/jQuery.ajax/)がサポートしていないエンドポイントを使用する場合、
