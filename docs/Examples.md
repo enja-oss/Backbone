@@ -2,115 +2,78 @@
 
 ## Examples [原文](http://backbonejs.org/#examples)
 
-The list of examples that follows, while long, is not exhaustive. If you've worked on an app that uses Backbone, please add it to the wiki page of Backbone apps.
-
 以下の事例紹介はその分量に関わらず包括的なものではありません。もし、Backboneを使ったアプリに関わった場合は[wikiのBackbone apps](https://github.com/documentcloud/backbone/wiki/Projects-and-Companies-using-Backbone)のページに追加してください。
-
-Jérôme Gravel-Niquet has contributed a Todo List application that is bundled in the repository as Backbone example. If you're wondering where to get started with Backbone in general, take a moment to read through the annotated source.The app uses a LocalStorage adapter to transparently save all of your todos within your browser, instead of sending them to a server. Jérôme also has a version hosted at [localtodos.com](http://localtodos.com/) that uses a [MooTools-backed version of Backbone](http://github.com/jeromegn/backbone-mootools) instead of jQuery.
 
 Backboneの例としてリポジトリにバンドルされている[Todo List アプリケーション](examples/todos/index.html)は[Jérôme Gravel-Niquet](http://jgn.me/)が作成したものです。もしBackboneをどこから始めたらいいか迷っている場合は、ひととおり[注釈付きのソース](docs/todos.html)を読む時間をとってみましょう。このアプリケーションではサーバにブラウザ内のすべてのtodoに送らずに、[LocalStorageのアダプター](docs/backbone-localstorage.html)を利用して透過的に保存します。Jérômeは[localtodos.com](http://localtodos.com/)にjQueryの代わりに[MooToolsを利用したバージョン](http://github.com/jeromegn/backbone-mootools)も作成しています。
 
 ## documentcloud
 
-The [DocumentCloud workspace](http://www.documentcloud.org/public/#search/) is built on Backbone.js, with Documents, Projects, Notes, and Accounts all as Backbone models and collections. If you're interested in history — both Underscore.js and Backbone.js were originally extracted from the DocumentCloud codebase, and packaged into standalone JS libraries.
-
 [DocumentCloud workspace](http://www.documentcloud.org/public/#search/)はBackboneのモデルとコレクションとしてDocuments、Projects、Notes、そしてAccountsを利用して、Backbone.jsで作られています。もし、成り立ちに興味があるならば、Underscore.js と Backbone.jsは元々はDocumentCloudで使われていたコードを独立したJavaScriptのライブラリとして抽出したものであることを記しておきます。
 
 ## USA Today
-
-[USA Today](http://usatoday.com) takes advantage of the modularity of Backbone's data/model lifecycle — which makes it simple to create, inherit, isolate, and link application objects — to keep the codebase both manageable and efficient. The new website also makes heavy use of the Backbone Router to control the page for both pushState-capable and legacy browsers. Finally, the team took advantage of Backbone's Event module to create a PubSub API that allows third parties and analytics packages to hook into the heart of the app.
 
 [USA Today](http://usatoday.com)はBackboneのデータ/モデルのライフサイクルのモジュール性を上手に利用しています。コードを扱いやすく、そして無駄のない形で維持するために、アプリケーションのオブジェクトをシンプルに作り、継承し、分離し、結びつけます。新しいウェブサイトではpushStateに対応したブラウザとレガシーなブラウザへのページ出力制御のためにBackbone Routerが多用されています。最後に、担当チームはBackbone's Eventの利点を用いて、サードパーティー作成のものや解析のパッケージをアプリケーションの心臓部にフックできるようにPubSub APIを作成しました。
 
 ## Rdio
 
-[New Rdio](http://rdio.com/new) was developed from the ground up with a component based framework based on Backbone.js. Every component on the screen is dynamically loaded and rendered, with data provided by the [Rdio API](http://developer.rdio.com/). When changes are pushed, every component can update itself without reloading the page or interrupting the user's music. All of this relies on Backbone's views and models, and all URL routing is handled by Backbone's Router. When data changes are signaled in realtime, Backbone's Events notify the interested components in the data changes. Backbone forms the core of the new, dynamic, realtime Rdio web and desktop applications.
-
 [New Rdio](http://rdio.com/new)はBackbone.jsをベースとしてコンポーネントベースフレームワークを使って一から作成されました。すべての画面上の構成要素は[Rdio API](http://developer.rdio.com/)で提供されたデータによってダイナミックにロードされ、レンダリングされます。変更がプッシュされるとすべての構成素は、ページのリロードやユーザーの音楽を中断することなく変更が反映できます。このすべてがBackboneのviewとmodelsに依存しており、また、すべてのURLのルーティングはBackboneのRouterで処理されます。リアルタイムにデーター変更の信号が送られた時、BackboneのEventsはデーター変更に関連した構成要素に通知します。Backboneは新しくてダイナミックでリアルタイムなRdioのWebおよびデスクトップアプリケーションの中核を構成しています。
 
 ## LinkedIn Mobile
 
-[LinkedIn](http://www.linkedin.com/) used Backbone.js to create its [next-generation HTML5 mobile web app](http://www.linkedin.com/static?key=mobile). Backbone made it easy to keep the app modular, organized and extensible so that it was possible to program the complexities of LinkedIn's user experience. The app also uses [Zepto](http://zeptojs.com/), [Underscore.js](https://gist.github.com/4285928), [SASS](http://sass-lang.com/), [iScroll](http://cubiq.org/iscroll), HTML5 LocalStorage and Canvas. The tech team blogged about [their experiences using LocalStorage](http://engineering.linkedin.com/mobile/linkedin-ipad-using-local-storage-snappy-mobile-apps) to improve mobile performance.
-
-[LinkedIn](http://www.linkedin.com/)は[次世代の HTML5 モバイルWebアプリ](http://www.linkedin.com/static?key=mobile)にBackbone.jsを利用しました。Backboneは、LinkedInのユーザー体験の複雑さをプログラムできるように、アプリのモジュール性、編成、拡張性を容易に維持できました。このアプリは[Zepto](http://zeptojs.com/)、[Underscore.js](https://gist.github.com/4285928)、[SASS](http://sass-lang.com/)、[iScroll](http://cubiq.org/iscroll)、HTML5 LocalStorageとcanvasも利用しています。技術チームはモバイルでのパフォーマンス改善について[LocalStorageを利用した体験談](http://engineering.linkedin.com/mobile/linkedin-ipad-using-local-storage-snappy-mobile-apps)をブログに残している。
+[LinkedIn](http://www.linkedin.com/)は[次世代の HTML5 モバイルWebアプリ](http://www.linkedin.com/static?key=mobile)にBackbone.jsを利用しました。Backboneによってアプリのモジュール性、編成、拡張性を容易に維持することが出来たため、LinkedInのユーザー体験の複雑さをプログラムすることを可能としました。このアプリは[Zepto](http://zeptojs.com/)、[Underscore.js](https://gist.github.com/4285928)、[SASS](http://sass-lang.com/)、[iScroll](http://cubiq.org/iscroll)、HTML5 LocalStorageとcanvasも利用しています。技術チームはモバイルでのパフォーマンス改善について[LocalStorageを利用した体験談](http://engineering.linkedin.com/mobile/linkedin-ipad-using-local-storage-snappy-mobile-apps)をブログで紹介しています。
 
 ## Hulu
 
-[Hulu](http://hulu.com/) used Backbone.js to build its next generation online video experience. With Backbone as a foundation, the web interface was rewritten from scratch so that all page content can be loaded dynamically with smooth transitions as you navigate. Backbone makes it easy to move through the app quickly without the reloading of scripts and embedded videos, while also offering models and collections for additional data manipulation support.
-
-[Hulu](http://hulu.com/)は次世代のオンラインビデオ体験の構築にBackbone.jsを利用しました。Backboneを基盤として、すべてのページのコンテンツがあなたの操作によってスムーズに遷移する直接的なロードができるように、webインターフェースが一から書きなおされている。Backboneはスクリプトや埋め込まれたビデオをリロードすることなくアプリの中をあちこちと移動することを容易にしています。
+[Hulu](http://hulu.com/)は次世代のオンラインビデオ体験の構築にBackbone.jsを利用しました。Backboneを基盤としてウェブインターフェイスは刷新され、すべてのページのコンテンツはユーザの操作に合わせてスムーズに動的に読み込みを行うようになった。Backboneはスクリプトや埋め込まれたビデオをリロードすることなくアプリの中を移動することを容易にしつつ、追加のデータ操作を行えるよう、モデルとコレクションも提供しています。
 
 ## Flow
 
-[MetaLab](http://www.metalabdesign.com/) used Backbone.js to create [Flow](http://www.getflow.com/), a task management app for teams. The workspace relies on Backbone.js to construct task views, activities, accounts, folders, projects, and tags. You can see the internals under window.Flow.
-
-[MetaLab](http://www.metalabdesign.com/)はチーム向けタスク管理アプリの[Flow](http://www.getflow.com/)を作成するためにBackbone.jsを利用しました。ワークスペースはタスクビュー、アクティビティ、アカウント、フォルダ、プロジェクトそしてタグの機能を構築するためにBackbone.jsに依存しています。window.flow内部で詳細な部分を見ることができます。
+[MetaLab](http://www.metalabdesign.com/)はチーム向けタスク管理アプリの[Flow](http://www.getflow.com/)を作成するためにBackbone.jsを利用しました。ワークスペースはタスクビュー、アクティビティ、アカウント、フォルダ、プロジェクトそしてタグの機能を構築するためにBackbone.jsに依存しています。window.Flow内部で詳細な部分を見ることができます。
 
 ## Gilt Groupe
 
-[Gilt Groupe](http://gilt.com/) uses Backbone.js to build multiple applications across their family of sites. [Gilt's mobile website](http://m.gilt.com/) uses Backbone and [Zepto.js](http://zeptojs.com/) to create a blazing-fast shopping experience for users on-the-go, while [Gilt Live](http://live.gilt.com/) combines Backbone with WebSockets to display the items that customers are buying in real-time. Gilt's search functionality also uses Backbone to filter and sort products efficiently by moving those actions to the client-side.
-
-[Gilt Groupe](http://gilt.com/) はサイトのファミリーにわたる複数のアプリケーションの構築にBackbone.jsを利用しました。[Giltの モバイルサイト](http://m.gilt.com/)では、Backboneと[Zepto.js](http://zeptojs.com/)を用いて、顧客がリアルタイムに購入している商品をBackboneとWebSocketsを結合して表示しながら、ユーザーへの超高速なショッピング体験を提供しています。Giltの検索機能もBackboneを用いて、フィルターや商品の並び替えをクライアントサイドに対して効率的に動作しています。
+[Gilt Groupe](http://gilt.com/)はBackbone.jsを利用し、関連サイトを含む複数のアプリケーションの構築を行いました。[Giltの モバイルサイト](http://m.gilt.com/)では、Backboneと[Zepto.js](http://zeptojs.com/)を用いて、出先のユーザーに対して、超高速なショッピング体験を提供していて、[Gilt Live](http://live.gilt.com/)では顧客がリアルタイムに購入している商品をBackboneとWebSocketsを結合して表示しています。Giltの検索機能もBackboneを用いて、フィルターや商品の並び替えをクライアントサイドで行うことで効率的に行えるようにしています。
 
 ## NewsBlur
 
-[NewsBlur](http://www.newsblur.com/) is an RSS feed reader and social news network with a fast and responsive UI that feels like a native desktop app. Backbone.js was selected for [a major rewrite and transition from spaghetti code](http://www.ofbrooklyn.com/2012/11/13/backbonification-migrating-javascript-to-backbone/) because of its powerful yet simple feature set, easy integration, and large community. If you want to poke around under the hood, NewsBlur is also entirely [open-source](http://github.com/samuelclay/NewsBlur).
-
-[NewsBlur](http://www.newsblur.com/)デスクトップアプリのように高速でレスポンシブルなUIのRSSリーダーとソーシャルニュース	ネットワークです。Backbone.jsは[大幅な書き換えとスパゲッティコードからの以降](http://www.ofbrooklyn.com/2012/11/13/backbonification-migrating-javascript-to-backbone/)のために、パワフルでシンプルな機能群、容易な統合性そして大規模なコミュニティを理由として選ばれました。もしあなたがこのあたりの中身をつついてみたい場合、NewsBlurも完全に[オープンソース](http://github.com/samuelclay/NewsBlur)になっています。
+[NewsBlur](http://www.newsblur.com/)デスクトップアプリのように高速でレスポンシブルなUIのRSSリーダーとソーシャルニュースネットワークです。Backbone.jsは[大幅な書き換えとスパゲッティコードからの移行](http://www.ofbrooklyn.com/2012/11/13/backbonification-migrating-javascript-to-backbone/)のために、パワフルでシンプルな機能群、容易な統合性そして大規模なコミュニティを理由として選ばれました。もしあなたがこのあたりの中身をつついてみたい場合、NewsBlurも完全に[オープンソース](http://github.com/samuelclay/NewsBlur)になっています。
 
 ## WordPress.com
 
-[WordPress.com](http://wordpress.com/) is the software-as-a-service version of [WordPress](http://wordpress.org/). It uses Backbone.js Models, Collections, and Views in its [Notifications system](http://en.blog.wordpress.com/2012/05/25/notifications-refreshed/). Backbone.js was selected because it was easy to fit into the structure of the application, not the other way around. [Automattic](http://automattic.com/) (the company behind WordPress.com) is integrating Backbone.js into the Stats tab and other features throughout the homepage.
-
-[WordPress.com](http://wordpress.com/)は[WordPress](http://wordpress.org/)のWebサービスとしてのバージョンです。Backbone.jsのModels、Collections、 、Viewsをその[通知システム](http://en.blog.wordpress.com/2012/05/25/notifications-refreshed/)で利用しています。Backbone.jsはアプリケーションの構造に容易にフィットする唯一の選択肢として採用されました。[Automattic社](http://automattic.com/)の統計情報タブとホームページ全体の機能をBackbone.jsに統合しています。
+[WordPress.com](http://wordpress.com/)は[WordPress](http://wordpress.org/)のWebサービスとしてのバージョンです。Backbone.jsのModels、Collections、Viewsをその[通知システム](http://en.blog.wordpress.com/2012/05/25/notifications-refreshed/)で利用しています。Backbone.jsはアプリケーションの構造に容易にフィットする唯一の選択肢として採用されました。[Automattic社](http://automattic.com/)の統計情報タブとホームページ全体の機能をBackbone.jsに統合しています。
 
 ## Foursquare
 
-Foursquare is a fun little startup that helps you meet up with friends, discover new places, and save money. Backbone Models are heavily used in the core JavaScript API layer and Views power many popular features like the [homepage map](https://foursquare.com/) and [lists](https://foursquare.com/seriouseats/list/the-best-doughnuts-in-ny).
-
-Foursquareは友達と会ったり、新しいスポットを見つけたり、お金を節約できる楽しくて小さなスタートアップ企業です。Backbone Modelsは[トップページのマップ](https://foursquare.com/)や[リスト](https://foursquare.com/seriouseats/list/the-best-doughnuts-in-ny)のような非常に利用頻度の高い機能のエンジンとなるレイヤーやViewsのJavaScriptAPIにおいて重く用いられています。
+Foursquareは友達と会ったり、新しいスポットを見つけたり、お金を節約できる楽しくて小さなスタートアップ企業です。Backbone Modelsは[トップページのマップ](https://foursquare.com/)や[リスト](https://foursquare.com/seriouseats/list/the-best-doughnuts-in-ny)のような非常に利用頻度の高い機能を供給するコアとなるJavaScirpt APIレイヤーとViewsで多く用いられています。
 
 ## Bitbucket
 
-[Bitbucket](http://www.bitbucket.org/) is a free source code hosting service for Git and Mercurial. Through its models and collections, Backbone.js has proved valuable in supporting Bitbucket's [REST API](https://api.bitbucket.org/), as well as newer components such as in-line code comments and approvals for pull requests. Mustache templates provide server and client-side rendering, while a custom [Google Closure](https://developers.google.com/closure/library/) inspired life-cycle for widgets allows Bitbucket to decorate existing DOM trees and insert new ones.
-
-[Bitbucket](http://www.bitbucket.org/)はGitやMercurialで利用できる無料のソースコードホスティングサービスです。モデルとコレクションを通してBackbone.jsが、Bitbucketの[REST API](https://api.bitbucket.org/)はもちろん、インラインでのコメントのコーディングやPull Requestの許可などのコンポーネントのサポートにおいて有用であることを証明しています。カスタマイズした[Google クロージャー](https://developers.google.com/closure/library/)がDOMツリーを編集したり挿入できるウィジェットのライフサイクルを引き起こす間に、Mustacheテンプレートがサーバーとクライアントサイドのレンダリングを提供します。
+[Bitbucket](http://www.bitbucket.org/)はGitやMercurialの無料のソースコードホスティングサービスです。モデルとコレクションを通してBackbone.jsが、Bitbucketの[REST API](https://api.bitbucket.org/)はもちろん、新しいコンポーネントであるインラインでのコメントのコーディングやPull Requestの許可などにおいて有用であることを証明しています。
+Mustacheテンプレートを用いてサーバーとクライアントサイドのレンダリングを行いつつ、カスタマイズした[Google クロージャー](https://developers.google.com/closure/library/)を用いたウィジェットでBitbucketでは現存するDOMツリーを装飾したり、新しいDOMツリーを挿入するライフサイクルを実現しています。
 
 ## Disqus
-
-[Disqus](http://www.disqus.com/) chose Backbone.js to power the latest version of their commenting widget. Backbone’s small footprint and easy extensibility made it the right choice for Disqus’ distributed web application, which is hosted entirely inside an iframe and served on thousands of large web properties, including IGN, Wired, CNN, MLB, and more.
 
 [Disqus](http://www.disqus.com/)はコメント用のウィジェットの最新版のエンジンにBackbone.jsを選択しました。Backboneの容量の小ささと容易な拡張性が、iframeの中にすべてを提供し、そしてIGNやWired、CNN、MLBなどの幾千ものウェブの資産を供給する存在であるDisqusのウェブアプリを配布へするための正しい選択となりました。
 
 ## Khan Academy
 
-[Khan Academy](http://www.khanacademy.org/) is on a mission to provide a free world-class education to anyone anywhere. With thousands of videos, hundreds of JavaScript-driven exercises, and big plans for the future, Khan Academy uses Backbone to keep frontend code modular and organized. User profiles and goal setting are implemented with Backbone, [jQuery](http://jquery.com/) and [Handlebars](http://handlebarsjs.com/), and most new feature work is being pushed to the client side, greatly increasing the quality of [the API](https://github.com/Khan/khan-api/).
-
-[Khan Academy](http://www.khanacademy.org/)はあらゆる人々に世界レベルの教育を提供しようというひとつの試みです。数千のビデオ、数百のJavaScriptで動く演習問題、そして未来に向けた壮大な計画をもって、Khan AcademyはBackboneをフロントエンドのコードのモジュール化と最適化のために利用しています。ユーザーのプロフィールと目標の設定はBackboneと[jQuery](http://jquery.com/)そして[Handlebars](http://handlebarsjs.com/)で提供され、さらに新しい機能のほとんどは、[the API](https://github.com/Khan/khan-api/)の質の大きな向上として、クライアントサイドに反映され続けています。
+[Khan Academy](http://www.khanacademy.org/)はあらゆる人々に世界レベルの教育を提供しようというひとつの試みです。数千のビデオ、数百のJavaScriptで動く演習問題、そして未来に向けた壮大な計画のために、Khan AcademyはBackboneを利用してフロントエンドのコードのモジュール化と最適化を実現しています。ユーザーのプロフィールと目標の設定はBackboneと[jQuery](http://jquery.com/)そして[Handlebars](http://handlebarsjs.com/)で提供され、さらに新しい機能のほとんどは、[the API](https://github.com/Khan/khan-api/)の質の大きな向上として、クライアントサイドに反映され続けています。
 
 ## Do
 
-[Do](http://do.com/) is a social productivity app that makes it easy to work on tasks, track projects, and take notes with your team. The [Do.com](http://do.com/) web application was built from the ground up to work seamlessly on your smartphone, tablet and computer. The team used Backbone, [CoffeeScript](http://coffeescript.org/) and [Handlebars](http://handlebarsjs.com/) to build a full-featured app in record time and rolled their own extensions for complex navigation and model sync support.
-
-[Do](http://do.com/)はタスクの消化やプロジェクトの追跡を簡単にする、ソーシャルなプロダクト作成アプリです。[Do.com](http://do.com/)のウェブアプリはスマートフォン、タブレット、PCでシームレスに動作するようにゼロから構築されました。製作チームはBackboneと[CoffeeScript](http://coffeescript.org/)や[Handlebars](http://handlebarsjs.com/)を記録的な短時間で構築し、複雑なナビゲーションとモデルの同期を行うための独自拡張を再現するために利用しました。
+[Do](http://do.com/)はタスクの消化やプロジェクトの管理を簡単にする、ソーシャルなプロダクティビティアプリです。[Do.com](http://do.com/)のウェブアプリはスマートフォン、タブレット、PCでシームレスに動作するようにゼロから構築されました。製作チームはBackboneと[CoffeeScript](http://coffeescript.org/)や[Handlebars](http://handlebarsjs.com/)を記録的な短時間で構築し、複雑なナビゲーションとモデルの同期を行うための独自拡張を実現するために利用しました。
 
 ## IRCCloud
 
-[IRCCloud](http://irccloud.com/) is an always-connected IRC client that you use in your browser — often leaving it open all day in a tab. The sleek web interface communicates with an Erlang backend via websockets and the [IRCCloud API](https://github.com/irccloud/irccloud-tools/wiki/API-Overview). It makes heavy use of Backbone.js events, models, views and routing to keep your IRC conversations flowing in real time.
-
-[IRCCloud](http://irccloud.com/)はブラウザ内で利用できる常時接続に対応したIRCクライアントです − しばしば一日中開きっぱなしにされることもあります。洗練されたWebインターフェースはWebSocketsと[IRCCloud API](https://github.com/irccloud/irccloud-tools/wiki/API-Overview)を介してErlangのバックエンドと交信します。それはIRCの会話の流れをリアルタイムで維持されるようにBackbone.jsのEvents、Models、ViewsそしてRoutingが多用されています。
+[IRCCloud](http://irccloud.com/)はブラウザ内で利用できる常時接続に対応したIRCクライアントです − しばしば一日中開きっぱなしにされることもあります。洗練されたWebインターフェースはWebSocketsと[IRCCloud API](https://github.com/irccloud/irccloud-tools/wiki/API-Overview)を介してErlangのバックエンドと交信します。それはIRCの会話の流れがリアルタイムで維持されるようにBackbone.jsのEvents、Models、ViewsそしてRoutingが多用されています。
 
 ## Pitchfork
-
-[Pitchfork](http://pitchfork.com/) uses Backbone.js to power its site-wide audio player, [Pitchfork.tv](http://pitchfork.com/tv/), location routing, a write-thru page fragment cache, and more. Backbone.js (and [Underscore.js](http://underscorejs.org/)) helps the team create clean and modular components, move very quickly, and focus on the site, not the spaghetti.
 
 [Pitchfork](http://pitchfork.com/)は、サイト全体のオーディオプレーヤー、[Pitchfork.tv](http://pitchfork.com/tv/)、位置情報のルーティング、ロケーションルーティング、ライトスルーページをキャッシュに分解するなど多くの用途でBackbone.jsを利用しています。Backbone.js（と[Underscore.js](http://underscorejs.org/)）は、クリーンでモジュール化されたコンポーネントの制作と迅速な移行、そしてスパゲッティコードではなくサイトの運営に注力することに寄与しています。
 
 ## Spin
 
-[Spin](http://spin.com/) pulls in the [latest news stories](http://www.spin.com/news) from their internal API onto their site using Backbone models and collections, and a custom sync method. Because the music should never stop playing, even as you click through to different "pages", Spin uses a Backbone router for navigation within the site.
-
-[Spin](http://spin.com/)はBackboneのModelsとCollections、それとカスタマイズした同期機能を利用したサイト付属の内部APIから[新着ニュース](http://www.spin.com/news)を取得しています。他の「ページ」にクリックして遷移したとしても音楽の再生を停止することがないように、Spinはサイト内ナビゲーションでBackboneのRouterを利用しています。
+[Spin](http://spin.com/)はBackboneのModelsとCollections、それとカスタマイズしたsyncメソッドを利用し、サイト内部のAPIから[新着ニュース](http://www.spin.com/news)を取得しています。他の「ページ」にクリックして遷移したとしても音楽の再生を停止することがないように、Spinはサイト内ナビゲーションでBackboneのRouterを利用しています。
 
 ## Walmart Mobile
 
