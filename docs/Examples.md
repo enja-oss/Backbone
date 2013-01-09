@@ -79,13 +79,13 @@ Mustacheテンプレートを用いてサーバーとクライアントサイド
 
 [Walmart](http://www.walmart.com/) used Backbone.js to create the new version of [their mobile web application](http://www.walmart.com/) and created two new frameworks in the process. [Thorax](http://walmartlabs.github.com/thorax/) provides mixins, inheritable events, as well as model and collection view bindings that integrate directly with [Handlebars](http://handlebarsjs.com/) templates. [Lumbar](http://walmartlabs.github.com/lumbar/) allows the application to be split into modules which can be loaded on demand, and creates platform specific builds for the portions of the web application that are embedded in Walmart's native Android and iOS applications.
 
-[Walmart](http://www.walmart.com/)はBackbone.jsを新しいバージョンの[モバイルWebアプリ](http://www.walmart.com/)の構築に利用し、またその過程で新しいフレームワークをふたつ作成しました。[Thorax](http://walmartlabs.github.com/thorax/)はミックスインとイベントの継承だけでなく、モデルとコレクションビューが[Handlebars](http://handlebarsjs.com/)テンプレートでの直接結合の結びつけも提供しています。[Lumbar](http://walmartlabs.github.com/lumbar/)はアプリをオンデマンドにロードできるモジュールに分割することを可能にし、そしてWalmartのAndroidおよびiOSのネイティブアプリに埋め込まれている、Webアプリの一部分のためのプラットフォーム特定のビルドを作成します。
+[Walmart](http://www.walmart.com/)はBackbone.jsを新しいバージョンの[モバイルWebアプリ](http://www.walmart.com/)の構築に利用し、またその過程で新しいフレームワークをふたつ作成しました。[Thorax](http://walmartlabs.github.com/thorax/)はミックスインとイベントの継承だけでなく、モデルとコレクションビューが[Handlebars](http://handlebarsjs.com/)テンプレートとの直接結合の結びつけも提供しています。[Lumbar](http://walmartlabs.github.com/lumbar/)はアプリをオンデマンドにロードできるモジュールに分割することを可能にし、そしてWalmartのAndroidおよびiOSのネイティブアプリに埋め込まれた、Webアプリの一部のプラットフォーム特定のビルドを作成します。
 
 ## Groupon Now!
 
 [Groupon Now!](http://www.groupon.com/now) helps you find local deals that you can buy and use right now. When first developing the product, the team decided it would be AJAX heavy with smooth transitions between sections instead of full refreshes, but still needed to be fully linkable and shareable. Despite never having used Backbone before, the learning curve was incredibly quick — a prototype was hacked out in an afternoon, and the team was able to ship the product in two weeks. Because the source is minimal and understandable, it was easy to add several Backbone extensions for Groupon Now!: changing the router to handle URLs with querystring parameters, and adding a simple in-memory store for caching repeated requests for the same data.
 
-[Groupon Now!](http://www.groupon.com/now)はあなたが購入していますぐ使える地域のお得な情報を探すのに役立ちます。初期の開発時には、ページ全体のリフレッシュの代わりにAJAXを多用したスムーズなセクション間の遷移を決定していましが、すべてのセクションでリンクと共有が可能であることも求められていました。これまでBackboneを利用したことがないにも関わらず、学習曲線は驚くほど早く - 午後にはプロトタイプを作り上げ、2週間で製品をリリースすることができました。ソースは小さく理解しやすいので、Groupon Now!向けの拡張（クエリー付きのURLを処理するためにRouterの変更と同一のデーターのリクエストの繰り返しをキャッシュするためのシンプルなメモリストアの追加）を作成するのは簡単でした。
+[Groupon Now!](http://www.groupon.com/now)はあなたが購入していますぐ使える地域のお得な情報を探すのに役立ちます。初期の開発時には、ページ全体のリフレッシュの代わりにAJAXを多用したスムーズなセクション間の遷移を採用しようとしていましが、すべてのセクションでリンクと共有が可能であることも求められていました。これまでBackboneを利用したことがないにも関わらず、学習曲線は驚くほど早く - 午後にはプロトタイプを作り上げ、2週間で製品をリリースすることができました。ソースは小さく理解しやすいので、Groupon Now!向けの拡張（クエリー付きのURLを処理するためのRouterの変更と、同一のデーターのリクエストの重複をキャッシュするためのシンプルなメモリストアの追加）を作成するのは簡単でした。
 
 ## Basecamp
 
