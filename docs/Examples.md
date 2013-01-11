@@ -131,7 +131,9 @@ Mustacheテンプレートを用いてサーバーとクライアントサイド
 
 ## Pandora
 
-When Pandora redesigned their site in HTML5, they chose Backbone.js to help manage the user interface and interactions. For example, there's a model that represents the "currently playing track", and multiple views that automatically update when the current track changes. The station list is a collection, so that when stations are added or changed, the UI stays up to date.
+When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5, they chose Backbone.js to help manage the user interface and interactions. For example, there's a model that represents the "currently playing track", and multiple views that automatically update when the current track changes. The station list is a collection, so that when stations are added or changed, the UI stays up to date.
+
+[Pandora](http://www.pandora.com/newpandora)がサイトをHTML5でリデザインされる時に、ユーザーインターフェースとインタラクションを扱う手助けとしてBackbone.jsを選びました。例えば、”再生中のトラック”を示すModelや、カレントのトラックが変わった時に複数のViewを更新するなどです。放送局リストは、放送局が追加されたり変更があった時もUIが最新を維持するようにCollectionとなっています。
 
 ## Inkling
 
