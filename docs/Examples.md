@@ -115,7 +115,7 @@ Mustacheテンプレートを用いてサーバーとクライアントサイド
 
 [Diaspora](http://www.joindiaspora.com/) is a distributed social network, formed from a number of independently operated pods. You own your personal data, and control with whom you share. All of Diaspora is [open-source code](https://github.com/diaspora/diaspora), built with [Rails](http://rubyonrails.org/) and Backbone.js.
 
-[Diaspora](http://www.joindiaspora.com/)は多くの独立して運営される _pod_ によって形成された分散型のソーシャルネットワークです。自身の個人情報を保持し、共有する人を操作します。Diasporaのすべては、[Rails](http://rubyonrails.org/)とBackbone.jsで作成されて、[オープンソース](https://github.com/diaspora/diaspora)となっています。
+[Diaspora](http://www.joindiaspora.com/)は多くの独立して運営される _pod_ によって形成された分散型のソーシャルネットワークです。自身の個人情報を保持し、誰が共有かを操作します。Diasporaのすべては、[Rails](http://rubyonrails.org/)とBackbone.jsで作成されて、[オープンソース](https://github.com/diaspora/diaspora)となっています。
 
 ## SoundCloud Mobile
 
