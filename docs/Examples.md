@@ -77,21 +77,15 @@ Mustacheテンプレートを用いてサーバーとクライアントサイド
 
 ## Walmart Mobile
 
-[Walmart](http://www.walmart.com/) used Backbone.js to create the new version of [their mobile web application](http://www.walmart.com/) and created two new frameworks in the process. [Thorax](http://walmartlabs.github.com/thorax/) provides mixins, inheritable events, as well as model and collection view bindings that integrate directly with [Handlebars](http://handlebarsjs.com/) templates. [Lumbar](http://walmartlabs.github.com/lumbar/) allows the application to be split into modules which can be loaded on demand, and creates platform specific builds for the portions of the web application that are embedded in Walmart's native Android and iOS applications.
-
-[Walmart](http://www.walmart.com/)はBackbone.jsを新しいバージョンの[モバイルWebアプリ](http://www.walmart.com/)の構築に利用し、またその過程で新しいフレームワークをふたつ作成しました。[Thorax](http://walmartlabs.github.com/thorax/)はミックスインとイベントの継承だけでなく、モデルとコレクションビューが[Handlebars](http://handlebarsjs.com/)テンプレートとの直接結合の結びつけも提供しています。[Lumbar](http://walmartlabs.github.com/lumbar/)はアプリをオンデマンドにロードできるモジュールに分割することを可能にし、そしてWalmartのAndroidおよびiOSのネイティブアプリに埋め込まれた、Webアプリの一部のプラットフォーム特定のビルドを作成します。
+[Walmart](http://www.walmart.com/)はBackbone.jsを新しいバージョンの[モバイルWebアプリ](http://www.walmart.com/)の構築に利用し、またその過程で新しいフレームワークを二つ作成しました。[Thorax](http://walmartlabs.github.com/thorax/)はミックスインとイベントの継承だけでなく、モデルとコレクションのビューを[Handlebars](http://handlebarsjs.com/)テンプレートとの直接的な結合を提供しています。[Lumbar](http://walmartlabs.github.com/lumbar/)はアプリをオンデマンドにロードできるモジュールに分割することを可能にし、WalmartのAndroidおよびiOSのネイティブアプリに埋め込まれる、ウェブアプリの一部分のみを特定のプラットフォーム用にビルドすることができます。
 
 ## Groupon Now!
 
-[Groupon Now!](http://www.groupon.com/now) helps you find local deals that you can buy and use right now. When first developing the product, the team decided it would be AJAX heavy with smooth transitions between sections instead of full refreshes, but still needed to be fully linkable and shareable. Despite never having used Backbone before, the learning curve was incredibly quick — a prototype was hacked out in an afternoon, and the team was able to ship the product in two weeks. Because the source is minimal and understandable, it was easy to add several Backbone extensions for Groupon Now!: changing the router to handle URLs with querystring parameters, and adding a simple in-memory store for caching repeated requests for the same data.
-
-[Groupon Now!](http://www.groupon.com/now)はあなたが購入していますぐ使える地域のお得な情報を探すのに役立ちます。初期の開発時には、ページ全体のリフレッシュの代わりにAJAXを多用したスムーズなセクション間の遷移を採用しようとしていましが、すべてのセクションでリンクと共有が可能であることも求められていました。これまでBackboneを利用したことがないにも関わらず、学習曲線は驚くほど早く - 午後にはプロトタイプを作り上げ、2週間で製品をリリースすることができました。ソースは小さく理解しやすいので、Groupon Now!向けの拡張（クエリー付きのURLを処理するためのRouterの変更と、同一のデーターのリクエストの重複をキャッシュするためのシンプルなメモリストアの追加）を作成するのは簡単でした。
+[Groupon Now!](http://www.groupon.com/now)はあなたがすぐに購入し、利用できる地域のお得な情報を探すのに役立ちます。初期の開発時には、ページ全体のリフレッシュの代わりにAJAXを多用したスムーズなセクション間の遷移を採用しようとしつつ、リンクもと共有も可能であることも求められていました。これまでBackboneを利用したことがないにも関わらず、学習曲線は驚くほど早く - 午後にはプロトタイプを作り上げ、2週間で製品をリリースすることができました。ソースは小さく理解しやすいので、Groupon Now!向けの拡張（クエリー付きのURLを処理するためのRouterの変更と、同一のデータのリクエストの重複をキャッシュするためのシンプルなインメモリでの保存方法の追加）を作成するのは簡単でした。
 
 ## Basecamp
 
-[37Signals](http://37signals.com/) chose Backbone.js to create the [calendar feature](http://basecamp.com/calendar) of its popular project management software [Basecamp](http://basecamp.com/). The Basecamp Calendar uses Backbone.js models and views in conjunction with the [Eco](https://github.com/sstephenson/eco) templating system to present a polished, highly interactive group scheduling interface.
-
-[37Signals](http://37signals.com/)は[Basecamp](http://basecamp.com/)という著名なプロジェクト管理ソフトの[カレンダー機能](http://basecamp.com/calendar)を作成するときにBackbone.jsを選択しました。BasecampのカレンダーはBackbone.jsのModelsとViewsを、洗練され高度にインタラクティブなグループスケジュールのインターフェースを表示する[Eco](https://github.com/sstephenson/eco)テンプレートシステムと結合して利用している。
+[37Signals](http://37signals.com/)は[Basecamp](http://basecamp.com/)という著名なプロジェクト管理ソフトの[カレンダー機能](http://basecamp.com/calendar)を作成するのにBackbone.jsを選択しました。BasecampのカレンダーはBackbone.jsのModelsとViewsを、洗練され高度にインタラクティブなグループ用スケジュールのインターフェースを表示する[Eco](https://github.com/sstephenson/eco)テンプレートシステムと結合して利用しています。
 
 ## Slavery Footprint
 
@@ -101,33 +95,23 @@ Mustacheテンプレートを用いてサーバーとクライアントサイド
 
 ## Stripe
 
-[Stripe](https://stripe.com/) provides an API for accepting credit cards on the web. Stripe's [management interface](https://manage.stripe.com/) was recently rewritten from scratch in Coffeescript using Backbone.js as the primary framework, [Eco](https://github.com/sstephenson/eco) for templates, [Sass](http://sass-lang.com/) for stylesheets, and [Stitch](https://github.com/sstephenson/stitch) to package everything together as [CommonJS](http://commonjs.org/) modulas. The new app uses [Stripe's API](https://stripe.com/docs/api) directly for the majority of its actions; Backbone.js models made it simple to map client-side models to their corresponding RESTful resources.
-
 [Stripe](https://stripe.com/)はWebでクレジットカードを受け付けるためのAPIを提供します。Stripeの[管理用インターフェース](https://manage.stripe.com/)は最近、根幹のフレームワークにBackbone.js、テンプレートに[Eco](https://github.com/sstephenson/eco)、スタイルシートに[Sass](http://sass-lang.com/)、そして[CommonJS](http://commonjs.org/)形式のモジュールとしてまとめてパッケージするために[Stitch](https://github.com/sstephenson/stitch)を利用して、Coffeescriptで一から書きかえられました。新しいアプリは、動作のほとんどで[Stripe's API](https://stripe.com/docs/api)を直接利用しています。Backbone.jsのModelはクライアントサイドのモデルを、通信しているAPI側のRESTfulなリソースに対応させるのをシンプルにしています。
 
 ## Airbnb
 
-[Airbnb](http://airbnb.com/) uses Backbone in many of its products. It started with [Airbnb Mobile Web](http://m.airbnb.com/) (built in six weeks by a team of three) and has since grown to [Wish Lists](https://www.airbnb.com/wishlists/popular), [Match](http://www.airbnb.com/match), [Search](http://www.airbnb.com/s/), Communities, Payments, and Internal Tools.
-
-[Airbnb](http://airbnb.com/)多数の製品でBackbobeを利用しています。[Airbnbのモバイルサイト](http://m.airbnb.com/)（3人のチームが6週間で作成）で利用を開始して以来、[ウィッシュリスト](https://www.airbnb.com/wishlists/popular)、[マッチング](http://www.airbnb.com/match)、[検索](http://www.airbnb.com/s/)、コミュニティ、支払いそして内部ツールと拡張して行きました。
+[Airbnb](http://airbnb.com/)多数の製品でBackboneを利用しています。[Airbnbのモバイルサイト](http://m.airbnb.com/)（3人のチームが6週間で作成）で利用を開始して以来、[ウィッシュリスト](https://www.airbnb.com/wishlists/popular)、[マッチング](http://www.airbnb.com/match)、[検索](http://www.airbnb.com/s/)、コミュニティ、支払いそして内部ツールと拡張して行きました。
 
 ## Diaspora
 
-[Diaspora](http://www.joindiaspora.com/) is a distributed social network, formed from a number of independently operated pods. You own your personal data, and control with whom you share. All of Diaspora is [open-source code](https://github.com/diaspora/diaspora), built with [Rails](http://rubyonrails.org/) and Backbone.js.
-
-[Diaspora](http://www.joindiaspora.com/)は多くの独立して運営される _pod_ によって形成された分散型のソーシャルネットワークです。自身の個人情報を保持し、誰が共有するかを操作します。Diasporaのすべては、[Rails](http://rubyonrails.org/)とBackbone.jsで作成されて、[オープンソース](https://github.com/diaspora/diaspora)となっています。
+[Diaspora](http://www.joindiaspora.com/)は多くの独立して運営される _pod_ によって形成された分散型のソーシャルネットワークです。自身の個人情報を保持し、誰と共有するか調整することができます。Diasporaのすべては、[Rails](http://rubyonrails.org/)とBackbone.jsで作成されて、[オープンソース](https://github.com/diaspora/diaspora)となっています。
 
 ## SoundCloud Mobile
 
-[SoundCloud](http://soundcloud.com/) is the leading sound sharing platform on the internet, and Backbone.js provides the foundation for [SoundCloud Mobile](http://m.soundcloud.com/). The project uses the public SoundCloud [API](http://soundcloud.com/developers) as a data source (channeled through a nginx proxy), [jQuery templates](http://api.jquery.com/category/plugins/templates/) for the rendering, [Qunit](http://docs.jquery.com/Qunit) and [PhantomJS](http://www.phantomjs.org/) for the testing suite. The JS code, templates and CSS are built for the production deployment with various Node.js tools like [ready.js](https://github.com/dsimard/ready.js), [Jake](https://github.com/mde/jake), [jsdom](https://github.com/tmpvar/jsdom). The __Backbone.History__ was modified to support the HTML5 history.pushState. __Backbone.sync__ was extended with an additional SessionStorage based cache layer.
-
-[SoundCloud](http://soundcloud.com/)はインターネット上での音楽共有のプラットフォームをリードする存在です、そしてBackbone.jsは[SoundCloud Mobile](http://m.soundcloud.com/)の基盤となっています。プロジェクトでは、外部向け[API](http://soundcloud.com/developers)をデーターソース（nginxのプロクシーを通しています）として、[jQuery templates](http://api.jquery.com/category/plugins/templates/)をレンダリングに、[Qunit](http://docs.jquery.com/Qunit)と[PhantomJS](http://www.phantomjs.org/)をテストスイートとして活用しています。JavaScriptのコードやテンプレートやCSSは、[ready.js](https://github.com/dsimard/ready.js)や[Jake](https://github.com/mde/jake)、[jsdom](https://github.com/tmpvar/jsdom)のような様々なNode.jsのツールで製品向けにビルドされています。 __Backbone.History__ はHTML5 history.pushStateをサポートするように変更されています。 __Backbone.sync__ はキャッシュレイヤーをベースにした付加的なセッションストレージを追加されています。
+[SoundCloud](http://soundcloud.com/)はインターネット上での音楽共有のプラットフォームをリードする存在です、そしてBackbone.jsは[SoundCloud Mobile](http://m.soundcloud.com/)の基盤となっています。プロジェクトでは、外部向け[API](http://soundcloud.com/developers)をデーターソース（nginxのプロクシーを通しています）として、[jQuery templates](http://api.jquery.com/category/plugins/templates/)をレンダリングに、[Qunit](http://docs.jquery.com/Qunit)と[PhantomJS](http://www.phantomjs.org/)をテストスイートとして活用しています。JavaScriptのコードやテンプレートやCSSは、[ready.js](https://github.com/dsimard/ready.js)や[Jake](https://github.com/mde/jake)、[jsdom](https://github.com/tmpvar/jsdom)のような様々なNode.jsのツールでプロダクションデプロイメント用にビルドされています。 __Backbone.History__ はHTML5 history.pushStateをサポートするように変更されています。 __Backbone.sync__ はSessionStorageをベースとした付加的なキャッシュレイヤーで拡張されています。
 
 ## Art.sy
 
-[Art.sy](http://art.sy/) is a place to discover art you'll love. Art.sy is built on Rails, using [Grape](https://github.com/intridea/grape) to serve a robust [JSON API](http://art.sy/api). The main site is a single page app written in Coffeescript and uses Backbone to provide structure around this API. An admin panel and partner CMS have also been extracted into their own API-consuming Backbone projects.
-
-[Art.sy](http://art.sy/)はあなたが愛でるであろう芸術を発見できる場所です。Art.syはRailsで構築され、堅牢な[JSON API](http://art.sy/api)を提供するために[Grape](https://github.com/intridea/grape)を利用しています。メインサイトは単一ページで、Coffeescriptで記述され、BackboneをAPI周りの構造を提供するのに利用しています。管理者用パネルとパートナー向けCMSはそのAPIを実行しているBackboneのProjectsに抽出されています。
+[Art.sy](http://art.sy/)はあなたが愛でるであろう芸術を発見できる場所です。Art.syはRailsで構築され、堅牢な[JSON API](http://art.sy/api)を提供するために[Grape](https://github.com/intridea/grape)を利用しています。メインサイトは単一ページで、Coffeescriptで記述され、BackboneはこのAPIを利用しての構造を提供するのに利用しています。管理者用パネルとパートナー向けCMSもそのAPIを利用しているBackboneプロジェクトから抜粋して作成されています。
 
 ## Pandora
 
