@@ -89,8 +89,6 @@ Mustacheテンプレートを用いてサーバーとクライアントサイド
 
 ## Slavery Footprint
 
-[Slavery Footprint](http://slaveryfootprint.org/survey) allows consumers to visualize how their consumption habits are connected to modern-day slavery and provides them with an opportunity to have a deeper conversation with the companies that manufacture the goods they purchased. Based in Oakland, California, the Slavery Footprint team works to engage individuals, groups, and businesses to build awareness for and create deployable action against forced labor, human trafficking, and modern-day slavery through online tools, as well as off-line community education and mobilization programs.
-
 [Slavery Footprint](http://slaveryfootprint.org/survey)は消費者が、どれほど自身の消費傾向が現代の奴隷制に関係しているかを可視化し、購入した商品を生産している会社との突っ込んだ対話の機会を提供する。オークランドとカリフォルニアに拠点を置き、Slavery Footprintは個人、団体、企業が、強制労働や人身売買そして現代の奴隷制に対しての、オフラインので社会周知活動や動員プログラムと同様に、オンラインツールを通した反対運動が展開できることを周知する活動に携われるように務めている。
 
 ## Stripe
@@ -121,11 +119,13 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 ## Inkling
 
-Inkling is a cross-platform way to publish interactive learning content. Inkling for Web uses Backbone.js to make hundreds of complex books — from student textbooks to travel guides and programming manuals — engaging and accessible on the web. Inkling supports WebGL-enabled 3D graphics, interactive assessments, social sharing, and a system for running practice code right in the book, all within a single page Backbone-driven app. Early on, the team decided to keep the site lightweight by using only Backbone.js and raw JavaScript. The result? Complete source code weighing in at a mere 350kb with feature-parity across the iPad, iPhone and web clients. Give it a try with this excerpt from JavaScript: The Definitive Guide.
+[Inkling](http://inkling.com/) is a cross-platform way to publish interactive learning content. [Inkling for Web](https://www.inkling.com/read/) uses Backbone.js to make hundreds of complex books — from student textbooks to travel guides and programming manuals — engaging and accessible on the web. Inkling supports WebGL-enabled 3D graphics, interactive assessments, social sharing, and a system for running practice code right in the book, all within a single page Backbone-driven app. Early on, the team decided to keep the site lightweight by using only Backbone.js and raw JavaScript. The result? Complete source code weighing in at a mere 350kb with feature-parity across the iPad, iPhone and web clients. Give it a try with [this excerpt from JavaScript: The Definitive Guide](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-4/function-definition-expressions).
+
+[Inkling](http://inkling.com/)はインタラクティブな学習コンテンツをクラスプラットフォームで公開します。[Inklingのウェブサイト](https://www.inkling.com/read/)は、数百のウェブ上で魅力がありアクセシブルな教科書から旅行ガイドやプログラミングマニュアルまでの複合書籍を作成するのに利用しています。Inklingは、3Dグラフィックを可能にするWebGL、相互評価、ソーシャルでの共有、そして書籍の中にある実行コードを走らせるシステム、それらをBackboneドリブンのアプリによる単一ページでサポートしています。早い段階でチームは、Backboneと生のJavaScriptのみによってサイトを軽量な状態で維持できるように決定しました。その結果は？完全なソースコードは、iPad、iPhoneそしてウェブクライアントで同等の機能でほんの350キロバイトに容量になりました。JavaScript:最終ガイドからの抜粋を試してみてください。
 
 ## Code School
 
-Code School courses teach people about various programming topics like CoffeeScript, CSS, Ruby on Rails, and more. The new Code School course challenge page is built from the ground up on Backbone.js, using everything it has to offer: the router, collections, models, and complex event handling. Before, the page was a mess of jQuery DOM manipulation and manual Ajax calls. Backbone.js helped introduce a new way to think about developing an organized front-end application in Javascript.
+[Code School](http://www.codeschool.com/) courses teach people about various programming topics like [CoffeeScript](http://coffeescript.org/), CSS, Ruby on Rails, and more. The new Code School course [challenge page](http://coffeescript.codeschool.com/levels/1/challenges/1) is built from the ground up on Backbone.js, using everything it has to offer: the router, collections, models, and complex event handling. Before, the page was a mess of [jQuery](http://jquery.com/) DOM manipulation and manual Ajax calls. Backbone.js helped introduce a new way to think about developing an organized front-end application in Javascript.
 
 ## CloudApp
 
