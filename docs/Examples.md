@@ -127,9 +127,13 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 [Code School](http://www.codeschool.com/) courses teach people about various programming topics like [CoffeeScript](http://coffeescript.org/), CSS, Ruby on Rails, and more. The new Code School course [challenge page](http://coffeescript.codeschool.com/levels/1/challenges/1) is built from the ground up on Backbone.js, using everything it has to offer: the router, collections, models, and complex event handling. Before, the page was a mess of [jQuery](http://jquery.com/) DOM manipulation and manual Ajax calls. Backbone.js helped introduce a new way to think about developing an organized front-end application in Javascript.
 
+[Code School](http://www.codeschool.com/) のコースは、[CoffeeScript](http://coffeescript.org/)、CSS、Ruby on Railsやその他のプログラミングの話題につて人々に教えます。新しいCode Schoolのコースの[challenge page](http://coffeescript.codeschool.com/levels/1/challenges/1)は、Router、Collections、Modelsそして複合したイベントのハンドリングというBackbone.jsが提供できるあらゆるものを利用して一から構築されました。以前、ページは[jQuery](http://jquery.com/)のDOM制御と手動のAjax呼び出しで混乱していました。Backbone.jsはJavaScriptによる組織的なフロントエンドアプリケーション開発について考える新しいやり方の導入の助けになりました。
+
 ## CloudApp
 
-CloudApp is simple file and link sharing for the Mac. Backbone.js powers the web tools which consume the documented API to manage Drops. Data is either pulled manually or pushed by Pusher and fed to Mustache templates for rendering. Check out the annotated source code to see the magic.
+[CloudApp](http://getcloudapp.com/) is simple file and link sharing for the Mac. Backbone.js powers the web tools which consume the [documented API](http://developer.getcloudapp.com/) to manage Drops. Data is either pulled manually or pushed by [Pusher](http://pusher.com/) and fed to [Mustache](http://github.com/janl/mustache.js) templates for rendering. Check out the [annotated source code](http://cloudapp.github.com/engine) to see the magic.
+
+[CloudApp](http://getcloudapp.com/)は、Mac向けでシンプルにファイルやリンクを共有するものです。Backbone.jsは、Dropsを管理するための[ドキュメント化されたAPI](http://developer.getcloudapp.com/)を実行するためのウェブツールで活用されている。データーは[Pusher](http://pusher.com/)によって手動でpullもpushされ、レンダリングは[Mustache](http://github.com/janl/mustache.js)のテンプレートで供給されています。そのマジックを見るには[注釈付きのソースコード](http://cloudapp.github.com/engine)をチェックしてください。
 
 ## SeatGeek
 
