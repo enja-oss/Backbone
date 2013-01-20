@@ -167,7 +167,9 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 ## Syllabus
 
-Syllabus is the new live blogging platform used by The Verge and other Vox Media sites. Syllabus uses Backbone on both ends: an editorial dashboard and the live blog page itself. In the back, Backbone is used to provide a single-page experience for uploading, writing, editing and publishing content. On the live blog, Backbone manages fetching a JSON API feed, and updating the infinite-scrolling river of updates with new and revised content.
+[Syllabus](http://product.voxmedia.com/post/25113965826/introducing-syllabus-vox-medias-s3-powered-liveblog) is the new live blogging platform used by [The Verge](http://www.theverge.com/) and other [Vox Media](http://www.voxmedia.com/) sites. Syllabus uses Backbone on both ends: an editorial dashboard and the live blog page itself. In the back, Backbone is used to provide a single-page experience for uploading, writing, editing and publishing content. On the live blog, Backbone manages fetching a JSON API feed, and updating the infinite-scrolling river of updates with new and revised content.
+
+[Syllabus](http://product.voxmedia.com/post/25113965826/introducing-syllabus-vox-medias-s3-powered-liveblog)は[The Verge](http://www.theverge.com/)や他の[Voxメディア](http://www.voxmedia.com/)サイトで利用されている新しいライブブログプラットフォームです。Syllabusは、編集用のダッシュボードとライブブログページ自体の両エンドにBackboneを利用しています。バックサイドでは、Backboneは、アップロードや新規作成や編集そしてコンテンツの公開を単一ページ体験で提供できるように利用されています。ライブブログでは、BackboneはJSON APIのフィードを処理し、新規や編集されたコンテンツのアップデートの無限スクロールインターフェースの更新を行なっています。
 
 ## Salon.io
 
