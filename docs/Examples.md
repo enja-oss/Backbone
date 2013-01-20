@@ -161,7 +161,9 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 ## Battlefield Play4Free
 
-Battlefield Play4Free is the latest free-to-play first person shooter from the same team that created Battlefield Heroes. The in-game HTML5 front-end for makes heavy use of Backbone's views, models and collections to help keep the code modular and structured.
+[Battlefield Play4Free](http://battlefield.play4free.com/) is the latest free-to-play first person shooter from the same team that created Battlefield Heroes. The in-game HTML5 front-end for makes heavy use of Backbone's views, models and collections to help keep the code modular and structured.
+
+[Battlefield Play4Free](http://battlefield.play4free.com/)は、Battlefield Heroesを作成したチームが送る最新の無料プレイできる一人称シューティングゲームです。ゲーム内のHTML5フロントエンド作成は、コードのモジュールと構造を維持できるようにBackboneのViewとModelsとCollectionsを多用しています。
 
 ## Syllabus
 
