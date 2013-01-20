@@ -115,13 +115,13 @@ Mustacheテンプレートを用いてサーバーとクライアントサイド
 
 When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5, they chose Backbone.js to help manage the user interface and interactions. For example, there's a model that represents the "currently playing track", and multiple views that automatically update when the current track changes. The station list is a collection, so that when stations are added or changed, the UI stays up to date.
 
-[Pandora](http://www.pandora.com/newpandora)がサイトをHTML5でリデザインされる時に、ユーザーインターフェースとインタラクションを扱う手助けとしてBackbone.jsを選びました。例えば、”再生中のトラック”を示すModelや、カレントのトラックが変わった時に複数のViewを更新するなどです。放送局リストは、放送局が追加されたり変更があった時もUIが最新を維持するようにCollectionとなっています。
+[Pandora](http://www.pandora.com/newpandora)はサイトをHTML5でリデザインする際に、ユーザーインターフェースとインタラクションを扱う手助けとしてBackbone.jsを選びました。例えば、”再生中のトラック”を示すModelや、カレントのトラックが変わった時に複数のViewを更新するなどです。放送局リストは、放送局が追加されたり変更があった時もUIが最新を維持するようにCollectionとなっています。
 
 ## Inkling
 
 [Inkling](http://inkling.com/) is a cross-platform way to publish interactive learning content. [Inkling for Web](https://www.inkling.com/read/) uses Backbone.js to make hundreds of complex books — from student textbooks to travel guides and programming manuals — engaging and accessible on the web. Inkling supports WebGL-enabled 3D graphics, interactive assessments, social sharing, and a system for running practice code right in the book, all within a single page Backbone-driven app. Early on, the team decided to keep the site lightweight by using only Backbone.js and raw JavaScript. The result? Complete source code weighing in at a mere 350kb with feature-parity across the iPad, iPhone and web clients. Give it a try with [this excerpt from JavaScript: The Definitive Guide](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-4/function-definition-expressions).
 
-[Inkling](http://inkling.com/)はインタラクティブな学習コンテンツをクラスプラットフォームで公開します。[Inklingのウェブサイト](https://www.inkling.com/read/)は、数百のウェブ上で魅力がありアクセシブルな教科書から旅行ガイドやプログラミングマニュアルまでの複合書籍を作成するのに利用しています。Inklingは、3Dグラフィックを可能にするWebGL、相互評価、ソーシャルでの共有、そして書籍の中にある実行コードを走らせるシステム、それらをBackboneドリブンのアプリによる単一ページでサポートしています。早い段階でチームは、Backboneと生のJavaScriptのみによってサイトを軽量な状態で維持できるように決定しました。その結果は？完全なソースコードは、iPad、iPhoneそしてウェブクライアントで同等の機能でほんの350キロバイトに容量になりました。JavaScript:最終ガイドからの抜粋を試してみてください。
+[Inkling](http://inkling.com/)はインタラクティブな学習コンテンツをクラスプラットフォームで公開します。[Inklingのウェブサイト](https://www.inkling.com/read/)は、数百のウェブ上で魅力がありアクセシブルな - 教科書から旅行ガイドやプログラミングマニュアルまでの - 複合書籍を作成するのに利用しています。Inklingは、3Dグラフィックを可能にするWebGL、相互評価、ソーシャルでの共有、そして書籍の中にある実行コードを走らせるシステム、それらをBackboneドリブンのアプリによる単一ページでサポートしています。早い段階でチームは、Backboneと生のJavaScriptのみによってサイトを軽量な状態で維持できるように決断しました。その結果は？完全なソースコードは、iPad、iPhoneそしてウェブクライアントそれぞれで同等の機能でほんの350キロバイトの容量になりました。[JavaScript:最終ガイドからの抜粋](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-4/function-definition-expressions)を試してみてください。
 
 ## Code School
 
@@ -133,13 +133,13 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 [CloudApp](http://getcloudapp.com/) is simple file and link sharing for the Mac. Backbone.js powers the web tools which consume the [documented API](http://developer.getcloudapp.com/) to manage Drops. Data is either pulled manually or pushed by [Pusher](http://pusher.com/) and fed to [Mustache](http://github.com/janl/mustache.js) templates for rendering. Check out the [annotated source code](http://cloudapp.github.com/engine) to see the magic.
 
-[CloudApp](http://getcloudapp.com/)は、Mac向けでシンプルにファイルやリンクを共有するものです。Backbone.jsは、Dropsを管理するための[ドキュメント化されたAPI](http://developer.getcloudapp.com/)を実行するためのウェブツールで活用されている。データーは[Pusher](http://pusher.com/)によって手動でpullもpushされ、レンダリングは[Mustache](http://github.com/janl/mustache.js)のテンプレートで供給されています。そのマジックを見るには[注釈付きのソースコード](http://cloudapp.github.com/engine)をチェックしてください。
+[CloudApp](http://getcloudapp.com/)は、Mac向けでシンプルにファイルやリンクを共有するものです。Backbone.jsは、Dropsを管理するための[ドキュメント化されたAPI](http://developer.getcloudapp.com/)を実行するためのウェブツールで活用されています。データーは[Pusher](http://pusher.com/)によって手動でpullもpushも行われ、レンダリングは[Mustache](http://github.com/janl/mustache.js)のテンプレートで供給されています。そのマジックを見るには[注釈付きのソースコード](http://cloudapp.github.com/engine)をチェックしてください。
 
 ## SeatGeek
 
 [SeatGeek](http://seatgeek.com/)'s stadium ticket maps were originally developed with [Prototype.js](http://prototypejs.org/). Moving to Backbone.js and [jQuery](http://jquery.com/) helped organize a lot of the UI code, and the increased structure has made adding features a lot easier. SeatGeek is also in the process of building a mobile interface that will be Backbone.js from top to bottom.
 
-[SeatGeek](http://seatgeek.com/)のスタジアムチケット配置図は元は[Prototype.js](http://prototypejs.org/)で作成されました。Backbone.jsと[jQuery](http://jquery.com/)に移行したことは、多数のUIコードを体系づけることと、追加した構造が気軽に機能を追加するできるようにすることに役立ちました。SeatGeekは、最初から最後までBackbone.jsのモバイルインターフェースも作成中です。
+[SeatGeek](http://seatgeek.com/)のスタジアムチケット配置図は元々[Prototype.js](http://prototypejs.org/)で作成されました。Backbone.jsと[jQuery](http://jquery.com/)に移行したことは、多数のUIコードを体系づけることと、大きくなった構造が気軽に機能を追加するできるようにすることに役立ちました。SeatGeekは、徹頭徹尾Backbone.jsのモバイルインターフェースも作成中です。
 
 ## Easel
 
@@ -151,7 +151,7 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 [Prose](http://prose.io/) is a content editor for GitHub, optimized for managing websites built with [Jekyll](http://jekyllrb.com/) and Github Pages. Prose is itself implemented as a static Jekyll site, using Backbone.js to render the views and handle the routes, as well as [Github.js](http://github.com/michael/github), a small data abstraction layer for manipulating files directly on Github. Read more in the [official introduction post](http://developmentseed.org/blog/2012/june/25/prose-a-content-editor-for-github/), or [take a look at the source code](https://github.com/prose/prose).
 
-[Prose](http://prose.io/)は、[Jekyll](http://jekyllrb.com/)とGithub Pagesでウェブサイトの構築を管理するのに最適化された、Github向けのコンテンツエディターです。Proseは、Github上でファイルを操作するための小さくデータが抽象化されたレイヤーを[Github.js](http://github.com/michael/github)と同様にビューを作成とルートを操作するためにBackbone.jsを活用し、静的なJekyllのサイトとして実装します。続きは、[公式の公開記事](http://developmentseed.org/blog/2012/june/25/prose-a-content-editor-for-github/)または[ソースコードを見てみましょう](https://github.com/prose/prose)
+[Prose](http://prose.io/)は、[Jekyll](http://jekyllrb.com/)とGithub Pagesでウェブサイトの構築を管理するのに最適化された、Github向けのコンテンツエディターです。Proseは、Github上でファイルを操作するための小さくデータが抽象化されたレイヤーを、[Github.js](http://github.com/michael/github)と同様にビューを作成とルートを操作するためにBackbone.jsを活用し、静的なJekyllのサイトとして実装します。続きは、[公式の公開記事](http://developmentseed.org/blog/2012/june/25/prose-a-content-editor-for-github/)または[ソースコードを見てみましょう](https://github.com/prose/prose)
 
 ## scroll kit
 
@@ -163,7 +163,7 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 [Battlefield Play4Free](http://battlefield.play4free.com/) is the latest free-to-play first person shooter from the same team that created Battlefield Heroes. The in-game HTML5 front-end for makes heavy use of Backbone's views, models and collections to help keep the code modular and structured.
 
-[Battlefield Play4Free](http://battlefield.play4free.com/)は、Battlefield Heroesを作成したチームが送る最新の無料プレイできる一人称シューティングゲームです。ゲーム内のHTML5フロントエンド作成は、コードのモジュールと構造を維持できるようにBackboneのViewとModelsとCollectionsを多用しています。
+[Battlefield Play4Free](http://battlefield.play4free.com/)は、Battlefield Heroesを作成したチームが送る最新の無料プレイ可能な一人称シューティングゲームです。ゲーム内のHTML5フロントエンド作成は、コードのモジュールと構造を維持できるようにBackboneのViewとModelsとCollectionsを多用しています。
 
 ## Syllabus
 
