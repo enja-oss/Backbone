@@ -137,11 +137,15 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 ## SeatGeek
 
-SeatGeek's stadium ticket maps were originally developed with Prototype.js. Moving to Backbone.js and jQuery helped organize a lot of the UI code, and the increased structure has made adding features a lot easier. SeatGeek is also in the process of building a mobile interface that will be Backbone.js from top to bottom.
+[SeatGeek](http://seatgeek.com/)'s stadium ticket maps were originally developed with [Prototype.js](http://prototypejs.org/). Moving to Backbone.js and [jQuery](http://jquery.com/) helped organize a lot of the UI code, and the increased structure has made adding features a lot easier. SeatGeek is also in the process of building a mobile interface that will be Backbone.js from top to bottom.
+
+[SeatGeek](http://seatgeek.com/)のスタジアムチケット配置図は元は[Prototype.js](http://prototypejs.org/)で作成されました。Backbone.jsと[jQuery](http://jquery.com/)に移行したことは、多数のUIコードを体系づけることと、追加した構造が気軽に機能を追加するできるようにすることに役立ちました。SeatGeekは、最初から最後までBackbone.jsのモバイルインターフェースも作成中です。
 
 ## Easel
 
 Easel is an in-browser, high fidelity web design tool that integrates with your design and development process. The Easel team uses CoffeeScript, Underscore.js and Backbone.js for their rich visual editor as well as other management functions throughout the site. The structure of Backbone allowed the team to break the complex problem of building a visual editor into manageable components and still move quickly.
+
+
 
 ## Prose
 
