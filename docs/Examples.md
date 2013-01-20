@@ -173,11 +173,15 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 ## Salon.io
 
-Salon.io provides a space where photographers, artists and designers freely arrange their visual art on virtual walls. Salon.io runs on Rails, but does not use much of the traditional stack, as the entire frontend is designed as a single page web app, using Backbone.js and CoffeeScript.
+[Salon.io](http://salon.io/) provides a space where photographers, artists and designers freely arrange their visual art on virtual walls. [Salon.io](http://salon.io/) runs on [Rails](http://rubyonrails.org/), but does not use much of the traditional stack, as the entire frontend is designed as a single page web app, using Backbone.js and [CoffeeScript](http://coffeescript.org/).
+
+[Salon.io](http://salon.io/)は、写真家やアーティスト、デザイナーが自由に彼らのビジュアルアートをヴァーチャルの壁にアレンジすることができるフリースペースを提供しています。[Salon.io](http://salon.io/)は[Rails](http://rubyonrails.org/)で稼働していますが、これまで積み重ねられたような利用ではなく、全体のフロントエンドは、Backbone.jsと[CoffeeScript](http://coffeescript.org/)を利用して単一ページとしてデザインされています。
 
 ## TileMill
 
 Our fellow Knight Foundation News Challenge winners, MapBox, created an open-source map design studio with Backbone.js: TileMill. TileMill lets you manage map layers based on shapefiles and rasters, and edit their appearance directly in the browser with the Carto styling language. Note that the gorgeous MapBox homepage is also a Backbone.js app.
+
+
 
 ## Blossom
 
