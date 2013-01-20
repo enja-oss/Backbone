@@ -179,13 +179,15 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 ## TileMill
 
-Our fellow Knight Foundation News Challenge winners, MapBox, created an open-source map design studio with Backbone.js: TileMill. TileMill lets you manage map layers based on shapefiles and rasters, and edit their appearance directly in the browser with the Carto styling language. Note that the gorgeous MapBox homepage is also a Backbone.js app.
+Our fellow [Knight Foundation News Challenge](http://www.newschallenge.org/) winners, [MapBox](http://mapbox.com/), created an open-source map design studio with Backbone.js: [TileMill](http://mapbox.github.com/tilemill/). TileMill lets you manage map layers based on shapefiles and rasters, and edit their appearance directly in the browser with the [Carto styling language](https://github.com/mapbox/carto). Note that the gorgeous [MapBox](http://mapbox.com/) homepage is also a Backbone.js app.
 
-
+我々の仲間で[Knight Foundation News Challenge](http://www.newschallenge.org/)の勝者、[MapBox](http://mapbox.com/)は、Backbone.jsでオープンソースのマップスタジオである[TileMill](http://mapbox.github.com/tilemill/)を作成しました。TileMillはシェイプファイルとラスターで作成されたマップレイヤーを操作したり、[Carto styling language](https://github.com/mapbox/carto)でブラウザ内で直接外見を編集できます。ゴージャスな[MapBox](http://mapbox.com/)のホームページもBackbone.jsのアプリであることにも着目してください。
 
 ## Blossom
 
-Blossom is a lightweight project management tool for lean teams. Backbone.js is heavily used in combination with CoffeeScript to provide a smooth interaction experience. The RESTful backend is built with Flask on Google App Engine.
+[Blossom](http://blossom.io/) is a lightweight project management tool for lean teams. Backbone.js is heavily used in combination with [CoffeeScript](http://coffeescript.org/) to provide a smooth interaction experience. The RESTful backend is built with [Flask](http://flask.pocoo.org/) on Google App Engine.
+
+[Blossom](http://blossom.io/)は、スリムなチーム向けの軽量なプロジェクト管理ツールです。Backbone.jsは、[CoffeeScript](http://coffeescript.org/)とのコンビネーションでスムーズなインタラクション体験を提供するために多用されています。RESTfulのバックエンドは、Google App Engine上の[Flask](http://flask.pocoo.org/)で構築されています。
 
 ## Decide
 
