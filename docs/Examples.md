@@ -149,7 +149,9 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 ## Prose
 
-Prose is a content editor for GitHub, optimized for managing websites built with Jekyll and Github Pages. Prose is itself implemented as a static Jekyll site, using Backbone.js to render the views and handle the routes, as well as Github.js, a small data abstraction layer for manipulating files directly on Github. Read more in the official introduction post, or take a look at the source code.
+[Prose](http://prose.io/) is a content editor for GitHub, optimized for managing websites built with [Jekyll](http://jekyllrb.com/) and Github Pages. Prose is itself implemented as a static Jekyll site, using Backbone.js to render the views and handle the routes, as well as [Github.js](http://github.com/michael/github), a small data abstraction layer for manipulating files directly on Github. Read more in the [official introduction post](http://developmentseed.org/blog/2012/june/25/prose-a-content-editor-for-github/), or [take a look at the source code](https://github.com/prose/prose).
+
+[Prose](http://prose.io/)は、[Jekyll](http://jekyllrb.com/)とGithub Pagesでウェブサイトの構築を管理するのに最適化された、Github向けのコンテンツエディターです。Proseは、Github上でファイルを操作するための小さくデータが抽象化されたレイヤーを[Github.js](http://github.com/michael/github)と同様にビューを作成とルートを操作するためにBackbone.jsを活用し、静的なJekyllのサイトとして実装します。続きは、[公式の公開記事](http://developmentseed.org/blog/2012/june/25/prose-a-content-editor-for-github/)または[ソースコードを見てみましょう](https://github.com/prose/prose)
 
 ## scroll kit
 
