@@ -191,11 +191,15 @@ Our fellow [Knight Foundation News Challenge](http://www.newschallenge.org/) win
 
 ## Decide
 
-Decide.com helps people decide when to buy consumer electronics. It relies heavily on Backbone.js to render and update its Search Results Page. An "infinite scroll" feature takes advantage of a SearchResults model containing a collection of Product models to fetch more results and render them on the fly with Mustache. A SearchController keeps everything in sync and maintains page state in the URL. Backbone also powers the user accounts and settings management.
+[Decide.com](http://decide.com/) helps people decide when to buy consumer electronics. It relies heavily on Backbone.js to render and update its Search Results Page. An "infinite scroll" feature takes advantage of a SearchResults model containing a collection of Product models to fetch more results and render them on the fly with [Mustache](http://mustache.github.com/). A SearchController keeps everything in sync and maintains page state in the URL. Backbone also powers the user accounts and settings management.
+
+[Decide.com](http://decide.com/)は家電購入の決定を助けます。検索結果のページの出力と更新ではBackbone.jsに大きく依存しています。「無限スクロール」機能は、より多くの結果を処理し、すぐさま[Mustache](http://mustache.github.com/)でレンダリングする製品モデルのコレクションを検索結果で表示されるモデルに取り込むことに好都合です。SearchControllerはすべての同期を維持し、URLにページの状態を保持します。Backboneはユーザーアカウントと設定の管理でも活用されています。
 
 ## Trello
 
-Trello is a collaboration tool that organizes your projects into boards. A Trello board holds many lists of cards, which can contain checklists, files and conversations, and may be voted on and organized with labels. Updates on the board happen in real time. The site was built ground up using Backbone.js for all the models, views, and routes.
+[Trello](http://trello.com/) is a collaboration tool that organizes your projects into boards. A Trello board holds many lists of cards, which can contain checklists, files and conversations, and may be voted on and organized with labels. Updates on the board happen in real time. The site was built ground up using Backbone.js for all the models, views, and routes.
+
+[Trello](http://trello.com/)は、ボードにあなたのプロジェクトを整理するコラボレーションツールです。Trelloのボードは、チェックリストやファイルそして会談を含んだ多数のカードリストを保持し、採決を取ったりラベルで整理することができます。ボード上の更新はリアルタイムで行われます。サイトは全てのModels、ViewsやRoutersについては全てBackbone.jsを利用して一から構築されました。
 
 ## Tzigla
 
