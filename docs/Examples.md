@@ -155,7 +155,9 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 ## scroll kit
 
-scroll kit is a new kind of website builder that makes designing a web page feel more like drawing. The workspace is a single-page web application built with Rails and Backbone.js. In scroll kit, every DOM element is associated with a Backbone model, so that style changes that are made to an element automatically update the model and propagate the change across all its views. Try it out.
+[scroll kit](http://scrollkit.com/) is a new kind of website builder that makes designing a web page feel more like drawing. The workspace is a single-page web application built with Rails and Backbone.js. In scroll kit, every DOM element is associated with a Backbone model, so that style changes that are made to an element automatically update the model and propagate the change across all its views. [Try it out](http://scrollkit.com/demo).
+
+[scroll kit](http://scrollkit.com/)は、ウェブページを絵を書くようにデザインできる新しい種類のウェブサイトビルダーです。ワークスペースは、RailsとBackbone.jsで構築された単一ページのウェブアプリケーションです。scroll kitでは、すべてのDOM要素はBackboneのModelと関連付けられ、スタイルが変更されれば要素のモデルが自動的にアップデートをし、すべてのビューへ変更を伝播します。[どうぞ試してみてください](http://scrollkit.com/demo)。
 
 ## Battlefield Play4Free
 
