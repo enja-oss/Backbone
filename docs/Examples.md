@@ -143,9 +143,9 @@ When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5
 
 ## Easel
 
-Easel is an in-browser, high fidelity web design tool that integrates with your design and development process. The Easel team uses CoffeeScript, Underscore.js and Backbone.js for their rich visual editor as well as other management functions throughout the site. The structure of Backbone allowed the team to break the complex problem of building a visual editor into manageable components and still move quickly.
+[Easel](http://easel.io/) is an in-browser, high fidelity web design tool that integrates with your design and development process. The Easel team uses CoffeeScript, Underscore.js and Backbone.js for their [rich visual editor](http://easel.io/demo) as well as other management functions throughout the site. The structure of Backbone allowed the team to break the complex problem of building a visual editor into manageable components and still move quickly.
 
-
+[Easel](http://easel.io/)はブラウザ内で、デザインと制作のプロセスを統合した、再現性の高いウェブデザインツールです。Easelのチームは[リッチなビジュアルエディター](http://easel.io/demo)だけでなく、サイト全体に渡る他の管理機能についても、CoffeeScriptやUnderscore.jsやBackbone.jsを利用しています。Backboneの構造は、コンポーネントの管理や快適な移動をビジュアルエディタに構築するための複合した問題を解決できるようにしました。
 
 ## Prose
 
