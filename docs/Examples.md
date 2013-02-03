@@ -113,96 +113,64 @@ Mustacheテンプレートを用いてサーバーとクライアントサイド
 
 ## Pandora
 
-When [Pandora](http://www.pandora.com/newpandora) redesigned their site in HTML5, they chose Backbone.js to help manage the user interface and interactions. For example, there's a model that represents the "currently playing track", and multiple views that automatically update when the current track changes. The station list is a collection, so that when stations are added or changed, the UI stays up to date.
-
 [Pandora](http://www.pandora.com/newpandora)はサイトをHTML5でリデザインする際に、ユーザーインターフェースとインタラクションを扱う手助けとしてBackbone.jsを選びました。例えば、”再生中のトラック”を示すModelや、カレントのトラックが変わった時に複数のViewを更新するなどです。放送局リストは、放送局が追加されたり変更があった時もUIが最新を維持するようにCollectionとなっています。
 
 ## Inkling
-
-[Inkling](http://inkling.com/) is a cross-platform way to publish interactive learning content. [Inkling for Web](https://www.inkling.com/read/) uses Backbone.js to make hundreds of complex books — from student textbooks to travel guides and programming manuals — engaging and accessible on the web. Inkling supports WebGL-enabled 3D graphics, interactive assessments, social sharing, and a system for running practice code right in the book, all within a single page Backbone-driven app. Early on, the team decided to keep the site lightweight by using only Backbone.js and raw JavaScript. The result? Complete source code weighing in at a mere 350kb with feature-parity across the iPad, iPhone and web clients. Give it a try with [this excerpt from JavaScript: The Definitive Guide](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-4/function-definition-expressions).
 
 [Inkling](http://inkling.com/)はインタラクティブな学習コンテンツをクラスプラットフォームで公開します。[Inklingのウェブサイト](https://www.inkling.com/read/)は、数百のウェブ上で魅力がありアクセシブルな - 教科書から旅行ガイドやプログラミングマニュアルまでの - 複合書籍を作成するのに利用しています。Inklingは、3Dグラフィックを可能にするWebGL、相互評価、ソーシャルでの共有、そして書籍の中にある実行コードを走らせるシステム、それらをBackboneドリブンのアプリによる単一ページでサポートしています。早い段階でチームは、Backboneと生のJavaScriptのみによってサイトを軽量な状態で維持できるように決断しました。その結果は？完全なソースコードは、iPad、iPhoneそしてウェブクライアントそれぞれで同等の機能でほんの350キロバイトの容量になりました。[JavaScript:最終ガイドからの抜粋](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-4/function-definition-expressions)を試してみてください。
 
 ## Code School
 
-[Code School](http://www.codeschool.com/) courses teach people about various programming topics like [CoffeeScript](http://coffeescript.org/), CSS, Ruby on Rails, and more. The new Code School course [challenge page](http://coffeescript.codeschool.com/levels/1/challenges/1) is built from the ground up on Backbone.js, using everything it has to offer: the router, collections, models, and complex event handling. Before, the page was a mess of [jQuery](http://jquery.com/) DOM manipulation and manual Ajax calls. Backbone.js helped introduce a new way to think about developing an organized front-end application in Javascript.
-
-[Code School](http://www.codeschool.com/) のコースは、[CoffeeScript](http://coffeescript.org/)、CSS、Ruby on Railsやその他のプログラミングの話題につて人々に教えます。新しいCode Schoolのコースの[challenge page](http://coffeescript.codeschool.com/levels/1/challenges/1)は、Router、Collections、Modelsそして複合したイベントのハンドリングというBackbone.jsが提供できるあらゆるものを利用して一から構築されました。以前、ページは[jQuery](http://jquery.com/)のDOM制御と手動のAjax呼び出しで混乱していました。Backbone.jsはJavaScriptによる組織的なフロントエンドアプリケーション開発について考える新しいやり方の導入の助けになりました。
+[Code School](http://www.codeschool.com/) のコースは、[CoffeeScript](http://coffeescript.org/)、CSS、Ruby on Railsやその他のプログラミングの話題につて人々に教えます。新しいCode Schoolのコースの[challenge page](http://coffeescript.codeschool.com/levels/1/challenges/1)は、Router、Collections、Modelsそして複合したイベントのハンドリングというBackbone.jsが提供できるあらゆるものを利用して一から構築されました。それ以前にはページは[jQuery](http://jquery.com/)によるDOM制御と手動のAjax呼び出しで乱雑な状態でした。Backbone.jsはJavaScriptを利用した構造的なフロントエンドアプリケーション開発についての考え方の導入の助けになりました。
 
 ## CloudApp
-
-[CloudApp](http://getcloudapp.com/) is simple file and link sharing for the Mac. Backbone.js powers the web tools which consume the [documented API](http://developer.getcloudapp.com/) to manage Drops. Data is either pulled manually or pushed by [Pusher](http://pusher.com/) and fed to [Mustache](http://github.com/janl/mustache.js) templates for rendering. Check out the [annotated source code](http://cloudapp.github.com/engine) to see the magic.
 
 [CloudApp](http://getcloudapp.com/)は、Mac向けでシンプルにファイルやリンクを共有するものです。Backbone.jsは、Dropsを管理するための[ドキュメント化されたAPI](http://developer.getcloudapp.com/)を実行するためのウェブツールで活用されています。データーは[Pusher](http://pusher.com/)によって手動でpullもpushも行われ、レンダリングは[Mustache](http://github.com/janl/mustache.js)のテンプレートで供給されています。そのマジックを見るには[注釈付きのソースコード](http://cloudapp.github.com/engine)をチェックしてください。
 
 ## SeatGeek
 
-[SeatGeek](http://seatgeek.com/)'s stadium ticket maps were originally developed with [Prototype.js](http://prototypejs.org/). Moving to Backbone.js and [jQuery](http://jquery.com/) helped organize a lot of the UI code, and the increased structure has made adding features a lot easier. SeatGeek is also in the process of building a mobile interface that will be Backbone.js from top to bottom.
-
-[SeatGeek](http://seatgeek.com/)のスタジアムチケット配置図は元々[Prototype.js](http://prototypejs.org/)で作成されました。Backbone.jsと[jQuery](http://jquery.com/)に移行したことは、多数のUIコードを体系づけることと、大きくなった構造が気軽に機能を追加するできるようにすることに役立ちました。SeatGeekは、徹頭徹尾Backbone.jsのモバイルインターフェースも作成中です。
+[SeatGeek](http://seatgeek.com/)のスタジアムチケット配置図は元々[Prototype.js](http://prototypejs.org/)で作成されました。Backbone.jsと[jQuery](http://jquery.com/)に移行したことは、多数のUIコードを体系づけることと、強固になった構造は機能を気軽に追加するできるようにすることに役立ちました。またSeatGeekは、Backbone.jsを徹頭徹尾利用したモバイルインターフェースも作成中です。
 
 ## Easel
 
-[Easel](http://easel.io/) is an in-browser, high fidelity web design tool that integrates with your design and development process. The Easel team uses CoffeeScript, Underscore.js and Backbone.js for their [rich visual editor](http://easel.io/demo) as well as other management functions throughout the site. The structure of Backbone allowed the team to break the complex problem of building a visual editor into manageable components and still move quickly.
-
-[Easel](http://easel.io/)はブラウザ内で、デザインと制作のプロセスを統合した、再現性の高いウェブデザインツールです。Easelのチームは[リッチなビジュアルエディター](http://easel.io/demo)だけでなく、サイト全体に渡る他の管理機能についても、CoffeeScriptやUnderscore.jsやBackbone.jsを利用しています。Backboneの構造は、コンポーネントの管理や快適な移動をビジュアルエディタに構築するための複合した問題を解決できるようにしました。
+[Easel](http://easel.io/)はブラウザ内で、デザインと制作のプロセスを統合した、高い忠実度のウェブデザインを行うツールです。Easelのチームは[リッチなビジュアルエディター](http://easel.io/demo)だけでなく、サイト全体に渡る他の管理機能についても、CoffeeScriptやUnderscore.jsやBackbone.jsを利用しています。Backboneの構造は、コンポーネントの管理や快適な移動をビジュアルエディタに構築するための複合した問題を解決できるようにしました。
 
 ## Prose
-
-[Prose](http://prose.io/) is a content editor for GitHub, optimized for managing websites built with [Jekyll](http://jekyllrb.com/) and Github Pages. Prose is itself implemented as a static Jekyll site, using Backbone.js to render the views and handle the routes, as well as [Github.js](http://github.com/michael/github), a small data abstraction layer for manipulating files directly on Github. Read more in the [official introduction post](http://developmentseed.org/blog/2012/june/25/prose-a-content-editor-for-github/), or [take a look at the source code](https://github.com/prose/prose).
 
 [Prose](http://prose.io/)は、[Jekyll](http://jekyllrb.com/)とGithub Pagesでウェブサイトの構築を管理するのに最適化された、Github向けのコンテンツエディターです。Proseは、Github上でファイルを操作するための小さくデータが抽象化されたレイヤーを、[Github.js](http://github.com/michael/github)と同様にビューを作成とルートを操作するためにBackbone.jsを活用し、静的なJekyllのサイトとして実装します。続きは、[公式の公開記事](http://developmentseed.org/blog/2012/june/25/prose-a-content-editor-for-github/)または[ソースコードを見てみましょう](https://github.com/prose/prose)
 
 ## scroll kit
 
-[scroll kit](http://scrollkit.com/) is a new kind of website builder that makes designing a web page feel more like drawing. The workspace is a single-page web application built with Rails and Backbone.js. In scroll kit, every DOM element is associated with a Backbone model, so that style changes that are made to an element automatically update the model and propagate the change across all its views. [Try it out](http://scrollkit.com/demo).
-
 [scroll kit](http://scrollkit.com/)は、ウェブページを絵を書くようにデザインできる新しい種類のウェブサイトビルダーです。ワークスペースは、RailsとBackbone.jsで構築された単一ページのウェブアプリケーションです。scroll kitでは、すべてのDOM要素はBackboneのModelと関連付けられ、スタイルが変更されれば要素のモデルが自動的にアップデートをし、すべてのビューへ変更を伝播します。[どうぞ試してみてください](http://scrollkit.com/demo)。
 
 ## Battlefield Play4Free
-
-[Battlefield Play4Free](http://battlefield.play4free.com/) is the latest free-to-play first person shooter from the same team that created Battlefield Heroes. The in-game HTML5 front-end for makes heavy use of Backbone's views, models and collections to help keep the code modular and structured.
 
 [Battlefield Play4Free](http://battlefield.play4free.com/)は、Battlefield Heroesを作成したチームが送る最新の無料プレイ可能な一人称シューティングゲームです。ゲーム内のHTML5フロントエンド作成は、コードのモジュールと構造を維持できるようにBackboneのViewとModelsとCollectionsを多用しています。
 
 ## Syllabus
 
-[Syllabus](http://product.voxmedia.com/post/25113965826/introducing-syllabus-vox-medias-s3-powered-liveblog) is the new live blogging platform used by [The Verge](http://www.theverge.com/) and other [Vox Media](http://www.voxmedia.com/) sites. Syllabus uses Backbone on both ends: an editorial dashboard and the live blog page itself. In the back, Backbone is used to provide a single-page experience for uploading, writing, editing and publishing content. On the live blog, Backbone manages fetching a JSON API feed, and updating the infinite-scrolling river of updates with new and revised content.
-
 [Syllabus](http://product.voxmedia.com/post/25113965826/introducing-syllabus-vox-medias-s3-powered-liveblog)は[The Verge](http://www.theverge.com/)や他の[Voxメディア](http://www.voxmedia.com/)サイトで利用されている新しいライブブログプラットフォームです。Syllabusは、編集用のダッシュボードとライブブログページ自体の両エンドにBackboneを利用しています。バックサイドでは、Backboneは、アップロードや新規作成や編集そしてコンテンツの公開を単一ページ体験で提供できるように利用されています。ライブブログでは、BackboneはJSON APIのフィードを処理し、新規や編集されたコンテンツのアップデートの無限スクロールインターフェースの更新を行なっています。
 
 ## Salon.io
-
-[Salon.io](http://salon.io/) provides a space where photographers, artists and designers freely arrange their visual art on virtual walls. [Salon.io](http://salon.io/) runs on [Rails](http://rubyonrails.org/), but does not use much of the traditional stack, as the entire frontend is designed as a single page web app, using Backbone.js and [CoffeeScript](http://coffeescript.org/).
 
 [Salon.io](http://salon.io/)は、写真家やアーティスト、デザイナーが自由に彼らのビジュアルアートをヴァーチャルの壁にアレンジすることができるフリースペースを提供しています。[Salon.io](http://salon.io/)は[Rails](http://rubyonrails.org/)で稼働していますが、これまで積み重ねられたような利用ではなく、全体のフロントエンドは、Backbone.jsと[CoffeeScript](http://coffeescript.org/)を利用して単一ページとしてデザインされています。
 
 ## TileMill
 
-Our fellow [Knight Foundation News Challenge](http://www.newschallenge.org/) winners, [MapBox](http://mapbox.com/), created an open-source map design studio with Backbone.js: [TileMill](http://mapbox.github.com/tilemill/). TileMill lets you manage map layers based on shapefiles and rasters, and edit their appearance directly in the browser with the [Carto styling language](https://github.com/mapbox/carto). Note that the gorgeous [MapBox](http://mapbox.com/) homepage is also a Backbone.js app.
-
 我々の仲間で[Knight Foundation News Challenge](http://www.newschallenge.org/)の勝者、[MapBox](http://mapbox.com/)は、Backbone.jsでオープンソースのマップスタジオである[TileMill](http://mapbox.github.com/tilemill/)を作成しました。TileMillはシェイプファイルとラスターで作成されたマップレイヤーを操作したり、[Carto styling language](https://github.com/mapbox/carto)でブラウザ内で直接外見を編集できます。ゴージャスな[MapBox](http://mapbox.com/)のホームページもBackbone.jsのアプリであることにも着目してください。
 
 ## Blossom
-
-[Blossom](http://blossom.io/) is a lightweight project management tool for lean teams. Backbone.js is heavily used in combination with [CoffeeScript](http://coffeescript.org/) to provide a smooth interaction experience. The RESTful backend is built with [Flask](http://flask.pocoo.org/) on Google App Engine.
 
 [Blossom](http://blossom.io/)は、スリムなチーム向けの軽量なプロジェクト管理ツールです。Backbone.jsは、[CoffeeScript](http://coffeescript.org/)とのコンビネーションでスムーズなインタラクション体験を提供するために多用されています。RESTfulのバックエンドは、Google App Engine上の[Flask](http://flask.pocoo.org/)で構築されています。
 
 ## Decide
 
-[Decide.com](http://decide.com/) helps people decide when to buy consumer electronics. It relies heavily on Backbone.js to render and update its Search Results Page. An "infinite scroll" feature takes advantage of a SearchResults model containing a collection of Product models to fetch more results and render them on the fly with [Mustache](http://mustache.github.com/). A SearchController keeps everything in sync and maintains page state in the URL. Backbone also powers the user accounts and settings management.
-
 [Decide.com](http://decide.com/)は家電購入の決定を助けます。検索結果のページの出力と更新ではBackbone.jsに大きく依存しています。「無限スクロール」機能は、より多くの結果を処理し、すぐさま[Mustache](http://mustache.github.com/)でレンダリングする製品モデルのコレクションを検索結果で表示されるモデルに取り込むことに好都合です。SearchControllerはすべての同期を維持し、URLにページの状態を保持します。Backboneはユーザーアカウントと設定の管理でも活用されています。
 
 ## Trello
-
-[Trello](http://trello.com/) is a collaboration tool that organizes your projects into boards. A Trello board holds many lists of cards, which can contain checklists, files and conversations, and may be voted on and organized with labels. Updates on the board happen in real time. The site was built ground up using Backbone.js for all the models, views, and routes.
 
 [Trello](http://trello.com/)は、ボードにあなたのプロジェクトを整理するコラボレーションツールです。Trelloのボードは、チェックリストやファイルそして会談を含んだ多数のカードリストを保持し、採決を取ったりラベルで整理することができます。ボード上の更新はリアルタイムで行われます。サイトは全てのModels、ViewsやRoutersについては全てBackbone.jsを利用して一から構築されました。
 
 ## Tzigla
 
-[Cristi Balan](http://twitter.com/evilchelu) and [Irina Dumitrascu](http://dira.ro/) created [Tzigla](http://tzigla.com/), a collaborative drawing application where artists make tiles that connect to each other to create [surreal drawings](http://tzigla.com/boards/1). Backbone models help organize the code, routers provide [bookmarkable deep links](http://tzigla.com/boards/1#!/tiles/2-2), and the views are rendered with [haml.js](https://github.com/creationix/haml-js) and [Zepto](http://zeptojs.com/). Tzigla is written in Ruby ([Rails](http://rubyonrails.org/)) on the backend, and [CoffeeScript](http://coffeescript.org/) on the frontend, with [Jammit](http://documentcloud.github.com/jammit/) prepackaging the static assets.
-
-[Cristi Balan](http://twitter.com/evilchelu)と[Irina Dumitrascu](http://dira.ro/)が生み出した[Tzigla](http://tzigla.com/)は、アーティストがお互いに[シュールな絵](http://tzigla.com/boards/1)作成しあうためにつないで並べるコラボレーションできるドローイングアプリケーションです。BackboneのModelsはコードを整理し、Routerは[深い階層のリンクをブックマーク可能](http://tzigla.com/boards/1#!/tiles/2-2)にし、Viewsは[haml.js](https://github.com/creationix/haml-js)と[Zepto](http://zeptojs.com/)でレンダリングされます。TziglaはバックエンドでRuby（[Rails](http://rubyonrails.org/)）、フロントエンドでは[Jammit](http://documentcloud.github.com/jammit/)でプリパッケージされた静的資産とともに[CoffeeScript](http://coffeescript.org/)で記述されています。
+[Cristi Balan](http://twitter.com/evilchelu)と[Irina Dumitrascu](http://dira.ro/)が生み出した[Tzigla](http://tzigla.com/)は、アーティストが相互に[シュールな絵](http://tzigla.com/boards/1)を作成し、それらをつないで並べるコラボレーションできるドローイングアプリケーションです。BackboneのModelsはコードを整理し、Routerは[深い階層のリンクをブックマーク可能](http://tzigla.com/boards/1#!/tiles/2-2)にし、Viewsは[haml.js](https://github.com/creationix/haml-js)と[Zepto](http://zeptojs.com/)でレンダリングされます。TziglaはバックエンドでRuby（[Rails](http://rubyonrails.org/)）、フロントエンドでは[Jammit](http://documentcloud.github.com/jammit/)でプリパッケージされた静的アセットとともに[CoffeeScript](http://coffeescript.org/)で記述されています。
