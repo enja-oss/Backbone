@@ -3,7 +3,7 @@
 ## Backbone.Sync [原文](http://backbonejs.org/#Sync)
 
 **Backbone.sync**は、サーバへmodelの保存や読込みを試みるたびにBackboneが呼び出す関数です。
-初期設定では、RESTful JSON リクエストを行うために（jQueryもしくはZeptoの） `.ajax` を使用します。そして、レスポンスは[jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR)が返ります。
+初期設定では、RESTful JSON リクエストを行うために `jQuery.ajax` を使用します。そして、レスポンスは[jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR)が返ります。
 WebSockets、 XML transport、 Local Storageなどの異なる永続化の方法を利用する場合はこの関数を置き換えることができます。
 
 **Backbone.sync** のメソッドシグネイチャは `sync(method, model, [options])` です。
