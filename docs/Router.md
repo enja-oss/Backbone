@@ -32,9 +32,13 @@ var Workspace = Backbone.Router.extend({
 
 ### routes router.routes 
 
-routesハッシュは[View](http://documentcloud.github.com/backbone/#View)の[eventsハッシュ](http://documentcloud.github.com/backbone/#View-delegateEvents)と似ており、ルーター上でURLとパラメーターを関数にマッピングします。ルートは、`:param`のようなスラッシュの間の単一のURL構成要素と一致するパラメーター部分や、`*splat`のような複数のURL構成要素に一致するsplat部分を含むことができます。
+routesハッシュは[View](http://documentcloud.github.com/backbone/#View)の[eventsハッシュ](http://documentcloud.github.com/backbone/#View-delegateEvents)と似ており、ルーター上でURLとパラメーターを関数にマッピングします(または、直接関数を定義することもできます)。ルートは、`:param`のようなスラッシュの間の単一のURL構成要素と一致するパラメーター部分や、`*splat`のような複数のURL構成要素に一致するsplat部分を含むことができます。ルートの一部は`(/:optional)`のように括弧で括ることでオプションにすることができます。
 
-例えば、`"search/:query/p:page"`のルートは`#search/obama/p2`のフラグメントにマッチし，`"obama"`と`"2"`をアクションに渡します。`"file/*path"`のルートは`#file/nested/folder/file.txt`にマッチし、`"nested/folder/file.txt"`をアクションに渡します。
+例えば、`"search/:query/p:page"`のルートは`#search/obama/p2`のフラグメントにマッチし，`"obama"`と`"2"`をアクションに渡します。
+
+`"file/*path"`のルートは`#file/nested/folder/file.txt`にマッチし、`"nested/folder/file.txt"`をアクションに渡します。
+
+`"docs/:section(/:subsection)"`のルートは`#docs/faq`や`#docs/faq/installing`にマッチします。最初のケースは`"faq"`をアクションに渡し、次のケースは`"faq"`と`"installing"`をアクションに渡します。
 
 訪問者が戻るボタンを押すか、URLを入力して特定のルートがマッチした場合、アクションの名前の[イベント](http://documentcloud.github.com/backbone/#Events)が発火するので、その他のオブジェクトはrouterにlistenして通知を受けることができます。次の例では、`#help/uploading`を訪れたときに`route:help`イベントがrouterから発火します。
 
