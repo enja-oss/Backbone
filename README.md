@@ -1,4 +1,4 @@
-#Backboneドキュメント日本語訳
+# Backboneドキュメント日本語訳
 
 部分的な翻訳済みドキュメントを集めていって、翻訳カバー率100%を目指します。
 
@@ -26,7 +26,7 @@ Pull Request・Issue・ご寄稿・ご指摘、いずれも歓迎しています
 
 **また翻訳に慣れている方は是非、[監訳者リストに記入してください](https://github.com/enja-oss/README/issues/5)。**
 
-##書式ガイド
+## 書式ガイド
 
 [書式ガイド@Wiki](https://github.com/enja-oss/README/wiki/markdown-in-japanese)を参照してください。
 
@@ -39,16 +39,16 @@ en.ja-ossプロジェクト内では上記の書式ガイドを設けていま�
 コンテンツの翻訳にご協力くださる方は、ぜひ[着手予定の宣言コーナー](https://github.com/enja-oss/Backbone/issues/1 "着手予定の宣言コーナー · Issue #1 · enja-oss/Backbone")でお知らせください。  
 その際に、着手予定のが他の人とかぶっていないこともご確認ください。
 
-##翻訳参加者
+## 翻訳参加者
 
 [翻訳参加者@Wiki](https://github.com/enja-oss/Backbone/wiki/%E7%BF%BB%E8%A8%B3%E5%8F%82%E5%8A%A0%E8%80%85)を参照してください。
 
-##参照先
+## 参照先
 
 翻訳当時の[Backbone.jsのGitHubページ](http://backbonejs.org/)を参考にしています。  
 その時点の本家[gh-pages](https://github.com/documentcloud/backbone/tree/gh-pages)ブランチから、コミットハッシュのtreeを辿って指定しています。
 
-##ライセンス・クレジット
+## ライセンス・クレジット
 
 本ドキュメントは、backbonejs.orgで公開されているものを翻訳したドキュメントです。原文は[Backbone.js](http://backbonejs.org/ "Backbone.js")にあります。
 

@@ -1,6 +1,6 @@
 +  元文書: [backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub](https://github.com/documentcloud/backbone/blob/9890d49db164e63b9b56e9d664ec0aab2289e0de/index.html "backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub")
 
-##イベントの一覧 [原文](http://backbonejs.org/#FAQ-events)
+## イベントの一覧 [原文](http://backbonejs.org/#FAQ-events)
 
 Backbone.jsで発火する組み込みイベントの一覧を示します。このほかにも、ModelやViewで独自のイベントを自由にトリガすることができます。
 
@@ -18,7 +18,7 @@ Backbone.jsで発火する組み込みイベントの一覧を示します。こ
 +  `all` — この特別なイベントは、トリガされたすべてのイベントで発火します。第一引数にはイベント名が渡されます。
 
 
-##なぜ他のフレームワークでなく、Backboneを使うのか？ [原文](http://backbonejs.org/#FAQ-why-backbone)
+## なぜ他のフレームワークでなく、Backboneを使うのか？ [原文](http://backbonejs.org/#FAQ-why-backbone)
 
 もしあなたが上に示した[examplesリスト](http://documentcloud.github.com/backbone/#examples)を見て、適合するシーンをまだ掴み切れていないのであれば、より具体的に述べることができます。Backbone.jsは細心の注意を払いながら、より良い実装のために確実で判断したほうがよいことに勝手な答えを出さず、野心的なインターフェースを備えたデータリッチなWebアプリケーションが必要とする共通基盤を提供することを目的としています。
 
@@ -41,7 +41,7 @@ Backbone.jsで発火する組み込みイベントの一覧を示します。こ
 +  Backboneを利用してコードを構造化することが、パフォーマンス低下を直接的に引き起こすことはありません。そしてもしあなたが、遠大な最適化を望むのであれば、簡素なモデルとテンプレートを柔軟な粒度で扱うことで、容易に最後の一滴までパフォーマンスを引き出すことができます。ほら、IE8向けとか。
 
 
-##複数の手段があります [原文](http://backbonejs.org/#FAQ-tim-toady)
+## 複数の手段があります [原文](http://backbonejs.org/#FAQ-tim-toady)
 
 一般的にこれから始める人々にとって、このページに記載されている例は、ある種、唯一の真実のように映ります。実際には、Backbone.jsはクライアントサイドコードにおける多くの共通パターンに、大部分で依存していません。例えば...
 
@@ -62,7 +62,7 @@ Backbone.jsで発火する組み込みイベントの一覧を示します。こ
 
 **UIの描画**はあなたが望むように行われます。Backboneは`render`関数の中で、[Underscore templates](http://documentcloud.github.com/underscore/#template)や[Mustache.js](https://github.com/janl/mustache.js)、直接的なDOM操作、サーバーサイドで作ったHTMLスニペット、jQuery UIなどのいずれが使用されることを問いません。時にはModelごとのViewを作成するでしょうし、時にはタイトなループの中で多数のModelを一度に描画するViewを作成することもあるでしょう。同じアプリの中であっても、関係するデータの量や、UIの複雑さに応じてどちらの方法でも適切になりえます。
 
-##ネストしたModelとCollection [原文](http://backbonejs.org/#FAQ-nested)
+## ネストしたModelとCollection [原文](http://backbonejs.org/#FAQ-nested)
 
 たとえば、多くの`Message` modelをもつ`Mailbox` modelを考えてみましょう。これを処理するための良い方法のひとつは、Mailboxに`this.messages` collectionを持たせMailboxがはじめに開かれたときに、遅延ロードされるようにします。おそらく`MessageList` viewは、`add`と`remove`イベントをリスニングするようになるでしょう。
 
@@ -97,7 +97,7 @@ BackboneはネストしたModelやCollectionまたは"has many"なアソシエ�
 +  遅延ロードでサーバーとModelをつないだり、JSON文書を遅延評価してネストしたModelを作成する
 
 
-##初期モデルの読み込み [原文](http://backbonejs.org/#FAQ-bootstrap)
+## 初期モデルの読み込み [原文](http://backbonejs.org/#FAQ-bootstrap)
 
 あなたのアプリが最初に読み込まれたとき、そのページをレンダリングするのに必要になるであろう初期データをセットしておくのが一般的です。そこでAjaxリクエストを余分に行って[fetch](http://backbonejs.org/#Collection-fetch)するよりも、代わりになる良いパターンは、ページにそれらのデータを埋め込んでおくことです。そして、[reset](http://backbonejs.org/#Collection-reset)することで、Collectionの初期データを入れることができます。DocumentCloudでは、ワークスペースには[ERB](http://en.wikipedia.org/wiki/ERuby)テンプレートを使っていて、このように何かしらを行います。
 
@@ -112,7 +112,7 @@ BackboneはネストしたModelやCollectionまたは"has many"なアソシエ�
 
 あなたは、JavaScriptインジェクション攻撃を防ぐために、JSON文字列内で`</`を[escape](http://mathiasbynens.be/notes/etago)する必要があります。
 
-##Backboneの拡張 [原文](http://backbonejs.org/#FAQ-extending)
+## Backboneの拡張 [原文](http://backbonejs.org/#FAQ-extending)
 
 多くのJavaScriptライブラリは、自身を独立性の高い状態に封じこめた上で、ユーザーがそれらの公開されたAPIを呼び合うことで相互に作用することを意図していますが、Backboneはそのような種類のライブラリではありません。
 
@@ -122,7 +122,7 @@ BackboneはネストしたModelやCollectionまたは"has many"なアソシエ�
 
 `Backbone.Model.prototype`にメソッドを追加したり、ベースとなる独自のサブクラスを作成しても心配することはありません。それこそが想定された方法なのです。
 
-##Backboneはどのように伝統的なMVCと関係しているか [原文](http://backbonejs.org/#FAQ-mvc)
+## Backboneはどのように伝統的なMVCと関係しているか [原文](http://backbonejs.org/#FAQ-mvc)
 
 異なる[Model-View-Controller]([Model–view–controller - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Model%E2%80%93View%E2%80%93Controller "Model–view–controller - Wikipedia, the free encyclopedia")パターンの実装において、コントローラーの定義について異議を唱える傾向にあります。何かの役に立つのであれば、Backboneは[View](http://backbonejs.org/#View)クラスをControllerのようなものとして考えることができ、UIから発生するイベントをディスパッチしながら、従来のViewのようにHTMLテンプレートも使用します。我々がそれをViewと呼ぶのは、それがUIロジックの単位を示し、単一のDOM要素の内容に責任を持っているからです。
 
@@ -134,7 +134,7 @@ Backboneの全体的な構造を、RailsのようなサーバーサイドMVCフ�
 +  Backbone.View – ロジカルで再利用可能なUIのパーツ。常にではないが、多くの場合でModelと関連づいている。
 +  Client-side Templates – Railsの`.html.erb`にあたり、部分部分のHTMLをレンダリングする。
 
-##thisを束縛する [原文](http://backbonejs.org/#FAQ-this)
+## thisを束縛する [原文](http://backbonejs.org/#FAQ-this)
 恐らく、最も一般的なJavaScriptの落とし穴は、コールバックとしてfunctionを渡したときに`this`が失われることでしょう。Backboneで[events](http://backbonejs.org/#Events)とコールバックを扱うときにはしばしば、Underscore.jsの[_.bind](http://documentcloud.github.com/underscore/#bind)と[_.bindAll](http://documentcloud.github.com/underscore/#bindAll)の有用さを見いだすでしょう。
 Backboneのevetnsにコールバックをバインドするとき、オプションの第三引数に`this`を指定することで、あとでコールバックが呼び出されたときにそれを使うようにできます。
 
@@ -154,7 +154,7 @@ var MessageList = Backbone.View.extend({
 Inbox.messages.add(newMessage);
 ```
 
-##Railsと一緒に使う [原文](http://backbonejs.org/#FAQ-rails)
+## Railsと一緒に使う [原文](http://backbonejs.org/#FAQ-rails)
 
 Backbone.jsは元々[Railsアプリケーション](http://www.documentcloud.org/home)から抽出されていて、サーバーサイド（Rails）のModelへの副作用なしにクライアントサイド（Backbone）のModelが同期できるようになっていますが、それでも注意すべき点がいくつか残っています。
 

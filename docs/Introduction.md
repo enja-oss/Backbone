@@ -1,6 +1,6 @@
 +  元文書: [backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub](https://github.com/documentcloud/backbone/blob/9890d49db164e63b9b56e9d664ec0aab2289e0de/index.html "backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub")
 
-##イントロダクション
+## イントロダクション
 
 大量のJavaScriptを含むWebアプリケーションの開発において、まず最初に学ぶ事はデータをDOMに紐付けるのをやめることです。HTMLのUI、JavaScriptのロジック、そしてサーバ上のデータベース、これらの間でデータの同期を取ろうとして、jQueryのセレクタとコールバックが複雑に積み重なったJavaScriptアプリを書いてしまう、というのは非常にやってしまいがちなことですが、リッチなクライアントサイド・アプリケーションにおいては、より構造的なアプローチの方がうまくいく場合が多いのです。
 
