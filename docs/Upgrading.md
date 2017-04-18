@@ -1,6 +1,6 @@
 + 元文書: [backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub](https://github.com/documentcloud/backbone/blob/9890d49db164e63b9b56e9d664ec0aab2289e0de/index.html "backbone/index.html at 9890d49db164e63b9b56e9d664ec0aab2289e0de · documentcloud/backbone · GitHub")
 
-##ver 0.9へのアップグレードに際して [原文](http://backbonejs.org/#upgrading)
+## ver 0.9へのアップグレードに際して [原文](http://backbonejs.org/#upgrading)
 
 Backbone.js ver0.9系は、ver1.0のリリース候補版として位置付けています。いくつかのAPIが変更され、多くの活用すべき新機能があります、それらの変更については[更新履歴](#changelog)に記載されていますが、特に以下のいくつかの変更点については注意が必要です:
 
